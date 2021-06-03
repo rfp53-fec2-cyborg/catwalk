@@ -2,4 +2,4 @@
 Project Catwalk
 
 ## Practice
-Hello, this is Godfrey and Jacob
+Hello, this is Godfrey, Jacob, and Eric
