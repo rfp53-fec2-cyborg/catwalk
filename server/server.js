@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 const express = require('express');
 const path = require('path');
-const router = require('./routes.js');
 
 const app = express();
 const port = 3000;
