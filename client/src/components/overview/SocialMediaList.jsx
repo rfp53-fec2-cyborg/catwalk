@@ -22,8 +22,12 @@ const SocialMedia = (props) => {
 
   return (
     <div>
-      {sites.map(site => {
-        return <SocialMediaButton url={site.url} icon={site.icon} />;
+      {sites.map((site, index) => {
+        return <SocialMediaButton
+          url={site.url}
+          icon={site.icon}
+          key={index}
+        />;
       })}
     </div>
   );
