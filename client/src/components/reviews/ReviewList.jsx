@@ -17,13 +17,8 @@ const ReviewList = (props) => {
     return null;
   };
 
-  const showNoReviewList = () => {
-    if (totalReviewLength === 0) { return null; }
-  };
-
   return (
     <>
-      {showNoReviewList()}
       {reviews.results.slice(0, length).map((review, index) =>
         <ReviewListEntry
           review={review}
