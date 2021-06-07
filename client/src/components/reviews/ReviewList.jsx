@@ -1,22 +1,38 @@
 import React, { useEffect, useState } from 'react';
+import { reviews } from '../../../mock-data/reviews.js';
+import ReviewListEntry from './ReviewListEntry.jsx';
 
 const ReviewList = (props) => {
 
-  const style = {
-    padding: '5px',
-    margin: '5px',
+  const defaultView = 2;
+  const totalReviewLength = reviews.results.length;
+  const [length, setLength] = useState(defaultView);
+
+  const showMoreReviews = () => {
+    if (totalReviewLength > 2) {
+      if (length <= totalReviewLength) {
+        return <button onClick={() => setLength(length + 2)}>More Reviews</button>;
+      }
+    }
+    return null;
   };
+
+  const showNoReviewList = () => {
+    if (totalReviewLength === 0) { return null; }
+  };
+
   return (
-    <div key={props.index} style={style} >
-      <div> {props.review.reviewer_name}, {props.review.date}</div>
-      <div> {props.review.rating} stars</div>
-      <div> {props.review.summary}</div>
-      <div> {props.review.body}</div>
-      {/* Will need to create new component to display array of photos */}
-      <div> {props.review.response}</div>
-      <div> {props.review.recommend}</div>
-      <div> {props.review.helpfulness}</div>
-    </div>
+    <>
+      {showNoReviewList()}
+      {reviews.results.slice(0, length).map((review, index) =>
+        <ReviewListEntry
+          review={review}
+          key={review.review_id}
+          index={index}
+        />
+      )}
+      {showMoreReviews()}
+    </>
   );
 };
 
