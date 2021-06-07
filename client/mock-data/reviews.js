@@ -25,7 +25,7 @@ module.exports.reviews = {
       'rating': 4,
       'summary': 'summary text here',
       'recommend': true,
-      'response': null,
+      'response': 'Hello useruser! Thank you for your review; however, please add appropriate images next time. This response is just a text. Regards, Seller of this item',
       'body': 'A long review would go here, but there\'s no time',
       'date': '2021-06-05T00:00:00.000Z',
       'reviewer_name': 'useruser',
