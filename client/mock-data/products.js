@@ -1,4 +1,4 @@
-[
+module.exports.products = [
   {
     'id': 17067,
     'campus': 'hr-rfp',
