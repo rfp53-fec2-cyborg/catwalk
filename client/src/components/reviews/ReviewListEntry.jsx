@@ -24,19 +24,15 @@ const ReviewListEntry = (props) => {
       return (
         <>
           <p> {`${props.review.body.substring(0, bodyMaxLength)}...`} </p>
-          <u onClick={() => {
-            setExtendedView(true);
-            showDescription();
-          }}>Show More</u>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <p> {props.review.body} </p>
+          <u onClick={() => { setExtendedView(true); showDescription(); }}>Show More</u>
         </>
       );
     }
+    return (
+      <>
+        <p> {props.review.body} </p>
+      </>
+    );
   };
 
   return (
