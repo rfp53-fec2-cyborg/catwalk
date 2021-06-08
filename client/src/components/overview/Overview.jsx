@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MakeRating from '../../helpers/MakeRating.js';
-import StarRating from '../shared/StarRating.jsx';
+import Rating from './Rating.jsx';
 import Description from './Description.jsx';
 import SocialMediaList from './SocialMediaList.jsx';
 import { product } from '../../../mock-data/product.js';
@@ -22,7 +22,7 @@ const Overview = (props) => {
 
   return (
     <div>
-      <StarRating rating={rating} />
+      <Rating rating={rating} />
       <p>{category}</p>
       <h1>{name}</h1>
       <p>{formatPrice(price)}</p>
