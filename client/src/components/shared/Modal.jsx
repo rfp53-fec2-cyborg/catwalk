@@ -29,15 +29,22 @@ var imgStyle = {
 };
 
 const Modal = (props) => {
-  if (props.name === 'photo') {
-    return <ModalPhoto url={props.url} modalStyle={modalStyle} imgStyle={imgStyle}/>;
+  const [showModal, setShowModal] = useState(true);
+
+  if (showModal) {
+    return (
+      <section style={modalStyle} >
+        {props.name === 'photo' ? <ModalPhoto url={props.url} imgStyle={imgStyle}/> : null}
+        {/* {props.name === 'review' ? <ModalReview /> : null}
+        {props.name === 'question' ? <ModalQuestion /> : null}
+        {props.name === 'answer' ? <ModalAnswer /> : null}
+        {props.name === 'comparison' ? <ModalComparison /> : null} */}
+        <div>
+          <button onClick={() => setShowModal(current => !current)}> Close </button>
+        </div>
+      </section>
+    );
   }
-  // if (props.name === 'review') {
-  // }
-  // if (props.name === 'question') {
-  // }
-  // if (props.name === 'answer') {
-  // }
   return null;
 };
 

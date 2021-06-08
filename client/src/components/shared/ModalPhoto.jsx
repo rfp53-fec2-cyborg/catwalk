@@ -9,19 +9,11 @@ import React, { useState } from 'react';
 import { checkValidPhoto } from '../../helpers/imageFunctions.js';
 
 const ModalPhoto = (props) => {
-  const [showModal, setShowModal] = useState(true);
-
-  if (showModal) {
-    return (
-      <section style={props.modalStyle} >
-        <img style={props.imgStyle} src={checkValidPhoto(props.url)}/>
-        <div>
-          <button onClick={() => setShowModal(current => !current)}> Close </button>
-        </div>
-      </section>
-    );
-  }
-  return null;
+  return (
+    <>
+      <img style={props.imgStyle} src={checkValidPhoto(props.url)}/>
+    </>
+  );
 };
 
 export default ModalPhoto;
