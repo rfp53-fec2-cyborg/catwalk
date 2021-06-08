@@ -1,12 +1,29 @@
 /*
-  Modal component to share between
-  1. photos
-  2. review form
-  3. question / answer form
+
+  HOW TO USE SHARED MODAL COMPONENT
+
+  Modal.jsx is a skeleton for modal functionality. Pass the content as a property to render. Content property will be a jsx variable containing your modal-specific requirements and elements.
+
+  1. In your specific component, create a component-specific modal (i.e. reviews/ModalPhoto.jsx).
+  2. Make sure you also import and trigger that component-specific modal with appropriate event listener.
+  3. Create a content variable that holds your desired content in jsx.
+
+  e.g.
+  const content = (
+    <>
+      <img style={imgStyle} src={checkValidPhoto(props.url)}/>
+    </>
+  );
+
+  4. Import this Modal.jsx component and render it with the above content variable as a property. Closing the modal logic will be handled in this Modal.jsx component.
+
+  e.g.
+  return (
+    <Modal content={content}/>
+  );
 */
 
 import React, { useState } from 'react';
-import ModalPhoto from './ModalPhoto.jsx';
 
 // temporary styling for modal
 var modalStyle = {
@@ -20,13 +37,6 @@ var modalStyle = {
   border: '2px solid',
 };
 
-// temporary styling for image
-var imgStyle = {
-  width: '35em',
-  height: 'auto',
-  position: 'relative',
-  margin: '0 auto',
-};
 
 const Modal = (props) => {
   const [showModal, setShowModal] = useState(true);
@@ -34,11 +44,7 @@ const Modal = (props) => {
   if (showModal) {
     return (
       <section style={modalStyle} >
-        {props.name === 'photo' ? <ModalPhoto url={props.url} imgStyle={imgStyle}/> : null}
-        {/* {props.name === 'review' ? <ModalReview /> : null}
-        {props.name === 'question' ? <ModalQuestion /> : null}
-        {props.name === 'answer' ? <ModalAnswer /> : null}
-        {props.name === 'comparison' ? <ModalComparison /> : null} */}
+        {props.content}
         <div>
           <button onClick={() => setShowModal(current => !current)}> Close </button>
         </div>

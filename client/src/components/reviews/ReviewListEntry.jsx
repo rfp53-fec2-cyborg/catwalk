@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { stringToDate } from '../../helpers/dateFunctions.js';
 import { checkValidPhoto } from '../../helpers/imageFunctions.js';
 import MarkAsHelpful from '../shared/MarkAsHelpful.jsx';
-import Modal from '../shared/Modal.jsx';
+import ModalPhoto from './ModalPhoto.jsx';
 import checkmark from '../../assets/checkmark.svg';
 
 // temporary styling for spacing
@@ -66,7 +66,7 @@ const ReviewListEntry = (props) => {
         })}
         {/* Show modal logic with uses a shared component */}
         {showModal
-          ? <Modal
+          ? <ModalPhoto
             url={event.target.id}
             name={event.target.name}
             photos={props.review.photos}
