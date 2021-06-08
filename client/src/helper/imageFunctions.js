@@ -6,6 +6,7 @@ const checkValidPhoto = (stringUrl) => {
   if (validImgTypes.indexOf(fileType) > -1) {
     return stringUrl;
   } else {
+    // return "image not found" instead of a broken image file on the front-end
     return 'https://i.imgur.com/R7mqXKL.png';
   }
 };
