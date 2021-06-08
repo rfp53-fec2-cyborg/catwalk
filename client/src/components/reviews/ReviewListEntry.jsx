@@ -75,7 +75,7 @@ const ReviewListEntry = (props) => {
       </div>
 
       {/* Product recommendation from review */}
-      {props.review.recommend ? <div> <img src={checkmark}/> 'I recommend this product' </div> : null}
+      {props.review.recommend ? <div> <img src={checkmark}/> I recommend this product </div> : null}
 
       {/* Show response if there is a response */}
       {props.review.response

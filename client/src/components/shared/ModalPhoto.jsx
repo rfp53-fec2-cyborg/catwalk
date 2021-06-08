@@ -8,33 +8,13 @@
 import React, { useState } from 'react';
 import { checkValidPhoto } from '../../helpers/imageFunctions.js';
 
-// temporary styling for modal
-var modalStyle = {
-  position: 'fixed',
-  background: 'white',
-  height: 'auto',
-  width: 'auto',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%,-50%)',
-  border: '2px solid',
-};
-
-// temporary styling for image
-var imgStyle = {
-  width: '35em',
-  height: 'auto',
-  position: 'relative',
-  margin: '0 auto',
-};
-
-const ModalPhoto = ({props}) => {
+const ModalPhoto = (props) => {
   const [showModal, setShowModal] = useState(true);
 
   if (showModal) {
     return (
-      <section style={modalStyle} >
-        <img style={imgStyle} src={checkValidPhoto(props)}/>
+      <section style={props.modalStyle} >
+        <img style={props.imgStyle} src={checkValidPhoto(props.url)}/>
         <div>
           <button onClick={() => setShowModal(current => !current)}> Close </button>
         </div>
