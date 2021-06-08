@@ -6,6 +6,7 @@
 */
 
 import React, { useState } from 'react';
+import { checkValidPhoto } from '../../helpers/imageFunctions.js';
 
 // temporary styling for modal
 var modalStyle = {
@@ -34,7 +35,7 @@ const Modal = (props) => {
   if (props.name === 'photo' && showModal) {
     return (
       <section style={modalStyle} >
-        <img style={imgStyle} src={props.url}/>
+        <img style={imgStyle} src={checkValidPhoto(props.url)}/>
         <div>
           <button onClick={() => setShowModal(current => !current)}> Close </button>
         </div>
