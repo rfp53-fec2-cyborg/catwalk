@@ -5,6 +5,10 @@ import MarkAsHelpful from '../shared/MarkAsHelpful.jsx';
 import Modal from '../shared/Modal.jsx';
 import checkmark from '../../assets/checkmark.svg';
 
+var style = {
+  padding: '5px',
+  margin: '5px',
+};
 
 const ReviewListEntry = (props) => {
 
@@ -12,11 +16,6 @@ const ReviewListEntry = (props) => {
   const bodyMaxLength = 250;
   const [extendedView, setExtendedView] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
-  const style = {
-    padding: '5px',
-    margin: '5px',
-  };
 
   const reportReview = () => {
     console.log('Will be used with API when ready');
@@ -59,7 +58,7 @@ const ReviewListEntry = (props) => {
             width="125"
             height="125"
             key={photo.id}
-            id={photo.id}
+            id={photo.url}
             src={checkValidPhoto(photo.url)}
             onClick={(event) => setShowModal(current => !current)}
           />;
@@ -67,10 +66,9 @@ const ReviewListEntry = (props) => {
         {/* Show modal logic with uses a shared component */}
         {showModal
           ? <Modal
-            id={Number(event.target.id)}
+            url={event.target.id}
             name={event.target.name}
             photos={props.review.photos}
-            setShowModal={setShowModal}
           />
           : null}
       </div>
