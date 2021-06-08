@@ -38,6 +38,7 @@ const ReviewListEntry = (props) => {
 
   return (
     <article style={style} >
+      {/* Show reviewer name, review date, and the rating */}
       <div> {props.review.reviewer_name}, {stringToDate(props.review.date)} </div>
       <div> {props.review.rating} stars</div>
 
@@ -63,6 +64,7 @@ const ReviewListEntry = (props) => {
             onClick={(event) => setShowModal(current => !current)}
           />;
         })}
+        {/* Show modal logic with uses a shared component */}
         {showModal
           ? <Modal
             id={Number(event.target.id)}
@@ -81,9 +83,12 @@ const ReviewListEntry = (props) => {
         ? <div> Response from seller: <p> {props.review.response} </p> </div>
         : null}
 
+      {/* Uses shared component to mark something helpful or not */}
       <MarkAsHelpful
         helpfulness={props.review.helpfulness}
       />
+
+      {/* Uses shared component to report / may need to break up into shared component for other widgets*/}
       <div> <u onClick={reportReview} >Report</u> </div>
     </article>
   );
