@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MakeRating from '../../MakeRating.js';
+import MakeRating from '../../helpers/MakeRating.js';
 import StarRating from '../shared/StarRating.jsx';
 import Description from './Description.jsx';
 import SocialMediaList from './SocialMediaList.jsx';
