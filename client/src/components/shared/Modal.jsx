@@ -20,6 +20,7 @@ var modalStyle = {
   border: '2px solid',
 };
 
+// temporary styling for image
 var imgStyle = {
   width: '35em',
   height: 'auto',
@@ -28,8 +29,6 @@ var imgStyle = {
 };
 
 const Modal = (props) => {
-  console.log(props);
-
   const [showModal, setShowModal] = useState(true);
 
   if (props.name === 'photo' && showModal) {

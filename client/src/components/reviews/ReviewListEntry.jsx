@@ -5,6 +5,7 @@ import MarkAsHelpful from '../shared/MarkAsHelpful.jsx';
 import Modal from '../shared/Modal.jsx';
 import checkmark from '../../assets/checkmark.svg';
 
+// temporary styling for spacing
 var style = {
   padding: '5px',
   margin: '5px',
