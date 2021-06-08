@@ -31,8 +31,6 @@ var imgStyle = {
 const ModalPhoto = ({props}) => {
   const [showModal, setShowModal] = useState(true);
 
-  console.log(props);
-
   if (showModal) {
     return (
       <section style={modalStyle} >
@@ -43,11 +41,6 @@ const ModalPhoto = ({props}) => {
       </section>
     );
   }
-  // if (props.name === 'review') {
-  //   return (
-  //     <div> Write a review </div>
-  //   );
-  // }
   return null;
 };
 

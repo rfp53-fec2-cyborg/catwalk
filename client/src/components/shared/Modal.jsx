@@ -9,7 +9,6 @@ import React, { useState } from 'react';
 import ModalPhoto from './ModalPhoto.jsx';
 
 const Modal = (props) => {
-
   if (props.name === 'photo') {
     return <ModalPhoto props={props.url}/>;
   }
