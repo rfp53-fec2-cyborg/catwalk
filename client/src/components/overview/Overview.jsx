@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MakeRating from '../../MakeRating.js';
 import StarRating from '../shared/StarRating.jsx';
 import Description from './Description.jsx';
 import SocialMediaList from './SocialMediaList.jsx';
@@ -9,6 +10,7 @@ const Overview = (props) => {
   const [category, setCategory] = useState(product.category);
   const [name, setName] = useState(product.name);
   const [price, setPrice] = useState(product.default_price);
+  const [rating, setRating] = useState(MakeRating(reviewsMeta.ratings));
 
   const formatPrice = price => {
     price = '$' + price;
@@ -20,7 +22,7 @@ const Overview = (props) => {
 
   return (
     <div>
-      <StarRating ratings={reviewsMeta.ratings} />
+      <StarRating rating={rating} />
       <p>{category}</p>
       <h1>{name}</h1>
       <p>{formatPrice(price)}</p>
