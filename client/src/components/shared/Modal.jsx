@@ -6,45 +6,18 @@
 */
 
 import React, { useState } from 'react';
-import { checkValidPhoto } from '../../helpers/imageFunctions.js';
-
-// temporary styling for modal
-var modalStyle = {
-  position: 'fixed',
-  background: 'white',
-  height: 'auto',
-  width: 'auto',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%,-50%)',
-  border: '2px solid',
-};
-
-// temporary styling for image
-var imgStyle = {
-  width: '35em',
-  height: 'auto',
-  position: 'relative',
-  margin: '0 auto',
-};
+import ModalPhoto from './ModalPhoto.jsx';
 
 const Modal = (props) => {
-  const [showModal, setShowModal] = useState(true);
 
-  if (props.name === 'photo' && showModal) {
-    return (
-      <section style={modalStyle} >
-        <img style={imgStyle} src={checkValidPhoto(props.url)}/>
-        <div>
-          <button onClick={() => setShowModal(current => !current)}> Close </button>
-        </div>
-      </section>
-    );
+  if (props.name === 'photo') {
+    return <ModalPhoto props={props.url}/>;
   }
   // if (props.name === 'review') {
-  //   return (
-  //     <div> Write a review </div>
-  //   );
+  // }
+  // if (props.name === 'question') {
+  // }
+  // if (props.name === 'answer') {
   // }
   return null;
 };

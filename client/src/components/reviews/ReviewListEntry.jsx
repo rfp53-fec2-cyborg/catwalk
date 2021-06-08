@@ -61,7 +61,7 @@ const ReviewListEntry = (props) => {
             key={photo.id}
             id={photo.url}
             src={checkValidPhoto(photo.url)}
-            onClick={(event) => setShowModal(current => !current)}
+            onClick={() => setShowModal(current => !current)}
           />;
         })}
         {/* Show modal logic with uses a shared component */}
