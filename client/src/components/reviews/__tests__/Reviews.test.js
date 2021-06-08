@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom';
 import Reviews from '../Reviews.jsx';
 import ReviewList from '../ReviewList.jsx';
 import ReviewListEntry from '../ReviewListEntry.jsx';
+import ModalPhoto from '../ModalPhoto.jsx';
+import Modal from '../../shared/Modal.jsx';
 import { render } from '@testing-library/react';
 
 it ('Reviews component renders without crashing', () => {
@@ -40,4 +42,10 @@ it ('ReviewListEntry component renders without crashing', () => {
     ]
   };
   ReactDOM.render(<ReviewListEntry review={review} />, div);
+});
+
+it ('ModalPhoto component renders without crashing', () => {
+  const div = document.createElement('div');
+  const testUrl = {url: ''};
+  ReactDOM.render(<ModalPhoto url={testUrl.url}/>, div);
 });
