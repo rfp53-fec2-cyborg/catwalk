@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { stringToDate } from '../../helper/dateFunctions.js';
-import { checkValidPhoto } from '../../helper/imageFunctions.js';
+import { stringToDate } from '../../helpers/dateFunctions.js';
+import { checkValidPhoto } from '../../helpers/imageFunctions.js';
+import MarkAsHelpful from '../shared/MarkAsHelpful.jsx';
 
 
 const ReviewListEntry = (props) => {
 
   const summaryMaxLength = 60;
   const bodyMaxLength = 250;
-  const [helpTally, setHelpTally] = useState(props.review.helpfulness);
   const [extendedView, setExtendedView] = useState(false);
 
   const style = {
@@ -16,7 +16,7 @@ const ReviewListEntry = (props) => {
   };
 
   const reportReview = () => {
-    console.log('Click listener works');
+    console.log('Will be used with API when ready');
   };
 
   const showDescription = () => {
@@ -64,8 +64,9 @@ const ReviewListEntry = (props) => {
         :
         null}
 
-      {/* To move into a shared component as this is used in multiple widgets */}
-      <div> Was this review helpful? <u onClick={() => setHelpTally(helpTally + 1)} >Yes</u> <u value="No" onClick={() => setHelpTally(helpTally - 1)} >No</u> ({helpTally}) </div>
+      <MarkAsHelpful
+        helpfulness={props.review.helpfulness}
+      />
       <div> <u onClick={reportReview} >Report</u> </div>
     </article>
   );
