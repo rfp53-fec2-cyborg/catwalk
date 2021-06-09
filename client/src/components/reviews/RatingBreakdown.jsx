@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import RatingBar from './RatingBar.jsx';
 
 var prepareData = (data) => {
   let result = [];
@@ -11,17 +12,28 @@ var prepareData = (data) => {
   return result.reverse();
 };
 
+var findMax = (data) => {
+  var max = 0;
+  for (var key in data) {
+    max = Math.max(max, data[key]);
+  }
+  return max;
+};
+
 const RatingBreakdown = ({data}) => {
 
   const [starData, setStarData] = useState(prepareData(data));
-  console.log(starData);
+  const [max, setMax] = useState(findMax(data));
+
   return (
     <div>
       {starData.map((value, index) => {
         let key = starData.length;
         return (
-          <div key={key - index} >
-            <u>{`${[key - index]} stars`}</u> {value[key - index]}
+          <div key={key - index}>
+            <div >
+              <u>{`${[key - index]} stars`}</u> <RatingBar rating={value[key - index]} max={max}/>
+            </div>
           </div>
         );
       })}
