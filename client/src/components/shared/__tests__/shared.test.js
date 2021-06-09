@@ -21,5 +21,5 @@ it ('Modal components renders without crashing', () => {
 
 it ('StarRating component renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<StarRating rating={{rating: 5}}/>, div);
+  ReactDOM.render(<StarRating score={'4.75'}/>, div);
 });

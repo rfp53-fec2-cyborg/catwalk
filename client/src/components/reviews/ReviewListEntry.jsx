@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { stringToDate } from '../../helpers/dateFunctions.js';
 import { checkValidPhoto } from '../../helpers/imageFunctions.js';
 import MarkAsHelpful from '../shared/MarkAsHelpful.jsx';
