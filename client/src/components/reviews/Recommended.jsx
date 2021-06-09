@@ -8,16 +8,11 @@ const Recommended = (props) => {
   if (Number(recommended.true) > 0) {
     return (
       <>
-        {Math.ceil(Number(recommended.true) / max * 100)}% of users who bought this product recommends it.
-      </>
-    );
-  } else {
-    return (
-      <>
-        There are no recommendations for this product.
+        {Math.ceil(Number(recommended.true) / max * 100)}% of reviews recommend this product.
       </>
     );
   }
+  return null;
 };
 
 export default Recommended;
