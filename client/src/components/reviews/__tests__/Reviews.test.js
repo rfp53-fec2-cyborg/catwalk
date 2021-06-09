@@ -11,7 +11,9 @@ import Rating from '../Rating.jsx';
 import RatingBreakdown from '../RatingBreakdown.jsx';
 import RatingBar from '../RatingBar.jsx';
 import RatingFilterDesc from '../RatingFilterDesc.jsx';
+import Recommended from '../Recommended.jsx';
 
+import { reviewsMeta } from '../../../../mock-data/reviewsMeta.js';
 import ModalPhoto from '../ModalPhoto.jsx';
 import Modal from '../../shared/Modal.jsx';
 import { render } from '@testing-library/react';
@@ -65,19 +67,12 @@ it ('Rating component renders without crashing', () => {
 it ('RatingBar component renders without crashing', () => {
   const div = document.createElement('div');
 
-  ReactDOM.render(<RatingBreakdown data={1, 1}/>, div);
+  ReactDOM.render(<RatingBar data={{1: 1}}/>, div);
 });
 
 it ('RatingBreakdown component renders without crashing', () => {
   const div = document.createElement('div');
-  const data = {
-    1: '1',
-    2: '2',
-    3: '1',
-    4: '9',
-    5: '1'
-  };
-  ReactDOM.render(<RatingBar data={data}/>, div);
+  ReactDOM.render(<RatingBreakdown data={reviewsMeta}/>, div);
 });
 
 
@@ -87,3 +82,15 @@ it ('RatingFilterDesc component renders without crashing', () => {
   ReactDOM.render(<RatingFilterDesc data={data}/>, div);
 });
 
+
+
+it ('Recommended component renders without crashing', () => {
+  const div = document.createElement('div');
+  const recommended = {
+    'recommended': {
+      'false': '9',
+      'true': '25'
+    }
+  };
+  ReactDOM.render(<Recommended data={recommended}/>, div);
+});

@@ -24,7 +24,7 @@ const Rating = () => {
       </div>
       <div>
         <h5> Rating Breakdown </h5>
-        <RatingBreakdown data={reviewsMeta.ratings}/>
+        <RatingBreakdown data={reviewsMeta}/>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RatingBar from './RatingBar.jsx';
 import ReviewList from './ReviewList.jsx';
 import RatingFilterDesc from './RatingFilterDesc.jsx';
+import Recommended from './Recommended.jsx';
 
 var prepareData = (data) => {
   let result = [];
@@ -22,10 +23,10 @@ var findMax = (data) => {
   return max;
 };
 
-const RatingBreakdown = ({data}) => {
+const RatingBreakdown = (props) => {
 
-  const [starData, setStarData] = useState(prepareData(data));
-  const [max, setMax] = useState(findMax(data));
+  const [starData, setStarData] = useState(prepareData(props.data.ratings));
+  const [max, setMax] = useState(findMax(props.data.ratings));
   const [rating, setRating] = useState([]);
 
   const handleRatingSelected = (e) => {
@@ -57,6 +58,7 @@ const RatingBreakdown = ({data}) => {
             </div>
           );
         })}
+        <Recommended data={props.data}/>
         <ReviewList ratingFilterCriteria={rating}/>
       </div>
     </>
