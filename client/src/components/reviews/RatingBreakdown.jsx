@@ -29,7 +29,6 @@ export const RatingBreakdown = ({data}) => {
 
   const handleRatingSelected = (e) => {
     const ratingValue = Number(e.target.getAttribute('value'));
-    console.log(ratingValue);
     const index = rating.indexOf(ratingValue);
     if (index > -1) {
       setRating(item => rating.splice(0, index));

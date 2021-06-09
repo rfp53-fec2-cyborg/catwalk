@@ -7,6 +7,10 @@ import ReactDOM from 'react-dom';
 import Reviews from '../Reviews.jsx';
 import ReviewList from '../ReviewList.jsx';
 import ReviewListEntry from '../ReviewListEntry.jsx';
+import Rating from '../Rating.jsx';
+import RatingBreakdown from '../RatingBreakdown.jsx';
+import RatingBar from '../RatingBar.jsx';
+
 import ModalPhoto from '../ModalPhoto.jsx';
 import Modal from '../../shared/Modal.jsx';
 import { render } from '@testing-library/react';
@@ -18,7 +22,7 @@ it ('Reviews component renders without crashing', () => {
 
 it ('ReviewList component renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<ReviewList />, div);
+  ReactDOM.render(<ReviewList ratingFilterCriteria={[]}/>, div);
 });
 
 
@@ -49,3 +53,29 @@ it ('ModalPhoto component renders without crashing', () => {
   const testUrl = {url: ''};
   ReactDOM.render(<ModalPhoto url={testUrl.url}/>, div);
 });
+
+
+it ('Rating component renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<Rating />, div);
+});
+
+
+it ('RatingBar component renders without crashing', () => {
+  const div = document.createElement('div');
+
+  ReactDOM.render(<RatingBreakdown data={1, 1}/>, div);
+});
+
+it ('RatingBreakdown component renders without crashing', () => {
+  const div = document.createElement('div');
+  const data = {
+    1: '1',
+    2: '2',
+    3: '1',
+    4: '9',
+    5: '1'
+  };
+  ReactDOM.render(<RatingBar data={data}/>, div);
+});
+
