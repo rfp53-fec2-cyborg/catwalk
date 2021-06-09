@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RatingBar from './RatingBar.jsx';
 import ReviewList from './ReviewList.jsx';
+import trackSelectedRatings from './customHooks/trackRating.js';
 
 var prepareData = (data) => {
   let result = [];
@@ -27,16 +28,6 @@ export const RatingBreakdown = ({data}) => {
   const [max, setMax] = useState(findMax(data));
   const [rating, setRating] = useState([]);
 
-  console.log(rating);
-
-  const sortReviewsByRating = () => {
-    return (
-      <>
-        <ReviewList rating={rating}/>
-      </>
-    );
-  };
-
   return (
     <div>
       {starData.map((value, index) => {
@@ -45,14 +36,13 @@ export const RatingBreakdown = ({data}) => {
         return (
           <div key={key - index}>
             <div >
-              <u value={ratingValue} onClick={(e) => {
-                setRating(oldArray => [...oldArray, key - index]);
-              }}>{`${[key - index]} stars`}</u>
+              <u value={ratingValue} onClick={(e) => setRating(oldArray => [...oldArray, key - index])} > {`${[key - index]} stars`} </u>
               <RatingBar rating={ratingValue} max={max}/>
             </div>
           </div>
         );
       })}
+      <ReviewList ratingFilterCriteria={rating}/>
     </div>
   );
 };

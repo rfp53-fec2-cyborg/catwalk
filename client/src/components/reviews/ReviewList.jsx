@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { reviews } from '../../../mock-data/reviews.js';
 import ReviewListEntry from './ReviewListEntry.jsx';
 
-const ReviewList = (props) => {
+const ReviewList = ({ratingFilterCriteria}) => {
 
-  console.log(props);
+  console.log('from rating breakdown', ratingFilterCriteria);
 
   const defaultView = 2;
   const totalReviewLength = reviews.results.length;
@@ -20,7 +20,9 @@ const ReviewList = (props) => {
   };
 
   const filterReviewsByRating = () => {
-    return reviews.results.filter(singleReview => singleReview.rating > 0)
+    let reviewsByRating = ratingFilterCriteria.length === 0 ? [5, 4, 3, 2, 1] : ratingFilterCriteria;
+    debugger;
+    return reviews.results.filter(singleReview => reviewsByRating.indexOf(singleReview.rating) !== -1)
       .slice(0, length).map((review, index) =>
         <ReviewListEntry
           review={review}

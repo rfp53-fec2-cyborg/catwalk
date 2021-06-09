@@ -8,12 +8,7 @@ const Reviews = (props) => {
     <div className="">
       <h2>RATINGS & REVIEWS</h2>
       <div className="">
-        <div className="">
-          <Rating />
-        </div>
-        <div className="">
-          <ReviewList />
-        </div>
+        <Rating />
       </div>
     </div>
   );
