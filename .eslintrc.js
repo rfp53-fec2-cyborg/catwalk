@@ -8,6 +8,7 @@ module.exports = {
   env: {
     'es6': true
   },
+  parser: '@babel/eslint-parser',
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 6,
@@ -43,6 +44,6 @@ module.exports = {
     /* Minuta */
     'comma-style': [2, 'last'],
     'quotes': [1, 'single'],
-    'parser': 'babel-eslint'
+    // 'parser': 'babel-eslint'
   }
 };
