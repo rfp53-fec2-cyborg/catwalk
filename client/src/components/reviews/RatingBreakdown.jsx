@@ -31,23 +31,25 @@ export const RatingBreakdown = ({data}) => {
     const ratingValue = Number(e.target.getAttribute('value'));
     const index = rating.indexOf(ratingValue);
     if (index > -1) {
-      setRating(item => rating.splice(0, index));
+      setRating(array => rating.splice(0, index));
     } else {
-      setRating(item => [...item, ratingValue]);
+      setRating(array => [...array, ratingValue]);
     }
   };
+
+  console.log(rating);
 
   return (
     <div>
       {starData.map((value, index) => {
         let key = starData.length;
-        let ratingCount = value[key - index];
-        let rating = [key - index];
+        var {rating, ratingCount} = {rating: key - index, ratingCount: value[key - index]};
+
         return (
           <div key={rating}>
             <div >
               <u value={rating} onClick={(e) => handleRatingSelected(e)} > {`${rating} stars`} </u>
-              <RatingBar value={ratingCount} max={max}/>
+              <RatingBar data={{rating, ratingCount, max}} handleRatingSelected={handleRatingSelected} />
             </div>
           </div>
         );

@@ -1,25 +1,14 @@
 import React from 'react';
 
-const fillerStyles = {
-  height: '100%',
-  borderRadius: 'inherit',
+const containerStyles = {
+  height: '1em',
+  width: '12.5%',
+  backgroundColor: '#e0e0de',
 };
 
-const progressBar = {
-  padding: '5',
-  color: 'white',
-  fontWeight: 'bold'
-};
+const RatingBar = (props) => {
 
-const RatingBar = ({value, max}) => {
-
-  const percentage = Math.ceil(value / max * 100);
-  const containerStyles = {
-    height: '1em',
-    width: '12.5%',
-    backgroundColor: '#e0e0de',
-  };
-
+  const percentage = Math.ceil(props.data.ratingCount / props.data.max * 100);
   const fillerStyles = {
     height: '100%',
     width: `${percentage}%`,
@@ -29,7 +18,7 @@ const RatingBar = ({value, max}) => {
 
   return (
     <div style={containerStyles}>
-      <div style={fillerStyles}> {value} </div>
+      <div value={props.data.rating} style={fillerStyles} onClick={props.handleRatingSelected}> {props.data.ratingCount} </div>
     </div>
   );
 };

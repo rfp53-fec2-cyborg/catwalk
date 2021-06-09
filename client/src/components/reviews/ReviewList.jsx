@@ -4,8 +4,6 @@ import ReviewListEntry from './ReviewListEntry.jsx';
 
 const ReviewList = ({ratingFilterCriteria}) => {
 
-  console.log('from rating breakdown', ratingFilterCriteria);
-
   const defaultView = 2;
   const totalReviewLength = reviews.results.length;
   const [length, setLength] = useState(defaultView);
@@ -20,10 +18,10 @@ const ReviewList = ({ratingFilterCriteria}) => {
   };
 
   const filterReviewsByRating = () => {
-    // by default, show all reviews with all ratings; otherwise, show reviews with only specified ratings
+    // By default, show all reviews with all ratings; otherwise, show reviews with only specified ratings
     let reviewsByRating = ratingFilterCriteria.length === 0 ? [5, 4, 3, 2, 1] : ratingFilterCriteria;
 
-    // filter based on above array of ratings selected, whether default or whether changed
+    // Filter based on above array of ratings selected, whether default or whether changed
     return reviews.results.filter(singleReview => reviewsByRating.indexOf(singleReview.rating) !== -1)
       .slice(0, length).map((review, index) =>
         <ReviewListEntry
