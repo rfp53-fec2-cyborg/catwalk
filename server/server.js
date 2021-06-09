@@ -7,6 +7,8 @@ const port = 3000;
 require('dotenv').config({path: 'server/.env'});
 const { getProducts, getProductsId, getProductsIdRelated, getProductsIdStyles } = require('./productApi.js');
 const { getReviews, getReviewsMeta, postReview, putReviewHelpful, putReviewReport } = require('./reviewApi.js');
+const { getCart, postCart } = require('./cart.js');
+const { postInteractions } = require('./interactions.js');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -80,10 +82,6 @@ app.get('/reviews/meta', async (req, res) => {
   }
 });
 
-app.get('/cart', (req, res) => {
-  res.send();
-});
-
 app.post('/reviews', async (req, res) => {
   const body = JSON.stringify(req.body);
   try {
@@ -93,11 +91,6 @@ app.post('/reviews', async (req, res) => {
     console.error(err);
     res.end();
   }
-});
-
-app.post('/cart', (req, res) => {
-  // console.log('req.body:', req.body);
-  res.send('fooo');
 });
 
 app.put('/reviews/:review_id/helpful', async (req, res) => {
@@ -121,6 +114,39 @@ app.put('/reviews/:review_id/report', async (req, res) => {
     res.end();
   }
 });
+
+app.get('/cart', async (req, res) => {
+  try {
+    const data = await getCart();
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
+});
+
+app.post('/cart', async (req, res) => {
+  const body = JSON.stringify(req.body);
+  try {
+    const data = await postCart(body);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
+});
+
+app.post('/interactions', async (req, res) => {
+  const body = JSON.stringify(req.body);
+  try {
+    const data = await postInteractions(body);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
