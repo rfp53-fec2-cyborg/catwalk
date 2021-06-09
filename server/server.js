@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
   res.end();
 });
 
+/*
+############################ PRODUCTS ############################
+*/
+
 app.get('/products', async (req, res) => {
   try {
     const data = await getProducts();
@@ -60,7 +64,12 @@ app.get('/products/:productID/related', async (req, res) => {
   }
 });
 
+/*
+############################ REVIEWS ############################
+*/
+
 app.get('/reviews', async (req, res) => {
+  // console.log(req.query);
   const params = req.query;
   try {
     const data = await getReviews(params);
@@ -72,6 +81,7 @@ app.get('/reviews', async (req, res) => {
 });
 
 app.get('/reviews/meta', async (req, res) => {
+  // console.log(req.query);
   const params = req.query;
   try {
     const data = await getReviewsMeta(params);
@@ -83,6 +93,7 @@ app.get('/reviews/meta', async (req, res) => {
 });
 
 app.post('/reviews', async (req, res) => {
+  // console.log(req.body);
   const body = JSON.stringify(req.body);
   try {
     const data = await postReview(body);
@@ -94,6 +105,7 @@ app.post('/reviews', async (req, res) => {
 });
 
 app.put('/reviews/:review_id/helpful', async (req, res) => {
+  // console.log(req.params);
   const productID = req.params.productID;
   try {
     const data = await putReviewHelpful(productID);
@@ -105,6 +117,7 @@ app.put('/reviews/:review_id/helpful', async (req, res) => {
 });
 
 app.put('/reviews/:review_id/report', async (req, res) => {
+  // console.log(req.params);
   const productID = req.params.productID;
   try {
     const data = await putReviewReport(productID);
@@ -114,6 +127,10 @@ app.put('/reviews/:review_id/report', async (req, res) => {
     res.end();
   }
 });
+
+/*
+############################ CART ############################
+*/
 
 app.get('/cart', async (req, res) => {
   try {
@@ -126,6 +143,7 @@ app.get('/cart', async (req, res) => {
 });
 
 app.post('/cart', async (req, res) => {
+  // console.log(req.body);
   const body = JSON.stringify(req.body);
   try {
     const data = await postCart(body);
@@ -136,7 +154,12 @@ app.post('/cart', async (req, res) => {
   }
 });
 
+/*
+############################ INTERACTIONS ############################
+*/
+
 app.post('/interactions', async (req, res) => {
+  // console.log(req.body);
   const body = JSON.stringify(req.body);
   try {
     const data = await postInteractions(body);
