@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import RatingBar from './RatingBar.jsx';
 import ReviewList from './ReviewList.jsx';
+import RatingFilterDesc from './RatingFilterDesc.jsx';
 
 var prepareData = (data) => {
   let result = [];
@@ -21,7 +22,7 @@ var findMax = (data) => {
   return max;
 };
 
-export const RatingBreakdown = ({data}) => {
+const RatingBreakdown = ({data}) => {
 
   const [starData, setStarData] = useState(prepareData(data));
   const [max, setMax] = useState(findMax(data));
@@ -37,25 +38,28 @@ export const RatingBreakdown = ({data}) => {
     }
   };
 
-  console.log(rating);
-
   return (
-    <div>
-      {starData.map((value, index) => {
-        let key = starData.length;
-        var {rating, ratingCount} = {rating: key - index, ratingCount: value[key - index]};
+    <>
+      <div>
+        <RatingFilterDesc data={rating} setRating={setRating}/>
+      </div>
+      <div>
+        {starData.map((value, index) => {
+          let key = starData.length;
+          var {rating, ratingCount} = {rating: key - index, ratingCount: value[key - index]};
 
-        return (
-          <div key={rating}>
-            <div >
-              <u value={rating} onClick={(e) => handleRatingSelected(e)} > {`${rating} stars`} </u>
-              <RatingBar data={{rating, ratingCount, max}} handleRatingSelected={handleRatingSelected} />
+          return (
+            <div key={rating}>
+              <div className="rating-breakdown" value={rating} onClick={(e) => handleRatingSelected(e)}>
+                <u > {`${rating} stars`} </u>
+                <RatingBar data={{rating, ratingCount, max}} />
+              </div>
             </div>
-          </div>
-        );
-      })}
-      <ReviewList ratingFilterCriteria={rating}/>
-    </div>
+          );
+        })}
+        <ReviewList ratingFilterCriteria={rating}/>
+      </div>
+    </>
   );
 };
 

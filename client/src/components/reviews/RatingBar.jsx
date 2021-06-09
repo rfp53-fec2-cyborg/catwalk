@@ -2,7 +2,7 @@ import React from 'react';
 
 const containerStyles = {
   height: '1em',
-  width: '12.5%',
+  width: '15%',
   backgroundColor: '#e0e0de',
 };
 
@@ -18,7 +18,7 @@ const RatingBar = (props) => {
 
   return (
     <div style={containerStyles}>
-      <div value={props.data.rating} style={fillerStyles} onClick={props.handleRatingSelected}> {props.data.ratingCount} </div>
+      <div value={props.data.rating} style={fillerStyles} > {props.data.ratingCount} </div>
     </div>
   );
 };

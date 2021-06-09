@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RatingBreakdown from './RatingBreakdown.jsx';
+import RatingFilterDesc from './RatingFilterDesc.jsx';
 
 import StarRating from '../shared/StarRating.jsx';
 import MakeRating from '../../helpers/MakeRating.js';

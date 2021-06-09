@@ -10,6 +10,7 @@ import ReviewListEntry from '../ReviewListEntry.jsx';
 import Rating from '../Rating.jsx';
 import RatingBreakdown from '../RatingBreakdown.jsx';
 import RatingBar from '../RatingBar.jsx';
+import RatingFilterDesc from '../RatingFilterDesc.jsx';
 
 import ModalPhoto from '../ModalPhoto.jsx';
 import Modal from '../../shared/Modal.jsx';
@@ -77,5 +78,12 @@ it ('RatingBreakdown component renders without crashing', () => {
     5: '1'
   };
   ReactDOM.render(<RatingBar data={data}/>, div);
+});
+
+
+it ('RatingFilterDesc component renders without crashing', () => {
+  const div = document.createElement('div');
+  const data = [5, 4, 3, 2, 1];
+  ReactDOM.render(<RatingFilterDesc data={data}/>, div);
 });
 
