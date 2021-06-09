@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { reviewsMeta } from '../../../mock-data/reviewsMeta.js';
+import React from 'react';
 import ReviewList from './ReviewList.jsx';
+import Rating from './Rating.jsx';
 
 const Reviews = (props) => {
 
   return (
-    <>
+    <div className="">
       <h2>RATINGS & REVIEWS</h2>
-      <ReviewList />
-    </>
+      <div className="">
+        <Rating />
+      </div>
+    </div>
   );
 };
 

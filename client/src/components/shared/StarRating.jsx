@@ -16,8 +16,6 @@ const StarRating = ({ score }) => {
   }
 
   let image = score => {
-    score = (score * 4).toFixed();
-    score = (score / 4).toFixed(2);
     const scoreArr = score.split('.');
     return `i${scoreArr[0]}${scoreArr[1]}`;
   };

@@ -7,6 +7,13 @@ import ReactDOM from 'react-dom';
 import Reviews from '../Reviews.jsx';
 import ReviewList from '../ReviewList.jsx';
 import ReviewListEntry from '../ReviewListEntry.jsx';
+import Rating from '../Rating.jsx';
+import RatingBreakdown from '../RatingBreakdown.jsx';
+import RatingBar from '../RatingBar.jsx';
+import RatingFilterDesc from '../RatingFilterDesc.jsx';
+import Recommended from '../Recommended.jsx';
+
+import { reviewsMeta } from '../../../../mock-data/reviewsMeta.js';
 import ModalPhoto from '../ModalPhoto.jsx';
 import Modal from '../../shared/Modal.jsx';
 import { render } from '@testing-library/react';
@@ -18,7 +25,7 @@ it ('Reviews component renders without crashing', () => {
 
 it ('ReviewList component renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<ReviewList />, div);
+  ReactDOM.render(<ReviewList ratingFilterCriteria={[]}/>, div);
 });
 
 
@@ -48,4 +55,42 @@ it ('ModalPhoto component renders without crashing', () => {
   const div = document.createElement('div');
   const testUrl = {url: ''};
   ReactDOM.render(<ModalPhoto url={testUrl.url}/>, div);
+});
+
+
+it ('Rating component renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<Rating />, div);
+});
+
+
+it ('RatingBar component renders without crashing', () => {
+  const div = document.createElement('div');
+
+  ReactDOM.render(<RatingBar data={{1: 1}}/>, div);
+});
+
+it ('RatingBreakdown component renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<RatingBreakdown data={reviewsMeta}/>, div);
+});
+
+
+it ('RatingFilterDesc component renders without crashing', () => {
+  const div = document.createElement('div');
+  const data = [5, 4, 3, 2, 1];
+  ReactDOM.render(<RatingFilterDesc data={data}/>, div);
+});
+
+
+
+it ('Recommended component renders without crashing', () => {
+  const div = document.createElement('div');
+  const recommended = {
+    'recommended': {
+      'false': '9',
+      'true': '25'
+    }
+  };
+  ReactDOM.render(<Recommended data={recommended}/>, div);
 });
