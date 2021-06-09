@@ -1,9 +1,12 @@
 /* eslint-disable no-console */
 const express = require('express');
 const path = require('path');
-
 const app = express();
 const port = 3000;
+
+require('dotenv').config({path: 'server/.env'});
+const { getProducts, getProductsId, getProductsIdRelated, getProductsIdStyles } = require('./productApi.js');
+
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -12,24 +15,47 @@ app.get('/', (req, res) => {
   res.end();
 });
 
-app.get('/products', (req, res) => {
-  // console.log('req.query:', req.query);
-  res.send();
+app.get('/products', async (req, res) => {
+  try {
+    const data = await getProducts();
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
 });
 
-app.get('/products:productID', (req, res) => {
-  // console.log('req.params:', req.params);
-  res.send();
+app.get('/products/:productID', async (req, res) => {
+  const productID = req.params.productID;
+  try {
+    const data = await getProductsId(productID);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
 });
 
-app.get('/products:productID/styles', (req, res) => {
-  // console.log('req.params:', req.params);
-  res.send();
+app.get('/products/:productID/styles', async (req, res) => {
+  const productID = req.params.productID;
+  try {
+    const data = await getProductsIdStyles(productID);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
 });
 
-app.get('/products:productID/related', (req, res) => {
-  // console.log('req.params:', req.params);
-  res.send();
+app.get('/products/:productID/related', async (req, res) => {
+  const productID = req.params.productID;
+  try {
+    const data = await getProductsIdRelated(productID);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
 });
 
 app.get('/reviews', (req, res) => {
