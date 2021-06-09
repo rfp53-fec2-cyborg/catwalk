@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import RatingBreakdown from './RatingBreakdown.jsx';
 
 import StarRating from '../shared/StarRating.jsx';

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import RatingBar from './RatingBar.jsx';
 import ReviewList from './ReviewList.jsx';
-import trackSelectedRatings from './customHooks/trackRating.js';
 
 var prepareData = (data) => {
   let result = [];
@@ -28,16 +27,28 @@ export const RatingBreakdown = ({data}) => {
   const [max, setMax] = useState(findMax(data));
   const [rating, setRating] = useState([]);
 
+  const handleRatingSelected = (e) => {
+    const ratingValue = Number(e.target.getAttribute('value'));
+    console.log(ratingValue);
+    const index = rating.indexOf(ratingValue);
+    if (index > -1) {
+      setRating(item => rating.splice(0, index));
+    } else {
+      setRating(item => [...item, ratingValue]);
+    }
+  };
+
   return (
     <div>
       {starData.map((value, index) => {
         let key = starData.length;
-        let ratingValue = value[key - index];
+        let ratingCount = value[key - index];
+        let rating = [key - index];
         return (
-          <div key={key - index}>
+          <div key={rating}>
             <div >
-              <u value={ratingValue} onClick={(e) => setRating(oldArray => [...oldArray, key - index])} > {`${[key - index]} stars`} </u>
-              <RatingBar rating={ratingValue} max={max}/>
+              <u value={rating} onClick={(e) => handleRatingSelected(e)} > {`${rating} stars`} </u>
+              <RatingBar value={ratingCount} max={max}/>
             </div>
           </div>
         );

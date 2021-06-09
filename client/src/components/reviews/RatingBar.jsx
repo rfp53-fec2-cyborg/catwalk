@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const fillerStyles = {
   height: '100%',
@@ -11,9 +11,9 @@ const progressBar = {
   fontWeight: 'bold'
 };
 
-const RatingBar = ({rating, max}) => {
+const RatingBar = ({value, max}) => {
 
-  const percentage = Math.ceil(rating / max * 100);
+  const percentage = Math.ceil(value / max * 100);
   const containerStyles = {
     height: '1em',
     width: '12.5%',
@@ -29,7 +29,7 @@ const RatingBar = ({rating, max}) => {
 
   return (
     <div style={containerStyles}>
-      <div style={fillerStyles}> {rating} </div>
+      <div style={fillerStyles}> {value} </div>
     </div>
   );
 };
