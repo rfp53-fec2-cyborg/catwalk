@@ -4,33 +4,18 @@ import ReviewList from './ReviewList.jsx';
 import RatingFilterDesc from './RatingFilterDesc.jsx';
 import Recommended from './Recommended.jsx';
 
-var prepareData = (data) => {
-  let result = [];
-  const ratingArr = Object.entries(data);
-  ratingArr.forEach(([key, value]) => {
-    let obj = {};
-    obj[key] = Number(value);
-    result.push(obj);
-  });
-  return result.reverse();
-};
-
-var findMax = (data) => {
-  var max = 0;
-  for (var key in data) {
-    max = Math.max(max, data[key]);
-  }
-  return max;
-};
+import { MakeRating, reverseRatingFromHighestToLowestInArray } from '../../helpers/MakeRating.js';
 
 const RatingBreakdown = (props) => {
 
-  const [starData, setStarData] = useState(prepareData(props.data.ratings));
-  const [max, setMax] = useState(findMax(props.data.ratings));
+  const ratingOverview = MakeRating(props.data.ratings);
+
+  const [starData, setStarData] = useState(reverseRatingFromHighestToLowestInArray(props.data.ratings));
+  const [max, setMax] = useState(ratingOverview.maxRating);
   const [rating, setRating] = useState([]);
 
   const handleRatingSelected = (e) => {
-    const ratingValue = Number(e.target.getAttribute('value'));
+    const ratingValue = Number(e.currentTarget.getAttribute('value'));
     const index = rating.indexOf(ratingValue);
     if (index > -1) {
       setRating(array => rating.splice(0, index));

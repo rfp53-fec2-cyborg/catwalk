@@ -18,7 +18,7 @@ const RatingBar = (props) => {
 
   return (
     <div style={containerStyles}>
-      <div value={props.data.rating} style={fillerStyles} > {props.data.ratingCount} </div>
+      <div style={fillerStyles} > {props.data.ratingCount} </div>
     </div>
   );
 };

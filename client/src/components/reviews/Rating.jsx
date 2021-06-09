@@ -3,20 +3,14 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 import RatingFilterDesc from './RatingFilterDesc.jsx';
 
 import StarRating from '../shared/StarRating.jsx';
-import MakeRating from '../../helpers/MakeRating.js';
+import { MakeRating } from '../../helpers/MakeRating.js';
 import { reviewsMeta } from '../../../mock-data/reviewsMeta.js';
-
-var getRating = () => {
-  let score;
-  const rating = MakeRating(reviewsMeta.ratings);
-  score = ((rating.value * 4).toFixed() / 4).toFixed(2);
-  return score;
-};
-
 
 const Rating = () => {
 
-  const [rating, setRating] = useState(getRating());
+  const ratingData = MakeRating(reviewsMeta.ratings);
+
+  const [rating, setRating] = useState(ratingData.roundedValue);
   return (
     <div>
       <div>

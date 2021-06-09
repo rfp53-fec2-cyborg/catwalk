@@ -10,12 +10,42 @@ const MakeRating = (ratings) => {
     return avg + (score * count / numReviews);
   }, 0).toPrecision(3);
 
+  const findRoundedValue = () => {
+    let score = ((value * 4).toFixed() / 4).toFixed(2);
+    return score;
+  };
+
+  const findMaxRating = (data) => {
+    var max = 0;
+    for (var key in data) {
+      max = Math.max(max, data[key]);
+    }
+    return max;
+  };
+
   const rating = {
     numReviews,
-    value
+    value,
+    roundedValue: findRoundedValue(),
+    maxRating: findMaxRating(ratings)
   };
 
   return rating;
 };
 
-export default MakeRating;
+
+const reverseRatingFromHighestToLowestInArray = (data) => {
+  let result = [];
+  const ratingArr = Object.entries(data);
+  ratingArr.forEach(([key, value]) => {
+    let obj = {};
+    obj[key] = Number(value);
+    result.push(obj);
+  });
+  return result.reverse();
+};
+
+module.exports = {
+  MakeRating,
+  reverseRatingFromHighestToLowestInArray,
+};
