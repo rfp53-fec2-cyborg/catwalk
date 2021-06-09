@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import RatingBar from './RatingBar.jsx';
+import ReviewList from './ReviewList.jsx';
 
 var prepareData = (data) => {
   let result = [];
@@ -20,19 +21,34 @@ var findMax = (data) => {
   return max;
 };
 
-const RatingBreakdown = ({data}) => {
+export const RatingBreakdown = ({data}) => {
 
   const [starData, setStarData] = useState(prepareData(data));
   const [max, setMax] = useState(findMax(data));
+  const [rating, setRating] = useState([]);
+
+  console.log(rating);
+
+  const sortReviewsByRating = () => {
+    return (
+      <>
+        <ReviewList rating={rating}/>
+      </>
+    );
+  };
 
   return (
     <div>
       {starData.map((value, index) => {
         let key = starData.length;
+        let ratingValue = value[key - index];
         return (
           <div key={key - index}>
             <div >
-              <u>{`${[key - index]} stars`}</u> <RatingBar rating={value[key - index]} max={max}/>
+              <u value={ratingValue} onClick={(e) => {
+                setRating(oldArray => [...oldArray, key - index]);
+              }}>{`${[key - index]} stars`}</u>
+              <RatingBar rating={ratingValue} max={max}/>
             </div>
           </div>
         );
