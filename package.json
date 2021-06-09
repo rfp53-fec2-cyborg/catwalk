@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/rfp53-fec2-cyborg/catwalk#readme",
   "dependencies": {
+    "@babel/runtime": "^7.14.0",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-runtime": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
     "@testing-library/dom": "^7.31.2",

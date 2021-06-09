@@ -3,6 +3,7 @@ const { getProducts, getProductsId, getProductsIdRelated, getProductsIdStyles } 
 
 // The assertion for a promise must be returned.
 it('Returns an array of products when calling /GET products', async () => {
+
   const data = await getProducts();
-  console.log(data);
+  expect(data).toEqual(['test']);
 });

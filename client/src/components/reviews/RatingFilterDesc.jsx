@@ -1,9 +1,6 @@
 import React from 'react';
 
 const RatingFilterDesc = (props) => {
-
-  console.log(props.data);
-
   if (props.data.length !== 0) {
     return (
       <>

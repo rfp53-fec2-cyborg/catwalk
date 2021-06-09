@@ -7,6 +7,8 @@ import Reviews from './components/reviews/Reviews.jsx';
 import QandA from './components/qanda/QandA.jsx';
 
 const requester = Requester();
+// requester.getProducts()
+//   .then(console.log);
 
 const App = function() {
   return (
