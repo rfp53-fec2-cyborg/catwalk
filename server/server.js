@@ -7,8 +7,8 @@ const port = 3000;
 require('dotenv').config({path: 'server/.env'});
 const { getProducts, getProductsId, getProductsIdRelated, getProductsIdStyles } = require('./productApi.js');
 const { getReviews, getReviewsMeta, postReview, putReviewHelpful, putReviewReport } = require('./reviewApi.js');
-const { getCart, postCart } = require('./cart.js');
-const { postInteractions } = require('./interactions.js');
+const { getCart, postCart } = require('./cartApi.js');
+const { postInteractions } = require('./interactionsApi.js');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
