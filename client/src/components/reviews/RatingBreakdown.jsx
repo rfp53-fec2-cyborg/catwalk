@@ -15,14 +15,21 @@ const RatingBreakdown = (props) => {
   const [rating, setRating] = useState([]);
 
   const handleRatingSelected = (e) => {
-    const ratingValue = Number(e.currentTarget.getAttribute('value'));
-    const index = rating.indexOf(ratingValue);
+    let ratingValue = Number(e.currentTarget.getAttribute('value'));
+    console.log('event ', e.currentTarget.getAttribute('value'));
+    let index = rating.indexOf(ratingValue);
+    console.log('index:', index, 'currentRatingFilter: ', rating);
     if (index > -1) {
-      setRating(array => rating.splice(0, index));
+      setRating(array => {
+        array.splice(index, 1);
+        return [...array];
+      });
     } else {
       setRating(array => [...array, ratingValue]);
     }
   };
+
+  console.log('rating state', rating);
 
   return (
     <>
