@@ -1,4 +1,4 @@
-const MakeRating = (ratings) => {
+export const MakeRating = (ratings) => {
 
   const numReviews = Object.keys(ratings).reduce((sum, key) => {
     return sum + Number.parseInt(ratings[key]);
@@ -34,7 +34,7 @@ const MakeRating = (ratings) => {
 };
 
 
-const reverseRatingFromHighestToLowestInArray = (data) => {
+export const reverseRatingFromHighestToLowestInArray = (data) => {
   let result = [];
   const ratingArr = Object.entries(data);
   ratingArr.forEach(([key, value]) => {
@@ -43,9 +43,4 @@ const reverseRatingFromHighestToLowestInArray = (data) => {
     result.push(obj);
   });
   return result.reverse();
-};
-
-module.exports = {
-  MakeRating,
-  reverseRatingFromHighestToLowestInArray,
 };

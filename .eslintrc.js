@@ -42,6 +42,7 @@ module.exports = {
     'one-var': [1, { 'uninitialized': 'always', 'initialized': 'never' }],
     /* Minuta */
     'comma-style': [2, 'last'],
-    'quotes': [1, 'single']
+    'quotes': [1, 'single'],
+    'parser': 'babel-eslint'
   }
 };
