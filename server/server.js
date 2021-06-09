@@ -6,7 +6,7 @@ const port = 3000;
 
 require('dotenv').config({path: 'server/.env'});
 const { getProducts, getProductsId, getProductsIdRelated, getProductsIdStyles } = require('./productApi.js');
-
+const { getReviews, getReviewsMeta, postReview, putReviewHelpful, putReviewReport } = require('./reviewApi.js');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -58,23 +58,41 @@ app.get('/products/:productID/related', async (req, res) => {
   }
 });
 
-app.get('/reviews', (req, res) => {
-  // console.log('req.query:', req.query);
-  res.send();
+app.get('/reviews', async (req, res) => {
+  const params = req.query;
+  try {
+    const data = await getReviews(params);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
 });
 
-app.get('/reviews/meta', (req, res) => {
-  // console.log('req.query:', req.query);
-  res.send();
+app.get('/reviews/meta', async (req, res) => {
+  const params = req.query;
+  try {
+    const data = await getReviewsMeta(params);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
 });
 
 app.get('/cart', (req, res) => {
   res.send();
 });
 
-app.post('/reviews', (req, res) => {
-  // console.log('req.body:', req.body);
-  res.send();
+app.post('/reviews', async (req, res) => {
+  const body = JSON.stringify(req.body);
+  try {
+    const data = await postReview(body);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
 });
 
 app.post('/cart', (req, res) => {
@@ -82,14 +100,26 @@ app.post('/cart', (req, res) => {
   res.send('fooo');
 });
 
-app.put('/reviews:review_id/helpful', (req, res) => {
-  // console.log('req.params:', req.params);
-  res.send();
+app.put('/reviews/:review_id/helpful', async (req, res) => {
+  const productID = req.params.productID;
+  try {
+    const data = await putReviewHelpful(productID);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
 });
 
-app.put('/reviews:review_id/report', (req, res) => {
-  // console.log('req.params:', req.params);
-  res.send();
+app.put('/reviews/:review_id/report', async (req, res) => {
+  const productID = req.params.productID;
+  try {
+    const data = await putReviewReport(productID);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.end();
+  }
 });
 
 app.listen(port, () => {
