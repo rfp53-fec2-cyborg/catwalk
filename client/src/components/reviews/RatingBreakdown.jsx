@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RatingBar from './RatingBar.jsx';
-import ReviewList from './ReviewList.jsx';
+import Sorting from './Sorting.jsx';
 import RatingFilterDesc from './RatingFilterDesc.jsx';
 import Recommended from './Recommended.jsx';
 
@@ -16,9 +16,7 @@ const RatingBreakdown = (props) => {
 
   const handleRatingSelected = (e) => {
     let ratingValue = Number(e.currentTarget.getAttribute('value'));
-    console.log('event ', e.currentTarget.getAttribute('value'));
     let index = rating.indexOf(ratingValue);
-    console.log('index:', index, 'currentRatingFilter: ', rating);
     if (index > -1) {
       setRating(array => {
         array.splice(index, 1);
@@ -28,8 +26,6 @@ const RatingBreakdown = (props) => {
       setRating(array => [...array, ratingValue]);
     }
   };
-
-  console.log('rating state', rating);
 
   return (
     <>
@@ -51,7 +47,10 @@ const RatingBreakdown = (props) => {
           );
         })}
         <Recommended data={props.data}/>
-        <ReviewList ratingFilterCriteria={rating}/>
+
+        <div>
+          <Sorting ratingOverview={ratingOverview} rating={rating}/>
+        </div>
       </div>
     </>
   );
