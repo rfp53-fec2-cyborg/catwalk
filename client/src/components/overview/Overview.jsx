@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Rating from './Rating.jsx';
+import Styles from './Styles.jsx';
 import Description from './Description.jsx';
 import SocialMediaList from './SocialMediaList.jsx';
 
@@ -18,6 +19,7 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
       <p>{product.category}</p>
       <h1>{product.name}</h1>
       <p>{formatPrice(product.default_price)}</p>
+      <Styles styles={styles.results}/>
       {
         product.description ?
           <Description description={product.description} slogan={product.slogan} /> :
