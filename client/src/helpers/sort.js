@@ -1,3 +1,7 @@
+/*
+No longer needed for Sorting component; keeping in case we need
+*/
+
 export const sort = (results) => {
 
   var sortedLists = {

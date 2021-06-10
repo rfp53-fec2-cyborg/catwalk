@@ -4,6 +4,8 @@ import ReviewListEntry from './ReviewListEntry.jsx';
 
 const ReviewList = (props) => {
 
+  console.log(props);
+
   const defaultView = 2;
   const totalReviewLength = props.sortedResults.length;
   const [length, setLength] = useState(defaultView);

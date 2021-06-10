@@ -4,11 +4,13 @@ import Rating from './Rating.jsx';
 
 const Reviews = (props) => {
 
+  console.log('Reviews.jsx', props);
+
   return (
     <div className="">
       <h2>RATINGS & REVIEWS</h2>
       <div className="">
-        <Rating />
+        <Rating reviews={props}/>
       </div>
     </div>
   );
