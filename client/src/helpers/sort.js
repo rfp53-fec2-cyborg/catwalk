@@ -3,7 +3,7 @@ export const sort = (results) => {
   var sortedLists = {
     Helpfulness: [],
     Newest: [],
-    Relevance: [],
+    Relevant: [],
   };
 
   const quickSort = (results, criteria) => {
@@ -34,7 +34,7 @@ export const sort = (results) => {
     return sortedBig.concat(pivot, sortedSmall);
   };
 
-  (compareNewestandHelpfulForRelevance = () => {
+  (function compareNewestandHelpfulForRelevance() {
     let helpfulArr = quickSort(results, 'helpful');
     let newestArr = quickSort(results, 'newest');
     let relevantArr = [];
@@ -48,7 +48,7 @@ export const sort = (results) => {
     }
     sortedLists.Helpfulness = helpfulArr;
     sortedLists.Newest = newestArr;
-    sortedLists.Relevance = relevantArr;
+    sortedLists.Relevant = relevantArr;
   })();
 
   return sortedLists;

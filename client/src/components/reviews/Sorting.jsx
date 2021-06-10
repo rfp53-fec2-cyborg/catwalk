@@ -5,7 +5,7 @@ import ReviewList from './ReviewList.jsx';
 
 const Sorting = (props) => {
 
-  const [sortView, setSortView] = useState('Relevance');
+  const [sortView, setSortView] = useState('Relevant');
   const [sortedListOfReviews, setSortedListOfReviews] = useState(sort(reviews.results));
 
   const handleView = (e) => {
@@ -15,12 +15,12 @@ const Sorting = (props) => {
 
   return (
     <div>
-      {props.ratingOverview.numReviews} reviews sorted by <select onChange={handleView}>
-        <option name="Relevance" > Relevance </option>
+      There are {props.ratingOverview.numReviews} reviews. Sort on <select onChange={handleView}>
+        <option name="Relevant" > Relevant </option>
         <option name="Newest" > Newest </option>
         <option name="Helpful" > Helpful </option>
       </select>
-      <ReviewList ratingFilterCriteria={props.rating} sortedResults={sortedListOfReviews.sortView}/>
+      <ReviewList ratingFilterCriteria={props.rating} sortedResults={sortedListOfReviews[sortView]}/>
     </div>
   );
 };
