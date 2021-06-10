@@ -6,6 +6,9 @@
   Prioritize mocking functions to test API results
 */
 
+test('Always passing test', () => {
+  expect(1).toEqual(1);
+});
 
 // require('dotenv').config({path: 'server/.env'});
 
