@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StylesRow = ({styles}) => {
+const StylesRow = ({ styles, handleStyleClick }) => {
 
   const cssStyle = {
     objectFit: 'cover',
@@ -15,8 +15,11 @@ const StylesRow = ({styles}) => {
         return (
           <td key={style.style_id}>
             <img
+              data-id={style.style_id}
               src={style.photos[0].thumbnail_url}
-              style={cssStyle}>
+              style={cssStyle}
+              onClick={handleStyleClick}
+            >
             </img>
           </td>
         );

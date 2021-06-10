@@ -1,12 +1,10 @@
 import React from 'react';
 import StylesRow from './StylesRow.jsx';
 
-const Styles = ({styles}) => {
+const Styles = ({ styles, handleStyleClick }) => {
   // TODO
-  // [current selection] default first item selection
   // [current selection] indicated by overlaid checkmark
   // [current selection] has title above
-  // [current selection] change selection by clicking
   const NUM_COLS = 4;
 
   return (
@@ -18,6 +16,7 @@ const Styles = ({styles}) => {
               return <StylesRow
                 key={`stylesRow_${index / 4}`}
                 styles={styles.slice(index, index + NUM_COLS)}
+                handleStyleClick={handleStyleClick}
               />;
             }
           })}
