@@ -1,12 +1,12 @@
-// for testing
-const { reviews } = require ('../../mock-data/reviews.js');
+export const sort = (results) => {
 
-const sort = (results) => {
+  var sortedLists = {
+    Helpfulness: [],
+    Newest: [],
+    Relevance: [],
+  };
 
-  // This sort order will prioritize reviews that have been found helpful.
-  // The order can be found by subtracting “No” responses from “Yes” responses and sorting
-  // such that the highest score appears at the top.
-  const quickSortByHelpfulness = (results) => {
+  const quickSort = (results, criteria) => {
     var pivot = results[0];
     var smallArr = [];
     var bigArr = [];
@@ -16,50 +16,27 @@ const sort = (results) => {
     }
 
     for (var i = 1; i < results.length; i++) {
-      let currentHelpfulness = results[i].helpfulness;
-      if (currentHelpfulness < pivot.helpfulness) {
-        smallArr.push(results[i]);
-      } else {
-        bigArr.push(results[i]);
-      }
-    }
-    debugger;
+      var options = {
+        helpful: [results[i].helpfulness, pivot.helpfulness],
+        newest: [Date.parse(results[i].date), Date.parse(pivot.date)]
+      };
 
-    var sortedSmall = quickSortByHelpfulness(smallArr);
-    var sortedBig = quickSortByHelpfulness(bigArr);
-
-    return sortedBig.concat(pivot, sortedSmall);
-  };
-
-  // sort based on the date the review was submitted.
-  // The most recent reviews should appear first.'
-  const quickSortByNewest = (results) => {
-    var pivot = results[0];
-    var smallArr = [];
-    var bigArr = [];
-
-    if (results.length <= 1) {
-      return results;
-    }
-
-    for (var i = 1; i < results.length; i++) {
-      let currentParsedDate = Date.parse(results[i].date);
-      if (currentParsedDate < Date.parse(pivot.date)) {
+      if (options[criteria][0] < options[criteria][1]) {
         smallArr.push(results[i]);
       } else {
         bigArr.push(results[i]);
       }
     }
 
-    var sortedSmall = quickSortByNewest(smallArr);
-    var sortedBig = quickSortByNewest(bigArr);
+    var sortedSmall = quickSort(smallArr, criteria);
+    var sortedBig = quickSort(bigArr, criteria);
 
     return sortedBig.concat(pivot, sortedSmall);
   };
 
-  const compareNewestandHelpfulForRelevance = () => {
-    let helpfulArr = quickSortByHelpfulness(results);
-    let newestArr = quickSortByNewest(results);
+  (compareNewestandHelpfulForRelevance = () => {
+    let helpfulArr = quickSort(results, 'helpful');
+    let newestArr = quickSort(results, 'newest');
     let relevantArr = [];
 
     for (var i = 0; i < helpfulArr.length; i++) {
@@ -69,16 +46,10 @@ const sort = (results) => {
         relevantArr.push(newestArr[i]);
       }
     }
-    return relevantArr;
-  };
-
-  var sortedLists = {
-    Helpfulness: quickSortByHelpfulness(results),
-    Newest: quickSortByNewest(results),
-    Relevance: compareNewestandHelpfulForRelevance(),
-  };
+    sortedLists.Helpfulness = helpfulArr;
+    sortedLists.Newest = newestArr;
+    sortedLists.Relevance = relevantArr;
+  })();
 
   return sortedLists;
 };
-
-console.log(sort(reviews.results));
