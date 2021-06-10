@@ -6,16 +6,13 @@ import SocialMediaList from './SocialMediaList.jsx';
 
 const Overview = ({ product, styles, cart, reviewsMeta }) => {
 
-  //TODO iterate through styles, get style with default? = true, set as default selectedStyle
-
   // State
-  const [selectedStyle, setSelectedStyle] = useState(styles[0].style_id.toString());
+  const [selectedStyle, setSelectedStyle] = useState(styles[0]);
 
   // Event handlers
   const handleStyleClick = (event) => {
     const styleID = event.target.dataset.id;
-    // setSelectedStyle(getStyleById(styleID));
-    setSelectedStyle(styleID);
+    setSelectedStyle(getStyleById(styleID));
   };
 
   // Utilities

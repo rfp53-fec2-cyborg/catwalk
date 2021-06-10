@@ -2,13 +2,14 @@ import React from 'react';
 import StylesRow from './StylesRow.jsx';
 
 const Styles = ({ styles, selectedStyle, handleStyleClick }) => {
-  // TODO
-  // [current selection] indicated by overlaid checkmark
-  // [current selection] has title above
+
   const NUM_COLS = 4;
 
   return (
     <div>
+      <h4>
+        STYLE > <span style={{fontWeight: '500'}}>{selectedStyle.name}</span>
+      </h4>
       <table>
         <tbody>
           {styles.map((style, index) => {

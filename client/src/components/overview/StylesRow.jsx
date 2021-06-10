@@ -34,7 +34,7 @@ const StylesRow = ({ styles, selectedStyle, handleStyleClick }) => {
               onClick={handleStyleClick}
             >
             </img>
-            {selectedStyle === style.style_id.toString() ? <div style={cssStyleCheckmark}></div> : null}
+            {selectedStyle.style_id === style.style_id ? <div style={cssStyleCheckmark}></div> : null}
           </td>
         );
       })}
