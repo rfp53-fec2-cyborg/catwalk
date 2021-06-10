@@ -19,6 +19,7 @@ const getProducts = async (data) => {
     return response.data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 
@@ -30,12 +31,12 @@ const getProductsId = async (data) => {
       'Authorization': apiKey
     }
   };
-
   try {
     const response = await axios(config);
     return response.data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 
@@ -53,6 +54,7 @@ const getProductsIdStyles = async (data) => {
     return response.data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 
@@ -70,6 +72,7 @@ const getProductsIdRelated = async (data) => {
     return response.data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 

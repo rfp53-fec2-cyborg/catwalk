@@ -26,8 +26,7 @@ app.get('/products', async (req, res) => {
     const data = await getProducts();
     res.json(data);
   } catch (err) {
-    console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
@@ -37,8 +36,7 @@ app.get('/products/:productID', async (req, res) => {
     const data = await getProductsId(productID);
     res.json(data);
   } catch (err) {
-    console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
@@ -49,7 +47,7 @@ app.get('/products/:productID/styles', async (req, res) => {
     res.json(data);
   } catch (err) {
     console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
@@ -60,7 +58,7 @@ app.get('/products/:productID/related', async (req, res) => {
     res.json(data);
   } catch (err) {
     console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
@@ -76,7 +74,7 @@ app.get('/reviews', async (req, res) => {
     res.json(data);
   } catch (err) {
     console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
@@ -88,7 +86,7 @@ app.get('/reviews/meta', async (req, res) => {
     res.json(data);
   } catch (err) {
     console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
@@ -100,7 +98,7 @@ app.post('/reviews', async (req, res) => {
     res.json(data);
   } catch (err) {
     console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
@@ -112,7 +110,7 @@ app.put('/reviews/:review_id/helpful', async (req, res) => {
     res.json(data);
   } catch (err) {
     console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
@@ -124,7 +122,7 @@ app.put('/reviews/:review_id/report', async (req, res) => {
     res.json(data);
   } catch (err) {
     console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
@@ -138,7 +136,7 @@ app.get('/cart', async (req, res) => {
     res.json(data);
   } catch (err) {
     console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
@@ -150,7 +148,7 @@ app.post('/cart', async (req, res) => {
     res.json(data);
   } catch (err) {
     console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
@@ -166,12 +164,12 @@ app.post('/interactions', async (req, res) => {
     res.json(data);
   } catch (err) {
     console.error(err);
-    res.end();
+    res.status(500).send(err.code);
   }
 });
 
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Catborg app listening at http://localhost:${port}`);
 });
 
