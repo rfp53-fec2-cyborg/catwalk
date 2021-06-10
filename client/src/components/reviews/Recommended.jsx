@@ -1,14 +1,13 @@
 import React from 'react';
 
-const Recommended = (props) => {
+const Recommended = ({recommendedData}) => {
 
-  let recommended = props.data.recommended;
-  let max = Number(recommended.true) + Number(recommended.false);
+  let max = Number(recommendedData.true) + Number(recommendedData.false);
 
-  if (Number(recommended.true) > 0) {
+  if (Number(recommendedData.true) > 0) {
     return (
       <>
-        {Math.ceil(Number(recommended.true) / max * 100)}% of reviews recommend this product.
+        {Math.ceil(Number(recommendedData.true) / max * 100)}% of reviews recommend this product.
       </>
     );
   }
