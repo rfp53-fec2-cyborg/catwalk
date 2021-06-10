@@ -114,7 +114,7 @@ class App extends React.Component {
           product={this.state.product}
           styles={this.state.styles}
           cart={this.state.cart}
-          rating={this.state.reviewsMeta.roundedValue}
+          reviewsMeta={this.state.reviewsMeta}
         />
         <Comparison
           relatedProducts={this.state.relatedProducts}

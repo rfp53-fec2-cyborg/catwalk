@@ -1,11 +1,11 @@
 import React from 'react';
 import StarRating from '../shared/StarRating.jsx';
 
-const Rating = ({ rating }) => {
+const Rating = ({ reviewsMeta }) => {
   return (
     <div>
-      <StarRating score={rating.roundedValue} />
-      <a href="">Read all {rating.numReviews} reviews</a>
+      {reviewsMeta.roundedValue ? <StarRating score={reviewsMeta.roundedValue} /> : ''}
+      <a href="">Read all {reviewsMeta.numReviews} reviews</a>
     </div>
   );
 };
