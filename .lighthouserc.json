@@ -1,5 +1,9 @@
 {
   "ci": {
+    "collect": {
+      "url": ["http://localhost:3000/"],
+      "startServerCommand": "node server/server.js"
+    },
     "assert": {
       "assertions": {
         "categories:performance": ["warn", {"minScore": 0.5}],
