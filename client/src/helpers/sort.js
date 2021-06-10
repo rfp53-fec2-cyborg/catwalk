@@ -11,34 +11,6 @@ export const sort = async (results) => {
       relevant: [],
     };
 
-    const quickSort = (results, criteria) => {
-      var pivot = results[0];
-      var smallArr = [];
-      var bigArr = [];
-
-      if (results.length <= 1) {
-        return results;
-      }
-
-      for (var i = 1; i < results.length; i++) {
-        var options = {
-          helpful: [results[i].helpfulness, pivot.helpfulness],
-          newest: [Date.parse(results[i].date), Date.parse(pivot.date)]
-        };
-
-        if (options[criteria][0] < options[criteria][1]) {
-          smallArr.push(results[i]);
-        } else {
-          bigArr.push(results[i]);
-        }
-      }
-
-      var sortedSmall = quickSort(smallArr, criteria);
-      var sortedBig = quickSort(bigArr, criteria);
-
-      return sortedBig.concat(pivot, sortedSmall);
-    };
-
     const compareNewestandHelpfulForRelevance = () => {
       let helpfulArr = quickSort(results, 'helpful');
       let newestArr = quickSort(results, 'newest');
@@ -60,4 +32,33 @@ export const sort = async (results) => {
     compareNewestandHelpfulForRelevance();
     resolve(sortedLists);
   });
+};
+
+
+export const quickSort = (results, criteria) => {
+  var pivot = results[0];
+  var smallArr = [];
+  var bigArr = [];
+
+  if (results.length <= 1) {
+    return results;
+  }
+
+  for (var i = 1; i < results.length; i++) {
+    var options = {
+      helpful: [results[i].helpfulness, pivot.helpfulness],
+      newest: [Date.parse(results[i].date), Date.parse(pivot.date)]
+    };
+
+    if (options[criteria][0] < options[criteria][1]) {
+      smallArr.push(results[i]);
+    } else {
+      bigArr.push(results[i]);
+    }
+  }
+
+  var sortedSmall = quickSort(smallArr, criteria);
+  var sortedBig = quickSort(bigArr, criteria);
+
+  return sortedBig.concat(pivot, sortedSmall);
 };

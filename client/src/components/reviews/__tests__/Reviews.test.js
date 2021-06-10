@@ -12,7 +12,9 @@ import RatingBreakdown from '../RatingBreakdown.jsx';
 import RatingBar from '../RatingBar.jsx';
 import RatingFilterDesc from '../RatingFilterDesc.jsx';
 import Recommended from '../Recommended.jsx';
+import Sorting from '../Sorting.jsx';
 
+import { reviews } from '../../../../mock-data/reviews.js';
 import { reviewsMeta } from '../../../../mock-data/reviewsMeta.js';
 import ModalPhoto from '../ModalPhoto.jsx';
 import Modal from '../../shared/Modal.jsx';
@@ -20,12 +22,14 @@ import { render } from '@testing-library/react';
 
 it ('Reviews component renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Reviews />, div);
+  ReactDOM.render(<Reviews reviews={reviews} reviewsMeta={reviewsMeta}/>, div);
 });
 
 it ('ReviewList component renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<ReviewList ratingFilterCriteria={[]} sortedResults={[]}/>, div);
+  const props = {reviews, reviewsMeta, ratingFilter: []};
+  const sortedListOfReviews = [];
+  ReactDOM.render(<ReviewList props={props} sortedListOfReviews={sortedListOfReviews}/>, div);
 });
 
 
@@ -60,19 +64,29 @@ it ('ModalPhoto component renders without crashing', () => {
 
 it ('Rating component renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Rating />, div);
+  const props = {reviews, reviewsMeta};
+  ReactDOM.render(<Rating reviews={props}/>, div);
 });
 
 
 it ('RatingBar component renders without crashing', () => {
   const div = document.createElement('div');
-
-  ReactDOM.render(<RatingBar data={{1: 1}}/>, div);
+  const ratingCount = 2;
+  const ratingOverview = 2;
+  ReactDOM.render(<RatingBar ratingCount={ratingCount} ratingOverview={ratingOverview} />, div);
 });
 
 it ('RatingBreakdown component renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<RatingBreakdown data={reviewsMeta}/>, div);
+  const data = {reviews, reviewsMeta};
+  ReactDOM.render(<RatingBreakdown data={data}/>, div);
+});
+
+it ('Sorting component renders without crashing', () => {
+  const div = document.createElement('div');
+  const data = {reviews, reviewsMeta};
+  const ratingFilter = [];
+  ReactDOM.render(<Sorting data={data} ratingFilter={ratingFilter}/>, div);
 });
 
 
