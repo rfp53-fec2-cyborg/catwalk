@@ -6,10 +6,11 @@ require('dotenv').config();
 const url = process.env.SERVER;
 const apiKey = process.env.API_KEY;
 
-const getReviews = async (data) => {
+const getReviews = async (params) => {
   var config = {
     method: 'get',
-    url: `${url}/reviews/?page=${data.page}&count=${data.count}&sort=${data.sort}&product_id=${data.product_id}`,
+    url: `${url}/reviews`,
+    params,
     headers: {
       'Authorization': apiKey
     }
@@ -19,6 +20,7 @@ const getReviews = async (data) => {
     return response.data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 
@@ -36,6 +38,7 @@ const getReviewsMeta = async (data) => {
     return response.data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 
@@ -55,6 +58,7 @@ const postReview = async (data) => {
     return response.data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 
@@ -72,6 +76,7 @@ const putReviewHelpful = async (data) => {
     return response.data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 
@@ -89,6 +94,7 @@ const putReviewReport = async (data) => {
     return response.data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 
