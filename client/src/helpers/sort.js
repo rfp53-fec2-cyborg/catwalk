@@ -1,5 +1,5 @@
 /*
-No longer needed for Sorting component; keeping in case we need
+This will now be used as a backup method to sort in case API is unavailable
 */
 
 export const sort = (results) => {

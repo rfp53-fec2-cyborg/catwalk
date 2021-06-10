@@ -4,10 +4,13 @@ import ReviewListEntry from './ReviewListEntry.jsx';
 
 const ReviewList = (props) => {
 
-  console.log(props);
+  console.log('ReviewList', props);
+  const data = props.props.data;
+  const ratingFilter = props.props.ratingFilter;
+  const sortedListOfReviews = props.sortedListOfReviews;
 
   const defaultView = 2;
-  const totalReviewLength = props.sortedResults.length;
+  const totalReviewLength = sortedListOfReviews.length;
   const [length, setLength] = useState(defaultView);
 
   const showMoreReviews = () => {
@@ -21,10 +24,10 @@ const ReviewList = (props) => {
 
   const filterReviewsByRating = () => {
     // By default, show all reviews with all ratings; otherwise, show reviews with only specified ratings
-    let reviewsByRating = props.ratingFilterCriteria.length === 0 ? [5, 4, 3, 2, 1] : props.ratingFilterCriteria;
+    let reviewsByRating = ratingFilter.length === 0 ? [5, 4, 3, 2, 1] : ratingFilter;
 
     // Filter based on above array of ratings selected, whether default or whether changed
-    return props.sortedResults.filter(singleReview => reviewsByRating.indexOf(singleReview.rating) !== -1)
+    return sortedListOfReviews.filter(singleReview => reviewsByRating.indexOf(singleReview.rating) !== -1)
       .slice(0, length).map((review, index) =>
         <ReviewListEntry
           review={review}

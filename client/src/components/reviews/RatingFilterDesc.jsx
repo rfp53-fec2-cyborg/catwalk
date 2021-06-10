@@ -13,7 +13,7 @@ const RatingFilterDesc = (props) => {
             }
           }, '')}
         </div>
-        <span value={[]} onClick={() => props.setRating([])}>
+        <span value={[]} onClick={() => props.setRatingFilter([])}>
           Remove all filters.
         </span>
       </>

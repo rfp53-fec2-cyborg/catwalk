@@ -6,10 +6,10 @@ import Requester from '../../Requester.js';
 
 const Sorting = (props) => {
 
-  console.log(props);
+  console.log('Sorting.jsx', props);
 
   const [sortView, setSortView] = useState('relevant');
-  const [sortedListOfReviews, setSortedListOfReviews] = useState(sort(reviews.results));
+  const [sortedListOfReviews, setSortedListOfReviews] = useState(props.data.reviews.results);
 
   const handleView = (e) => {
     const view = e.currentTarget.value;
@@ -18,10 +18,8 @@ const Sorting = (props) => {
 
   const getSortView = async () => {
     let params = {
-      page: 0,
-      count: 5,
       sort: sortView,
-      productID: reviews.product
+      productID: Number(props.data.reviews.product)
     };
     try {
       console.log('Sorted reviews retrieved from API');
@@ -29,18 +27,19 @@ const Sorting = (props) => {
       return reviewData;
     } catch (err) {
       console.error('Error with fetching data from API; sorted reviews retrieved from internal function');
-      return sort(reviews.results);
+      let reviewData = await sort(props.data.reviews.results);
+      setSortedListOfReviews(reviewData);
     }
   };
 
   return (
     <div>
-      There are {props.ratingOverview.numReviews} reviews. Sort on <select onChange={handleView}>
+      There are {props.data.reviewsMeta.numReviews} reviews. Sort on <select onChange={handleView}>
         <option name="relevant" > Relevant </option>
         <option name="newest" > Newest </option>
         <option name="helpful" > Helpful </option>
       </select>
-      {/* <ReviewList ratingFilterCriteria={props.rating} sortedResults={sortedListOfReviews[sortView]}/> */}
+      <ReviewList props={props} sortedListOfReviews={sortedListOfReviews || sortedListOfReviews[sortView]}/>
     </div>
   );
 };

@@ -10,7 +10,7 @@ const Rating = ({reviews}) => {
 
   console.log('Rating.jsx', reviews);
 
-  const ratingData = MakeRating(reviewsMeta.ratings);
+  const ratingData = MakeRating(reviews.reviewsMeta.ratings);
 
   const [rating, setRating] = useState(ratingData.roundedValue);
   return (
