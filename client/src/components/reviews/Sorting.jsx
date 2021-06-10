@@ -4,42 +4,49 @@ import { sort } from '../../helpers/sort.js';
 import ReviewList from './ReviewList.jsx';
 import Requester from '../../Requester.js';
 
+const requester = Requester();
+
 const Sorting = (props) => {
 
-  console.log('Sorting.jsx', props);
+  const reviews = props.data.reviews;
+  const reviewsMeta = props.data.reviewsMeta;
 
-  const [sortView, setSortView] = useState('relevant');
-  const [sortedListOfReviews, setSortedListOfReviews] = useState(props.data.reviews.results);
+  const [sortView, setSortView] = useState('');
+  const [sortedListOfReviews, setSortedListOfReviews] = useState(reviews.results);
 
   const handleView = (e) => {
-    const view = e.currentTarget.value;
+    const view = e.target.value;
     setSortView(view);
+    getSortView(view);
   };
 
-  const getSortView = async () => {
+  const getSortView = async (view) => {
     let params = {
-      sort: sortView,
-      productID: Number(props.data.reviews.product)
+      'sort': view,
+      'prodct_id': Number(reviews.product)
     };
     try {
       console.log('Sorted reviews retrieved from API');
       let reviewData = await requester.getReviews(params);
-      return reviewData;
+      console.log(reviewData.results);
+      setSortedListOfReviews(reviewData.results);
     } catch (err) {
-      console.error('Error with fetching data from API; sorted reviews retrieved from internal function');
-      let reviewData = await sort(props.data.reviews.results);
-      setSortedListOfReviews(reviewData);
+      console.error('Error with fetching data from API: ', err);
+      console.log('Sort reviews retrieved from internal function.');
+      let sortView = err.response.config.params.sort;
+      let selfSortedData = await sort(reviews.results);
+      setSortedListOfReviews(selfSortedData[sortView]);
     }
   };
-
+  console.log('sortedListOfReviews', sortedListOfReviews);
   return (
     <div>
-      There are {props.data.reviewsMeta.numReviews} reviews. Sort on <select onChange={handleView}>
-        <option name="relevant" > Relevant </option>
-        <option name="newest" > Newest </option>
-        <option name="helpful" > Helpful </option>
+      There are {reviewsMeta.numReviews} reviews. Sort on <select onChange={handleView}>
+        <option value="relevant" defaultValue="selected" > Relevant </option>
+        <option value="newest" > Newest </option>
+        <option value="helpful" > Helpful </option>
       </select>
-      <ReviewList props={props} sortedListOfReviews={sortedListOfReviews || sortedListOfReviews[sortView]}/>
+      <ReviewList props={props} sortedListOfReviews={sortedListOfReviews}/>
     </div>
   );
 };

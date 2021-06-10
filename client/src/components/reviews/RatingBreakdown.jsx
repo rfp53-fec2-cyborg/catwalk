@@ -8,8 +8,6 @@ import { MakeRating, reverseRatingFromHighestToLowestInArray } from '../../helpe
 
 const RatingBreakdown = ({data}) => {
 
-  console.log('RatingBreakdown.jsx', data);
-
   const ratingOverview = data.reviewsMeta;
 
   const [starData, setStarData] = useState(reverseRatingFromHighestToLowestInArray(ratingOverview.ratings));

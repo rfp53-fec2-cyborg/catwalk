@@ -8,8 +8,6 @@ const containerStyles = {
 
 const RatingBar = (props) => {
 
-  console.log('RatingBar.jsx ', props);
-
   const percentage = Math.ceil(props.ratingCount / props.ratingOverview.maxRating * 100);
   const fillerStyles = {
     height: '100%',

@@ -2,8 +2,6 @@ import React from 'react';
 
 const Recommended = ({recommendedData}) => {
 
-  console.log('Recommended.jsx', recommendedData);
-
   let max = Number(recommendedData.true) + Number(recommendedData.false);
 
   if (Number(recommendedData.true) > 0) {

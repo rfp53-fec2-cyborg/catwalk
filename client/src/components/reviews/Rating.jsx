@@ -8,8 +8,6 @@ import { MakeRating } from '../../helpers/MakeRating.js';
 
 const Rating = ({reviews}) => {
 
-  console.log('Rating.jsx', reviews);
-
   const ratingData = MakeRating(reviews.reviewsMeta.ratings);
 
   const [rating, setRating] = useState(ratingData.roundedValue);

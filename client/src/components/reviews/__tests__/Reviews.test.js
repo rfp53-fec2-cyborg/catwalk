@@ -86,11 +86,9 @@ it ('RatingFilterDesc component renders without crashing', () => {
 
 it ('Recommended component renders without crashing', () => {
   const div = document.createElement('div');
-  const recommended = {
-    'recommended': {
-      'false': '9',
-      'true': '25'
-    }
+  const recommendedData = {
+    'false': '9',
+    'true': '25'
   };
-  ReactDOM.render(<Recommended data={recommended}/>, div);
+  ReactDOM.render(<Recommended recommendedData={recommendedData}/>, div);
 });

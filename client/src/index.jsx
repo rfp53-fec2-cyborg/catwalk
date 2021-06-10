@@ -64,7 +64,7 @@ class App extends React.Component {
       this.fetchAndStore(requester.getProduct, 'product', productID),
       this.fetchAndStore(requester.getProductStyles, 'styles', productID),
       this.fetchAndStore(requester.getRelatedProducts, 'relatedProducts', productID),
-      this.fetchAndStore(requester.getReviews, 'reviews', { 'product_id': productID }),
+      this.fetchAndStore(requester.getReviews, 'reviews', { 'product_id': 17070 }),
       this.fetchAndStore(requester.getReviewsMeta, 'reviewsMeta', { 'product_id': productID }),
       this.fetchAndStore(requester.getCart, 'cart', null)
     ])
