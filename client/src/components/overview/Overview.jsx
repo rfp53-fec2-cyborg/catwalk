@@ -9,12 +9,13 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
   //TODO iterate through styles, get style with default? = true, set as default selectedStyle
 
   // State
-  const [selectedStyle, setSelectedStyle] = useState(styles[0]);
+  const [selectedStyle, setSelectedStyle] = useState(styles[0].style_id.toString());
 
   // Event handlers
   const handleStyleClick = (event) => {
     const styleID = event.target.dataset.id;
-    setSelectedStyle(getStyleById(styleID));
+    // setSelectedStyle(getStyleById(styleID));
+    setSelectedStyle(styleID);
   };
 
   // Utilities
@@ -43,6 +44,7 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
       <p>{formatPrice(product.default_price)}</p>
       <Styles
         styles={styles}
+        selectedStyle={selectedStyle}
         handleStyleClick={handleStyleClick}
       />
       {
