@@ -8,7 +8,7 @@ const containerStyles = {
 
 const RatingBar = (props) => {
 
-  const percentage = Math.ceil(props.data.ratingCount / props.data.max * 100);
+  const percentage = Math.ceil(props.ratingCount / props.ratingOverview.maxRating * 100);
   const fillerStyles = {
     height: '100%',
     width: `${percentage}%`,
@@ -18,7 +18,7 @@ const RatingBar = (props) => {
 
   return (
     <div style={containerStyles}>
-      <div style={fillerStyles} > {props.data.ratingCount} </div>
+      <div style={fillerStyles} > {props.ratingCount} </div>
     </div>
   );
 };

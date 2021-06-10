@@ -64,7 +64,7 @@ class App extends React.Component {
       this.fetchAndStore(requester.getProduct, 'product', productID),
       this.fetchAndStore(requester.getProductStyles, 'styles', productID),
       this.fetchAndStore(requester.getRelatedProducts, 'relatedProducts', productID),
-      this.fetchAndStore(requester.getReviews, 'reviews', { 'product_id': productID }),
+      this.fetchAndStore(requester.getReviews, 'reviews', { 'product_id': productID, 'count': 999 }),
       this.fetchAndStore(requester.getReviewsMeta, 'reviewsMeta', { 'product_id': productID }),
       this.fetchAndStore(requester.getCart, 'cart', null)
     ])
@@ -103,7 +103,7 @@ class App extends React.Component {
   addRatingsMeta() {
     return this.setState(state => {
       const reviewsMeta = state.reviewsMeta;
-      const ratingsMeta = MakeRating(state.reviewsMeta.ratings);
+      const ratingsMeta = MakeRating(state.reviewsMeta.ratings, state.reviews.results);
       for (const key in ratingsMeta) {
         reviewsMeta[key] = ratingsMeta[key];
       }

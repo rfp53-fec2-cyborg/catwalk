@@ -4,11 +4,11 @@ import RatingFilterDesc from './RatingFilterDesc.jsx';
 
 import StarRating from '../shared/StarRating.jsx';
 import { MakeRating } from '../../helpers/MakeRating.js';
-import { reviewsMeta } from '../../../mock-data/reviewsMeta.js';
+// import { reviewsMeta } from '../../../mock-data/reviewsMeta.js';
 
-const Rating = () => {
+const Rating = ({reviews}) => {
 
-  const ratingData = MakeRating(reviewsMeta.ratings);
+  const ratingData = MakeRating(reviews.reviewsMeta.ratings);
 
   const [rating, setRating] = useState(ratingData.roundedValue);
   return (
@@ -18,7 +18,7 @@ const Rating = () => {
       </div>
       <div>
         <h5> Rating Breakdown </h5>
-        <RatingBreakdown data={reviewsMeta}/>
+        <RatingBreakdown data={reviews}/>
       </div>
     </div>
   );

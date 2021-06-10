@@ -6,31 +6,31 @@ import Recommended from './Recommended.jsx';
 
 import { MakeRating, reverseRatingFromHighestToLowestInArray } from '../../helpers/MakeRating.js';
 
-const RatingBreakdown = (props) => {
+const RatingBreakdown = ({data}) => {
 
-  const ratingOverview = MakeRating(props.data.ratings);
+  const ratingOverview = data.reviewsMeta;
 
-  const [starData, setStarData] = useState(reverseRatingFromHighestToLowestInArray(props.data.ratings));
+  const [starData, setStarData] = useState(reverseRatingFromHighestToLowestInArray(ratingOverview.ratings));
   const [max, setMax] = useState(ratingOverview.maxRating);
-  const [rating, setRating] = useState([]);
+  const [ratingFilter, setRatingFilter] = useState([]);
 
   const handleRatingSelected = (e) => {
     let ratingValue = Number(e.currentTarget.getAttribute('value'));
-    let index = rating.indexOf(ratingValue);
+    let index = ratingFilter.indexOf(ratingValue);
     if (index > -1) {
-      setRating(array => {
+      setRatingFilter(array => {
         array.splice(index, 1);
         return [...array];
       });
     } else {
-      setRating(array => [...array, ratingValue]);
+      setRatingFilter(array => [...array, ratingValue]);
     }
   };
 
   return (
     <>
       <div>
-        <RatingFilterDesc data={rating} setRating={setRating}/>
+        <RatingFilterDesc data={ratingFilter} setRatingFilter={setRatingFilter}/>
       </div>
       <div>
         {starData.map((value, index) => {
@@ -41,15 +41,15 @@ const RatingBreakdown = (props) => {
             <div key={rating}>
               <div className="rating-breakdown" value={rating} onClick={(e) => handleRatingSelected(e)}>
                 <u > {`${rating} stars`} </u>
-                <RatingBar data={{rating, ratingCount, max}} />
+                <RatingBar ratingCount={ratingCount} ratingOverview={ratingOverview} />
               </div>
             </div>
           );
         })}
-        <Recommended data={props.data}/>
+        <Recommended recommendedData={ratingOverview.recommended}/>
 
         <div>
-          <Sorting ratingOverview={ratingOverview} rating={rating}/>
+          <Sorting data={data} ratingFilter={ratingFilter}/>
         </div>
       </div>
     </>

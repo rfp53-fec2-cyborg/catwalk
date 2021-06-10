@@ -18,6 +18,7 @@ const Requester = () => {
       console.log('Error data:', error.response.data);
       console.log('Error status:', error.response.status);
       console.log('Error headers:', error.response.headers);
+      console.log('Error params:', error.response.config.params);
       return error.response.data;
     } else if (error.request) {
       console.log('Error:', error.request);
