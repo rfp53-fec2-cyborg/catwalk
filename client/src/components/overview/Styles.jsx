@@ -1,31 +1,28 @@
 import React from 'react';
+import StylesRow from './StylesRow.jsx';
 
 const Styles = ({styles}) => {
-  // rows of 4 (will do in CSS)
-  // current selection
-    // default first item selection
-    // current selection indicated by overlaid checkmark
-    // current selection has title above
-    // change selection by clicking
+  // TODO
+  // [current selection] default first item selection
+  // [current selection] indicated by overlaid checkmark
+  // [current selection] has title above
+  // [current selection] change selection by clicking
+  const NUM_COLS = 4;
 
-  const cssStyle = {
-    objectFit: 'cover',
-    height: '80px',
-    width: '80px',
-    'borderRadius': '50%'
-  };
-
-  console.log(styles);
   return (
-
     <div>
-      {styles.map((style, index) => {
-        return <img
-          key={style.style_id}
-          src={style.photos[0].thumbnail_url}
-          style={cssStyle}>
-        </img>;
-      })}
+      <table>
+        <tbody>
+          {styles.map((style, index) => {
+            if (index % NUM_COLS === 0) {
+              return <StylesRow
+                key={`stylesRow_${index / 4}`}
+                styles={styles.slice(index, index + NUM_COLS)}
+              />;
+            }
+          })}
+        </tbody>
+      </table>
     </div>
   );
 };
