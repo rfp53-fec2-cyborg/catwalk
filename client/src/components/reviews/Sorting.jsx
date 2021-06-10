@@ -23,6 +23,7 @@ const Sorting = (props) => {
   const getSortView = async (view) => {
     let params = {
       'sort': view,
+      'count': reviewsMeta.numReviews,
       'product_id': Number(reviews.product)
     };
     try {

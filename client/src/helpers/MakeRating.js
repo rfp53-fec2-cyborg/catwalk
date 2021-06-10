@@ -1,13 +1,13 @@
-export const MakeRating = (ratings) => {
+export const MakeRating = (ratings, reviews) => {
 
-  const numReviews = Object.keys(ratings).reduce((sum, key) => {
+  const numRatings = Object.keys(ratings).reduce((sum, key) => {
     return sum + Number.parseInt(ratings[key]);
   }, 0);
 
   const value = Object.keys(ratings).reduce((avg, key) => {
     const score = Number.parseInt(key);
     const count = Number.parseInt(ratings[key]);
-    return avg + (score * count / numReviews);
+    return avg + (score * count / numRatings);
   }, 0).toPrecision(3);
 
   const findRoundedValue = () => {
@@ -24,7 +24,8 @@ export const MakeRating = (ratings) => {
   };
 
   const rating = {
-    numReviews,
+    numReviews: reviews ? reviews.length : 0,
+    numRatings,
     value,
     roundedValue: findRoundedValue(),
     maxRating: findMaxRating(ratings)
