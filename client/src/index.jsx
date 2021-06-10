@@ -18,7 +18,8 @@ class App extends React.Component {
       relatedProducts: [],
       reviews: {},
       reviewsMeta: {},
-      cart: []
+      cart: [],
+      isLoaded: false
     };
     this.loadFirstProduct = this.loadFirstProduct.bind(this);
     this.fetchAndStore = this.fetchAndStore.bind(this);
@@ -70,6 +71,9 @@ class App extends React.Component {
       .then(() => {
         return this.addRatingsMeta();
       })
+      .then(() => {
+        this.setState({isLoaded: true});
+      })
       .catch(console.log);
   }
 
@@ -108,24 +112,32 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <Overview
-          product={this.state.product}
-          styles={this.state.styles}
-          cart={this.state.cart}
-          reviewsMeta={this.state.reviewsMeta}
-        />
-        <Comparison
-          relatedProducts={this.state.relatedProducts}
-        />
-        <Reviews
-          reviews={this.state.reviews}
-          reviewsMeta={this.state.reviewsMeta}
-        />
-        <QandA />
-      </div>
-    );
+    if (this.state.isLoaded) {
+      return (
+        <div>
+          <Overview
+            product={this.state.product}
+            styles={this.state.styles}
+            cart={this.state.cart}
+            reviewsMeta={this.state.reviewsMeta}
+          />
+          <Comparison
+            relatedProducts={this.state.relatedProducts}
+          />
+          <Reviews
+            reviews={this.state.reviews}
+            reviewsMeta={this.state.reviewsMeta}
+          />
+          <QandA />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          Insert fun loading animation here
+        </div>
+      );
+    }
   }
 }
 
