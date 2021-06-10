@@ -5,7 +5,7 @@ import ReviewListEntry from './ReviewListEntry.jsx';
 const ReviewList = (props) => {
 
   const defaultView = 2;
-  const totalReviewLength = reviews.results.length;
+  const totalReviewLength = props.sortedResults.length;
   const [length, setLength] = useState(defaultView);
 
   const showMoreReviews = () => {
@@ -22,7 +22,7 @@ const ReviewList = (props) => {
     let reviewsByRating = props.ratingFilterCriteria.length === 0 ? [5, 4, 3, 2, 1] : props.ratingFilterCriteria;
 
     // Filter based on above array of ratings selected, whether default or whether changed
-    return reviews.results.filter(singleReview => reviewsByRating.indexOf(singleReview.rating) !== -1)
+    return props.sortedResults.filter(singleReview => reviewsByRating.indexOf(singleReview.rating) !== -1)
       .slice(0, length).map((review, index) =>
         <ReviewListEntry
           review={review}

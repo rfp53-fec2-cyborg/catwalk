@@ -25,7 +25,7 @@ it ('Reviews component renders without crashing', () => {
 
 it ('ReviewList component renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<ReviewList ratingFilterCriteria={[]}/>, div);
+  ReactDOM.render(<ReviewList ratingFilterCriteria={[]} sortedResults={[]}/>, div);
 });
 
 
