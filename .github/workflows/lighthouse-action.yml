@@ -8,6 +8,6 @@ jobs:
       - uses: actions/setup-node@v1
       - run: npm ci && npm install -g @lhci/cli@0.7.x
       - run: npm run build-test
-      - run: lhci autorun
+      - run: lhci autorun --upload.target=temporary-public-storage
         env:
           LHCI_GITHUB_APP_TOKEN: $({secrets.LIGHTHOUSE_APP_TOKEN})
