@@ -16,8 +16,8 @@ it ('Date value returned from databse is shown in proper Month DD, YYYY format',
 
 var sortObj = sort(reviews.results);
 it ('Helpfulness sort should sort by highest helpfulness rating', () => {
-  expect(sortObj.Helpfulness[0].review_id).toBe(348114);
-  expect(sortObj.Helpfulness[sortObj.Helpfulness.length - 1].review_id).toBe(348118);
+  expect(sortObj.Helpful[0].review_id).toBe(348114);
+  expect(sortObj.Helpful[sortObj.Helpful.length - 1].review_id).toBe(348118);
 });
 
 it ('Newest sort should sort by newest ratings by date', () => {

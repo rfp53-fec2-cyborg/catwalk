@@ -46,7 +46,7 @@ export const sort = (results) => {
         relevantArr.push(newestArr[i]);
       }
     }
-    sortedLists.Helpfulness = helpfulArr;
+    sortedLists.Helpful = helpfulArr;
     sortedLists.Newest = newestArr;
     sortedLists.Relevant = relevantArr;
   })();
