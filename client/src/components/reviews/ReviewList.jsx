@@ -4,7 +4,6 @@ import ReviewListEntry from './ReviewListEntry.jsx';
 
 const ReviewList = (props) => {
 
-  console.log('ReviewList', props);
   const data = props.props.data;
   const ratingFilter = props.props.ratingFilter;
   const sortedListOfReviews = props.sortedListOfReviews;

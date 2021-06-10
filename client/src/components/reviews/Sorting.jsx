@@ -23,12 +23,11 @@ const Sorting = (props) => {
   const getSortView = async (view) => {
     let params = {
       'sort': view,
-      'prodct_id': Number(reviews.product)
+      'product_id': Number(reviews.product)
     };
     try {
       console.log('Sorted reviews retrieved from API');
       let reviewData = await requester.getReviews(params);
-      console.log(reviewData.results);
       setSortedListOfReviews(reviewData.results);
     } catch (err) {
       console.error('Error with fetching data from API: ', err);
@@ -38,7 +37,6 @@ const Sorting = (props) => {
       setSortedListOfReviews(selfSortedData[sortView]);
     }
   };
-  console.log('sortedListOfReviews', sortedListOfReviews);
   return (
     <div>
       There are {reviewsMeta.numReviews} reviews. Sort on <select onChange={handleView}>
