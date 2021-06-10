@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Requester from './Requester.js';
+import {MakeRating} from './helpers/MakeRating.js';
 import Overview from './components/overview/Overview.jsx';
 import Comparison from './components/comparison/Comparison.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
@@ -33,7 +34,7 @@ class App extends React.Component {
    * the page shows some meaningful content when first loaded.
    */
   loadFirstProduct() {
-    this.getArbitraryProduct()
+    return this.getArbitraryProduct()
       .then(product => {
         return this.loadAllProductData(product.id);
       })
@@ -66,6 +67,9 @@ class App extends React.Component {
       this.fetchAndStore(requester.getReviewsMeta, 'reviewsMeta', { 'product_id': productID }),
       this.fetchAndStore(requester.getCart, 'cart', null)
     ])
+      .then(() => {
+        return this.addRatingsMeta();
+      })
       .catch(console.log);
   }
 
@@ -92,6 +96,17 @@ class App extends React.Component {
       });
   }
 
+  addRatingsMeta() {
+    return this.setState(state => {
+      const reviewsMeta = state.reviewsMeta;
+      const ratingsMeta = MakeRating(state.reviewsMeta.ratings);
+      for (const key in ratingsMeta) {
+        reviewsMeta[key] = ratingsMeta[key];
+      }
+      return { reviewsMeta };
+    });
+  }
+
   render() {
     return (
       <div>
@@ -99,6 +114,7 @@ class App extends React.Component {
           product={this.state.product}
           styles={this.state.styles}
           cart={this.state.cart}
+          rating={this.state.reviewsMeta.roundedValue}
         />
         <Comparison
           relatedProducts={this.state.relatedProducts}
