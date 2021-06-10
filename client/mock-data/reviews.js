@@ -12,7 +12,7 @@ module.exports.reviews = {
       'body': 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
       'date': '2021-06-06T00:00:00.000Z',
       'reviewer_name': 'bob',
-      'helpfulness': 0,
+      'helpfulness': 50,
       'photos': [
         {
           'id': 730659,
@@ -29,7 +29,7 @@ module.exports.reviews = {
       'body': 'A long review would go here, but there\'s no time',
       'date': '2021-06-05T00:00:00.000Z',
       'reviewer_name': 'useruser',
-      'helpfulness': 0,
+      'helpfulness': 15,
       'photos': [
         {
           'id': 730657,
@@ -50,7 +50,7 @@ module.exports.reviews = {
       'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       'date': '2021-06-05T00:00:00.000Z',
       'reviewer_name': 'Lorem',
-      'helpfulness': 0,
+      'helpfulness': 60,
       'photos': []
     },
     {
@@ -62,7 +62,7 @@ module.exports.reviews = {
       'body': 'asdfasdfasdfasfadsfasdfasfdasfasfsdfasdasdfasdffgsdfgsdfgdfsg',
       'date': '2021-04-26T00:00:00.000Z',
       'reviewer_name': 'asdfasdfasdf',
-      'helpfulness': 0,
+      'helpfulness': 1,
       'photos': [
         {
           'id': 614278,
@@ -79,7 +79,7 @@ module.exports.reviews = {
       'body': 'really great product, I really love it. It\'s great!',
       'date': '2021-04-26T00:00:00.000Z',
       'reviewer_name': 'Allison',
-      'helpfulness': 5,
+      'helpfulness': 100,
       'photos': [
         {
           'id': 614274,
