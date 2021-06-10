@@ -11,13 +11,31 @@ const Requester = () => {
   // These are the generic axios request methods along with some basic handling of the result.
   // They are "private methods" because they are available to the requester object in the closure,
   // but they are not directly available to users of the requester object
+
+  const printErrorInfo = (error) => {
+    console.log(error);
+    if (error.response) {
+      console.log('Error data:', error.response.data);
+      console.log('Error status:', error.response.status);
+      console.log('Error headers:', error.response.headers);
+      return error.response.data;
+    } else if (error.request) {
+      console.log('Error:', error.request);
+      return error.request;
+    } else {
+      console.log('Error:', error.message);
+      return error.message;
+    }
+  };
+
   const get = (endpoint, params) => {
     return axios.get(`${SERVER_URL}/${endpoint}`, { params })
       .then((response) => {
         return response.data;
       })
       .catch(err => {
-        console.log(error);
+        printErrorInfo(err);
+        throw err;
       });
   };
 
@@ -27,7 +45,8 @@ const Requester = () => {
         return response.data;
       })
       .catch(err => {
-        console.log(error);
+        printErrorInfo(err);
+        throw err;
       });
   };
 
@@ -37,7 +56,8 @@ const Requester = () => {
         return response.data;
       })
       .catch(err => {
-        console.log(error);
+        printErrorInfo(err);
+        throw err;
       });
   };
 
@@ -49,15 +69,15 @@ const Requester = () => {
   };
 
   requester.getProduct = (productID) => {
-    return get(`products:${productID}`);
+    return get(`products/${productID}`);
   };
 
   requester.getProductStyles = (productID) => {
-    return get(`products:${productID}/styles`);
+    return get(`products/${productID}/styles`);
   };
 
   requester.getRelatedProducts = (productID) => {
-    return get(`products:${productID}/related`);
+    return get(`products/${productID}/related`);
   };
 
   requester.getReviews = (params) => {
@@ -73,11 +93,11 @@ const Requester = () => {
   };
 
   requester.markReviewHelpful = (reviewID) => {
-    return put(`reviews:${reviewID}/helpful`);
+    return put(`reviews/${reviewID}/helpful`);
   };
 
   requester.reportReview = (reviewID) => {
-    return put(`reviews:${reviewID}/report`);
+    return put(`reviews/${reviewID}/report`);
   };
 
   requester.getCart = () => {

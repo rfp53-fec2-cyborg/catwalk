@@ -20,6 +20,7 @@ const getCart = async (data) => {
     return response.data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 
@@ -39,6 +40,7 @@ const postCart = async (data) => {
     return response.data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 
