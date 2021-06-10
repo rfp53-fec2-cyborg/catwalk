@@ -19,7 +19,7 @@ class App extends React.Component {
       reviews: {},
       reviewsMeta: {},
       cart: [],
-      loading: false
+      isLoaded: false
     };
     this.loadFirstProduct = this.loadFirstProduct.bind(this);
     this.fetchAndStore = this.fetchAndStore.bind(this);
@@ -69,8 +69,10 @@ class App extends React.Component {
       this.fetchAndStore(requester.getCart, 'cart', null)
     ])
       .then(() => {
-        this.setState({loading: true});
         return this.addRatingsMeta();
+      })
+      .then(() => {
+        this.setState({isLoaded: true});
       })
       .catch(console.log);
   }
@@ -110,7 +112,7 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.loading) {
+    if (this.state.isLoaded) {
       return (
         <div>
           <Overview
