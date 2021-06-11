@@ -1,0 +1,208 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Overview matches snapshot 1`] = `
+<div>
+  <div>
+    <img
+      src="test-file-stub"
+      style={
+        Object {
+          "height": "20px",
+          "width": "110px",
+        }
+      }
+    />
+    <a
+      href=""
+    >
+      Read all 
+      31
+       reviews
+    </a>
+  </div>
+  <p>
+    Kicks
+  </p>
+  <h1>
+    Heir Force Ones
+  </h1>
+  <p>
+    $99
+  </p>
+  <div>
+    <h4>
+      STYLE &gt; 
+      <span
+        style={
+          Object {
+            "fontWeight": "500",
+          }
+        }
+      >
+        White & White
+      </span>
+    </h4>
+    <table>
+      <tbody>
+        <tr>
+          <td
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <img
+              alt="style_thumbnail_90275"
+              data-id={90275}
+              onClick={[Function]}
+              src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+              style={
+                Object {
+                  "borderRadius": "50%",
+                  "height": "80px",
+                  "objectFit": "cover",
+                  "width": "80px",
+                }
+              }
+            />
+            <div
+              style={
+                Object {
+                  "backgroundColor": "white",
+                  "backgroundImage": "url(test-file-stub)",
+                  "border": "1px solid #484848",
+                  "borderRadius": "50%",
+                  "height": "24px",
+                  "position": "absolute",
+                  "right": "0px",
+                  "top": "0px",
+                  "width": "24px",
+                }
+              }
+            />
+          </td>
+          <td
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <img
+              alt="style_thumbnail_90276"
+              data-id={90276}
+              onClick={[Function]}
+              src="https://images.unsplash.com/photo-1542280756-74b2f55e73ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+              style={
+                Object {
+                  "borderRadius": "50%",
+                  "height": "80px",
+                  "objectFit": "cover",
+                  "width": "80px",
+                }
+              }
+            />
+          </td>
+          <td
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <img
+              alt="style_thumbnail_90277"
+              data-id={90277}
+              onClick={[Function]}
+              src="https://images.unsplash.com/photo-1542702942-161ceb2e3d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+              style={
+                Object {
+                  "borderRadius": "50%",
+                  "height": "80px",
+                  "objectFit": "cover",
+                  "width": "80px",
+                }
+              }
+            />
+          </td>
+          <td
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <img
+              alt="style_thumbnail_90278"
+              data-id={90278}
+              onClick={[Function]}
+              src="https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+              style={
+                Object {
+                  "borderRadius": "50%",
+                  "height": "80px",
+                  "objectFit": "cover",
+                  "width": "80px",
+                }
+              }
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h4>
+      A sneaker dynasty
+    </h4>
+    <p>
+      Now where da boxes where I keep mine? You should peep mine, maybe once or twice but never three times. I'm just a sneaker pro, I love Pumas and shell toes, but can't nothin compare to a fresh crispy white pearl
+    </p>
+  </div>
+  <div>
+    <a
+      href="https://www.facebook.com"
+      target="_blank"
+    >
+      <img
+        src="test-file-stub"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+      />
+    </a>
+    <a
+      href="https://www.twitter.com"
+      target="_blank"
+    >
+      <img
+        src="test-file-stub"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+      />
+    </a>
+    <a
+      href="https://www.pinterest.com"
+      target="_blank"
+    >
+      <img
+        src="test-file-stub"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+      />
+    </a>
+  </div>
+</div>
+`;

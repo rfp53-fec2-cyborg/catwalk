@@ -31,6 +31,7 @@ const StylesRow = ({ styles, selectedStyle, handleStyleClick }) => {
               data-id={style.style_id}
               src={style.photos[0].thumbnail_url}
               style={cssStyleThumbnail}
+              alt={`style_thumbnail_${style.style_id}`}
               onClick={handleStyleClick}
             >
             </img>
