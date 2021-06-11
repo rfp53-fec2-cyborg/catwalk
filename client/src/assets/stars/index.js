@@ -20,6 +20,9 @@ import i450 from './4_50_star.png';
 import i475 from './4_75_star.png';
 import i500 from './5_00_star.png';
 
+import singleFilledStar from './single_filled_star.png';
+import singleUnfilledStar from './single_unfilled_star.png';
+
 export default {
   i000,
   i025,
@@ -41,5 +44,7 @@ export default {
   i425,
   i450,
   i475,
-  i500
+  i500,
+  singleFilledStar,
+  singleUnfilledStar
 };
