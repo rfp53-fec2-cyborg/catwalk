@@ -2,7 +2,7 @@ import React from 'react';
 
 const containerStyles = {
   height: '1em',
-  width: '15%',
+  width: '20%',
   backgroundColor: '#e0e0de',
 };
 
