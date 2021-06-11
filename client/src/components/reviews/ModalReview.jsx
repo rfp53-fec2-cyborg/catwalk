@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Modal from '../shared/Modal.jsx';
 
-const ModalReview = ({reviewsMeta}) => {
+const ModalReview = ({data}) => {
 
-  const characteristics = reviewsMeta.characteristics;
+  console.log(data);
+
+  const characteristics = data.reviewsMeta.characteristics;
   const [formCharacteristicFields, setSormCharacteristicFields] = useState(Object.keys(characteristics));
 
   const content = (

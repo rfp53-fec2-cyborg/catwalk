@@ -42,7 +42,7 @@ const ReviewList = (props) => {
     <>
       {filterReviewsByRating()}
       {showMoreReviews()}
-      <AddReviews reviewsMeta={reviewsMeta}/>
+      <AddReviews data={data}/>
     </>
   );
 };
