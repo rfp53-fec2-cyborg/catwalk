@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SizeSelector = ({skus, handleSkuSelection}) => {
+const SizeSelector = ({ skus, handleSkuSelection }) => {
 
   const isOutOfStock = skus.every(sku => {
     return sku.quantity === 0;
@@ -8,7 +8,7 @@ const SizeSelector = ({skus, handleSkuSelection}) => {
 
   const outOfStockMenu = () => {
     return (
-      <option value = ''>OUT OF STOCK</option>
+      <option value=''>OUT OF STOCK</option>
     );
   };
 
@@ -20,8 +20,8 @@ const SizeSelector = ({skus, handleSkuSelection}) => {
           if (sku.quantity > 0) {
             return (
               <option
-                value={sku.id}
-                key={sku.id}>
+                value={sku.size}
+                key={`size_${index}`}>
                 {sku.size}
               </option>
             );
@@ -36,6 +36,7 @@ const SizeSelector = ({skus, handleSkuSelection}) => {
       <label htmlFor='size-select'></label>
       <select
         id='size-select'
+        aria-label='size-select'
         disabled={isOutOfStock}
         onChange={handleSkuSelection}>
         {isOutOfStock ?
