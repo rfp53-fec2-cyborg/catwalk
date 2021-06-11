@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Characteristic from './Characteristic.jsx';
+import { storeCharacteristicsInArray } from '../../helpers/ObjectIntoArray.js';
 
-var storeCharacteristicsInArray = (characteristics) => {
-  var result = [];
-  for (var key in characteristics) {
-    var obj = {};
-    obj.characteristic = key;
-    obj.details = characteristics[key];
-    result.push(obj);
-  }
-  return result;
-};
+
 
 const ProductBreakdown = ({data}) => {
 
