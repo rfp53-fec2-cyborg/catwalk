@@ -8,11 +8,17 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
 
   // State
   const [selectedStyle, setSelectedStyle] = useState(styles[0]);
+  const [selectedSkuId, setSelectedSkuId] = useState('');
 
   // Event handlers
   const handleStyleClick = (event) => {
     const styleID = event.target.dataset.id;
     setSelectedStyle(getStyleById(styleID));
+  };
+
+  const handleSkuSelection = (event) => {
+    const skuId = event.target.value;
+    setSelectedSkuId(skuId);
   };
 
   // Utilities
@@ -43,6 +49,7 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
         styles={styles}
         selectedStyle={selectedStyle}
         handleStyleClick={handleStyleClick}
+        handleSkuSelection={handleSkuSelection}
       />
       {
         product.description ?
