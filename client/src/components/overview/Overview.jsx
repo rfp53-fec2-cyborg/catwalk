@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Rating from './Rating.jsx';
 import Styles from './Styles.jsx';
 import SizeSelector from './SizeSelector.jsx';
@@ -8,14 +8,28 @@ import SocialMediaList from './SocialMediaList.jsx';
 
 const Overview = ({ product, styles, cart, reviewsMeta }) => {
 
+  const selectedSkuIdDefault = '';
+  const selectedQuantityDefault = 1;
+
   // State
   const [selectedStyle, setSelectedStyle] = useState(styles[0]);
   const [selectedSkuId, setSelectedSkuId] = useState('');
-  const [selectedQuantity, setSelectedQuantity] = useState(0);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+
+  // // TODO: remove this (just for development)
+  // useEffect(() => {
+  //   console.log({
+  //     selectedStyle,
+  //     selectedSkuId,
+  //     selectedQuantity
+  //   });
+  // });
 
   // Event handlers
   const handleStyleClick = (event) => {
     const styleID = event.target.dataset.id;
+    setSelectedSkuId(selectedSkuIdDefault);
+    setSelectedQuantity(selectedQuantityDefault);
     setSelectedStyle(getStyleById(styleID));
   };
 
@@ -27,7 +41,6 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
   const handleQuantitySelection = (event) => {
     const quantity = event.target.value;
     setSelectedQuantity(quantity);
-    console.log('selectedQuantity:', selectedQuantity);
   };
 
   // Utilities
@@ -74,6 +87,7 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
       />
       <SizeSelector
         skus={skusToArray(selectedStyle.skus)}
+        selectedSkuId={selectedSkuId}
         handleSkuSelection={handleSkuSelection}
       />
       <QuantitySelector
