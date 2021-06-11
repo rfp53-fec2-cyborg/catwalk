@@ -1,9 +1,16 @@
 import React from 'react';
+import downArrow from '../../assets/down-arrow.svg';
 
 const containerStyles = {
   width: '20%',
+  position: 'relative',
+  marginBottom: '10px'
+};
+
+const barStyle = {
+  width: '100%',
   backgroundColor: '#e0e0de',
-  position: 'relative'
+  height: '1em',
 };
 
 const characteristicDesc = {
@@ -16,13 +23,15 @@ const characteristicDesc = {
 };
 
 const fillerDesc = {
+  width: '100%',
   display: 'flex',
   justifyContent: 'space-between',
 };
 
 const desc = {
-  fontSize: '14px',
+  fontSize: '13px',
   textAlign: 'center',
+  padding: '1px'
 };
 
 const Characteristic = ({value}) => {
@@ -35,15 +44,15 @@ const Characteristic = ({value}) => {
   };
 
   return (
-    <div>
+    <div style={containerStyles}>
       <div> {value.characteristic} </div>
-      <div style={containerStyles}>
-        <div style={fillerStyles} > V </div>
-        <div style={fillerDesc} >
-          <div style={desc} > {characteristicDesc[value.characteristic][0]}</div>
-          <div style={desc} > {characteristicDesc[value.characteristic][1]}</div>
-          <div style={desc} > {characteristicDesc[value.characteristic][2]}</div>
-        </div>
+      <div style={barStyle}>
+        <div style={fillerStyles} > <img src={downArrow}/> </div>
+      </div>
+      <div style={fillerDesc} >
+        {characteristicDesc[value.characteristic].map((value, index) =>
+          <div key={index} style={desc} > {value}</div>
+        )}
       </div>
     </div>
   );
