@@ -5,11 +5,11 @@ import Rating from './Rating.jsx';
 const Reviews = (props) => {
 
   return (
-    <div className="">
+    <div>
       <h2>RATINGS & REVIEWS</h2>
-      <div className="">
+      <>
         <Rating reviews={props}/>
-      </div>
+      </>
     </div>
   );
 };

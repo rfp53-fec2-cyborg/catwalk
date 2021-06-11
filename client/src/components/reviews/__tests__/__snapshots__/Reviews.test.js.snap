@@ -1,0 +1,374 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductBreakdown matches snapshot 1`] = `
+<div>
+  <div>
+    <div
+      className="product-breakdown"
+    >
+      <div
+        style={
+          Object {
+            "marginBottom": "10px",
+            "position": "relative",
+            "width": "20%",
+          }
+        }
+      >
+        <div>
+           
+          Size
+           
+        </div>
+        <div
+          style={
+            Object {
+              "backgroundColor": "#e0e0de",
+              "height": "1em",
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "textAlign": "right",
+                "width": "60%",
+              }
+            }
+          >
+             
+            <img
+              alt="downArrow_57235"
+              src="test-file-stub"
+            />
+             
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "justifyContent": "space-between",
+              "width": "100%",
+            }
+          }
+        >
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            Too small
+          </label>
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            Perfect
+          </label>
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            Too big
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="product-breakdown"
+    >
+      <div
+        style={
+          Object {
+            "marginBottom": "10px",
+            "position": "relative",
+            "width": "20%",
+          }
+        }
+      >
+        <div>
+           
+          Width
+           
+        </div>
+        <div
+          style={
+            Object {
+              "backgroundColor": "#e0e0de",
+              "height": "1em",
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "textAlign": "right",
+                "width": "63%",
+              }
+            }
+          >
+             
+            <img
+              alt="downArrow_57236"
+              src="test-file-stub"
+            />
+             
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "justifyContent": "space-between",
+              "width": "100%",
+            }
+          }
+        >
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            Too small
+          </label>
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            Perfect
+          </label>
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            Too big
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="product-breakdown"
+    >
+      <div
+        style={
+          Object {
+            "marginBottom": "10px",
+            "position": "relative",
+            "width": "20%",
+          }
+        }
+      >
+        <div>
+           
+          Comfort
+           
+        </div>
+        <div
+          style={
+            Object {
+              "backgroundColor": "#e0e0de",
+              "height": "1em",
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "textAlign": "right",
+                "width": "63%",
+              }
+            }
+          >
+             
+            <img
+              alt="downArrow_57237"
+              src="test-file-stub"
+            />
+             
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "justifyContent": "space-between",
+              "width": "100%",
+            }
+          }
+        >
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            Poor
+          </label>
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            
+          </label>
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            Great
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="product-breakdown"
+    >
+      <div
+        style={
+          Object {
+            "marginBottom": "10px",
+            "position": "relative",
+            "width": "20%",
+          }
+        }
+      >
+        <div>
+           
+          Quality
+           
+        </div>
+        <div
+          style={
+            Object {
+              "backgroundColor": "#e0e0de",
+              "height": "1em",
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "textAlign": "right",
+                "width": "66%",
+              }
+            }
+          >
+             
+            <img
+              alt="downArrow_57238"
+              src="test-file-stub"
+            />
+             
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "justifyContent": "space-between",
+              "width": "100%",
+            }
+          }
+        >
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            Poor
+          </label>
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            
+          </label>
+          <label
+            style={
+              Object {
+                "fontSize": "13px",
+                "padding": "1px",
+                "textAlign": "center",
+              }
+            }
+          >
+             
+            Great
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

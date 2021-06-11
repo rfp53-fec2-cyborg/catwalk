@@ -3,6 +3,7 @@ import RatingBar from './RatingBar.jsx';
 import Sorting from './Sorting.jsx';
 import RatingFilterDesc from './RatingFilterDesc.jsx';
 import Recommended from './Recommended.jsx';
+import ProductBreakdown from './ProductBreakdown.jsx';
 
 import { MakeRating, reverseRatingFromHighestToLowestInArray } from '../../helpers/MakeRating.js';
 
@@ -29,26 +30,29 @@ const RatingBreakdown = ({data}) => {
 
   return (
     <>
-      <div>
-        <RatingFilterDesc data={ratingFilter} setRatingFilter={setRatingFilter}/>
-      </div>
-      <div>
-        {starData.map((value, index) => {
-          let key = starData.length;
-          var {rating, ratingCount} = {rating: key - index, ratingCount: value[key - index]};
+      <div className="container">
+        <>
+          <RatingFilterDesc data={ratingFilter} setRatingFilter={setRatingFilter}/>
+        </>
+        <div className="breakdowns">
+          {starData.map((value, index) => {
+            let key = starData.length;
+            var {rating, ratingCount} = {rating: key - index, ratingCount: value[key - index]};
 
-          return (
-            <div key={rating}>
-              <div className="rating-breakdown" value={rating} onClick={(e) => handleRatingSelected(e)}>
-                <u > {`${rating} stars`} </u>
-                <RatingBar ratingCount={ratingCount} ratingOverview={ratingOverview} />
+            return (
+              <div key={rating}>
+                <div className="rating-breakdown" value={rating} onClick={(e) => handleRatingSelected(e)}>
+                  <u > {`${rating} stars`} </u>
+                  <RatingBar ratingCount={ratingCount} ratingOverview={ratingOverview} />
+                </div>
               </div>
-            </div>
-          );
-        })}
-        <Recommended recommendedData={ratingOverview.recommended}/>
+            );
+          })}
+          <Recommended recommendedData={ratingOverview.recommended}/>
+          <ProductBreakdown data={data}/>
+        </div>
 
-        <div>
+        <div className="review-list">
           <Sorting data={data} ratingFilter={ratingFilter}/>
         </div>
       </div>

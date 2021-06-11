@@ -13,12 +13,16 @@ import RatingBar from '../RatingBar.jsx';
 import RatingFilterDesc from '../RatingFilterDesc.jsx';
 import Recommended from '../Recommended.jsx';
 import Sorting from '../Sorting.jsx';
+import ProductBreakdown from '../ProductBreakdown.jsx';
+import Characteristic from '../Characteristic.jsx';
 
 import { reviews } from '../../../../mock-data/reviews.js';
 import { reviewsMeta } from '../../../../mock-data/reviewsMeta.js';
 import ModalPhoto from '../ModalPhoto.jsx';
 import Modal from '../../shared/Modal.jsx';
-import { render } from '@testing-library/react';
+
+import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
 
 it ('Reviews component renders without crashing', () => {
   const div = document.createElement('div');
@@ -105,4 +109,28 @@ it ('Recommended component renders without crashing', () => {
     'true': '25'
   };
   ReactDOM.render(<Recommended recommendedData={recommendedData}/>, div);
+});
+
+it ('ProductBreakdown component renders without crashing', () => {
+  const data = {reviews, reviewsMeta};
+  render(
+    <ProductBreakdown data={data}/>
+  );
+
+  expect(screen.getByText('Size'));
+  expect(screen.getByText('Width'));
+  expect(screen.getByText('Comfort'));
+  expect(screen.getByText('Quality'));
+  expect(screen.getByAltText('downArrow_57235'));
+  expect(screen.getByAltText('downArrow_57236'));
+  expect(screen.getByAltText('downArrow_57237'));
+  expect(screen.getByAltText('downArrow_57238'));
+});
+
+it('ProductBreakdown matches snapshot', () => {
+  const data = {reviews, reviewsMeta};
+  const tree = renderer
+    .create(<ProductBreakdown data={data}>Facebook</ProductBreakdown>)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
