@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import stars from '../../assets/stars/index.js';
-import StarRating from '../shared/StarRating.jsx';
+import stars from '../../../assets/stars/index.js';
+import StarRating from '../../shared/StarRating.jsx';
 
 const starStyle = {
   width: '22.5px',

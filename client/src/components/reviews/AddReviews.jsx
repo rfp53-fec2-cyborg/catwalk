@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ModalReview from './ModalReview.jsx';
+import ModalReview from './review_form/01_Form.jsx';
 
 const AddReviews = ({data}) => {
 

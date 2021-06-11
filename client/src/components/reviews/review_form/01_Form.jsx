@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Modal from '../shared/Modal.jsx';
-import ModalReviewStars from './ModalReviewStars.jsx';
+import Modal from '../../shared/Modal.jsx';
+import ModalReviewStars from './02_DynamicStars.jsx';
 
 const ModalReview = ({data}) => {
 
