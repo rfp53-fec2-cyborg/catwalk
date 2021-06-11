@@ -5,6 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "build-dev": "webpack -w",
+    "build-test": "webpack",
     "start-dev": "npx nodemon server/server.js",
     "start": "node server/server.js",
     "test": "jest"
