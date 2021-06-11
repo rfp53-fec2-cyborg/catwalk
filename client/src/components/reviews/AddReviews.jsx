@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ModalReview from './review_form/01_Form.jsx';
+import ReviewForm from './review_form/01_ReviewForm.jsx';
 
 const AddReviews = ({data}) => {
 
@@ -8,7 +8,7 @@ const AddReviews = ({data}) => {
   return (
     <>
       <button value={Number(data.reviewsMeta.product_id)} onClick={() => setShowModal(current => !current)}> Add Reviews + </button>
-      {showModal ? <ModalReview data={data}/> : null}
+      {showModal ? <ReviewForm data={data}/> : null}
     </>
   );
 };

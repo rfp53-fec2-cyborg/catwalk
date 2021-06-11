@@ -15,7 +15,7 @@ const relatedStarRating = {
   '5.00': 'Great'
 };
 
-const ModalReviewStars = () => {
+const DrawDynamicStars = (props) => {
   const [state, setState] = useState({
     rating: 0,
     areStarsDrawn: false,
@@ -40,6 +40,7 @@ const ModalReviewStars = () => {
   const drawFilledStars = (e) => {
     const rating = e ? e.target.getAttribute('value') : 0;
     setState({rating: `${rating}.00`, areStarsDrawn: true});
+    props.handleOnChange('rating', Number(rating));
   };
 
   return (
@@ -53,6 +54,6 @@ const ModalReviewStars = () => {
 
 };
 
-export default ModalReviewStars;
+export default DrawDynamicStars;
 
 
