@@ -16,8 +16,8 @@ const barStyle = {
 const characteristicDesc = {
   Size: ['Too small', 'Perfect', 'Too big'],
   Width: ['Too small', 'Perfect', 'Too big'],
-  Comfort: ['Poor', '', 'Perfect'],
-  Quality: ['Poor', '', 'Perfect'],
+  Comfort: ['Poor', '', 'Great'],
+  Quality: ['Poor', '', 'Great'],
   Length: ['Too small', 'Perfect', 'Too big'],
   Fit: ['Too small', 'Perfect', 'Too big'],
 };
