@@ -1,16 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ModalReview from './ModalReview.jsx';
 
 const AddReviews = ({reviewsMeta}) => {
-  console.log(reviewsMeta);
-  console.log(reviewsMeta.characteristics);
 
-  const triggerFormModal = (e) => {
-    console.log(e.target.value);
-  };
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button value={Number(reviewsMeta.product_id)} onClick={triggerFormModal}> Add Reviews + </button>
+      <button value={Number(reviewsMeta.product_id)} onClick={() => setShowModal(current => !current)}> Add Reviews + </button>
+      {showModal ? <ModalReview reviewsMeta={reviewsMeta}/> : null}
     </>
   );
 };
