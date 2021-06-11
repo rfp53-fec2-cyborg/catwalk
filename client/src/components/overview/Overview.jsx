@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Rating from './Rating.jsx';
 import Styles from './Styles.jsx';
+import SizeSelector from './SizeSelector.jsx';
+import QuantitySelector from './QuantitySelector.jsx';
 import Description from './Description.jsx';
 import SocialMediaList from './SocialMediaList.jsx';
 
@@ -9,6 +11,7 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
   // State
   const [selectedStyle, setSelectedStyle] = useState(styles[0]);
   const [selectedSkuId, setSelectedSkuId] = useState('');
+  const [selectedQuantity, setSelectedQuantity] = useState(0);
 
   // Event handlers
   const handleStyleClick = (event) => {
@@ -17,8 +20,14 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
   };
 
   const handleSkuSelection = (event) => {
-    const skuId = event.target.value;
+    const skuId = event.target.value.toString();
     setSelectedSkuId(skuId);
+  };
+
+  const handleQuantitySelection = (event) => {
+    const quantity = event.target.value;
+    setSelectedQuantity(quantity);
+    console.log('selectedQuantity:', selectedQuantity);
   };
 
   // Utilities
@@ -39,6 +48,18 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
     return undefined;
   };
 
+  const skusToArray = (skus) => {
+    const skusArray = [];
+    for (const id in skus) {
+      skusArray.push({
+        id,
+        quantity: skus[id].quantity,
+        size: skus[id].size
+      });
+    }
+    return skusArray;
+  };
+
   return (
     <div>
       <Rating reviewsMeta={reviewsMeta} />
@@ -50,6 +71,16 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
         selectedStyle={selectedStyle}
         handleStyleClick={handleStyleClick}
         handleSkuSelection={handleSkuSelection}
+      />
+      <SizeSelector
+        skus={skusToArray(selectedStyle.skus)}
+        handleSkuSelection={handleSkuSelection}
+      />
+      <QuantitySelector
+        quantity={selectedSkuId ?
+          selectedStyle.skus[selectedSkuId].quantity :
+          0}
+        handleQuantitySelection={handleQuantitySelection}
       />
       {
         product.description ?

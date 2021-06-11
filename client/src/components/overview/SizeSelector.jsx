@@ -23,7 +23,8 @@ const SizeSelector = ({skus, handleSkuSelection}) => {
                 value={sku.id}
                 key={sku.id}>
                 {sku.size}
-              </option>);
+              </option>
+            );
           }
         })}
       </>

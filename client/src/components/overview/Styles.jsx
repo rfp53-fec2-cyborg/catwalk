@@ -2,21 +2,9 @@ import React from 'react';
 import StylesRow from './StylesRow.jsx';
 import SizeSelector from './SizeSelector.jsx';
 
-const Styles = ({ styles, selectedStyle, handleStyleClick, handleSkuSelection }) => {
+const Styles = ({ styles, selectedStyle, handleStyleClick }) => {
 
   const NUM_COLS = 4;
-
-  const skusToArray = (skus) => {
-    const skusArray = [];
-    for (const id in skus) {
-      skusArray.push({
-        id,
-        quantity: skus[id].quantity,
-        size: skus[id].size
-      });
-    }
-    return skusArray;
-  };
 
   return (
     <div>
@@ -37,10 +25,6 @@ const Styles = ({ styles, selectedStyle, handleStyleClick, handleSkuSelection })
           })}
         </tbody>
       </table>
-      <SizeSelector
-        skus={skusToArray(selectedStyle.skus)}
-        handleSkuSelection={handleSkuSelection}
-      />
     </div>
   );
 };
