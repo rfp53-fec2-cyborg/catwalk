@@ -48,11 +48,11 @@ const Characteristic = ({value}) => {
     <div style={containerStyle}>
       <div> {value.characteristic} </div>
       <div style={barStyle}>
-        <div style={fillerStyle} > <img src={downArrow}/> </div>
+        <div style={fillerStyle} > <img alt={`downArrow_${value.details.id}`} src={downArrow}/> </div>
       </div>
       <div style={fillerDesc} >
         {characteristicDesc[value.characteristic].map((value, index) =>
-          <div key={index} style={desc} > {value}</div>
+          <label key={index} style={desc} > {value}</label>
         )}
       </div>
     </div>
