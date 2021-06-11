@@ -160,6 +160,7 @@ exports[`Overview matches snapshot 1`] = `
     disabled={false}
     id="size-select"
     onChange={[Function]}
+    value=""
   >
     <option
       value=""
@@ -167,57 +168,57 @@ exports[`Overview matches snapshot 1`] = `
       SELECT SIZE
     </option>
     <option
-      value="7"
+      value="522166"
     >
       7
     </option>
     <option
-      value="7.5"
+      value="522167"
     >
       7.5
     </option>
     <option
-      value="8"
+      value="522168"
     >
       8
     </option>
     <option
-      value="8.5"
+      value="522169"
     >
       8.5
     </option>
     <option
-      value="9"
+      value="522170"
     >
       9
     </option>
     <option
-      value="9.5"
+      value="522171"
     >
       9.5
     </option>
     <option
-      value="10"
+      value="522172"
     >
       10
     </option>
     <option
-      value="10.5"
+      value="522173"
     >
       10.5
     </option>
     <option
-      value="11"
+      value="522174"
     >
       11
     </option>
     <option
-      value="11.5"
+      value="522175"
     >
       11.5
     </option>
     <option
-      value="12"
+      value="522176"
     >
       12
     </option>
