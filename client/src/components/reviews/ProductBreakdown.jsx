@@ -22,12 +22,10 @@ const ProductBreakdown = ({data}) => {
     <>
       <div>
         {listOfCharacteristics.map((value, index) => {
-          console.log(value);
           return (
             <div key={value.details.id}>
               <div className="product-breakdown" >
-                <div> {value.characteristic} </div>
-                <Characteristic details={value.details.value}/>
+                <Characteristic value={value}/>
               </div>
             </div>
           );
