@@ -117,7 +117,7 @@ class App extends React.Component {
         <div>
           <Overview
             product={this.state.product}
-            styles={this.state.styles}
+            styles={this.state.styles.results}
             cart={this.state.cart}
             reviewsMeta={this.state.reviewsMeta}
           />
