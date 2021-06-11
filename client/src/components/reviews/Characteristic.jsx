@@ -1,18 +1,6 @@
 import React from 'react';
 import downArrow from '../../assets/down-arrow.svg';
 
-const containerStyles = {
-  width: '20%',
-  position: 'relative',
-  marginBottom: '10px'
-};
-
-const barStyle = {
-  width: '100%',
-  backgroundColor: '#e0e0de',
-  height: '1em',
-};
-
 const characteristicDesc = {
   Size: ['Too small', 'Perfect', 'Too big'],
   Width: ['Too small', 'Perfect', 'Too big'],
@@ -20,6 +8,18 @@ const characteristicDesc = {
   Quality: ['Poor', '', 'Great'],
   Length: ['Too small', 'Perfect', 'Too big'],
   Fit: ['Too small', 'Perfect', 'Too big'],
+};
+
+const containerStyle = {
+  width: '20%',
+  position: 'relative',
+  marginBottom: '10px',
+};
+
+const barStyle = {
+  width: '100%',
+  backgroundColor: '#e0e0de',
+  height: '1em',
 };
 
 const fillerDesc = {
@@ -38,16 +38,17 @@ const Characteristic = ({value}) => {
 
   const score = value.details.value;
   const percentage = Math.ceil(score / 5 * 100);
-  const fillerStyles = {
+
+  const fillerStyle = {
     width: `${percentage}%`,
     textAlign: 'right',
   };
 
   return (
-    <div style={containerStyles}>
+    <div style={containerStyle}>
       <div> {value.characteristic} </div>
       <div style={barStyle}>
-        <div style={fillerStyles} > <img src={downArrow}/> </div>
+        <div style={fillerStyle} > <img src={downArrow}/> </div>
       </div>
       <div style={fillerDesc} >
         {characteristicDesc[value.characteristic].map((value, index) =>
