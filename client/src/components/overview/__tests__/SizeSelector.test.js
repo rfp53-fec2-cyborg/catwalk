@@ -57,8 +57,11 @@ describe('SizeSelector when style has remaining stock', () => {
   beforeEach(() => {
     render(
       <SizeSelector
+        showWarning={false}
+        isOutOfStock={false}
         skus={skusInStock}
-        handleSkusSelection={() => { }}
+        selectedSkuId={''}
+        handleSkusSelection={() => {}}
       />
     );
   });
@@ -89,10 +92,12 @@ describe('SizeSelector when style has remaining stock', () => {
 test('SizeSelector is inactive when style has no remaining stock', () => {
   render(
     <SizeSelector
+      isOutOfStock={true}
+      showWarning={false}
+      selectedSkuId={'522166'}
       skus={skusOutOfStock}
       handleSkusSelection={() => { }}
     />
   );
   expect(screen.getByRole('combobox', { name: 'size-select' })).toBeDisabled();
-  // expect(screen.getByText('OUT OF STOCK')).toBeDisabled();
 });
