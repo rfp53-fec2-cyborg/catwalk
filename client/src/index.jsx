@@ -49,6 +49,7 @@ class App extends React.Component {
   getArbitraryProduct() {
     return requester.getProducts({page: 1, count: 1})
       .then(products => {
+        console.log(products);
         return products[0];
       })
       .catch(console.log);
@@ -122,6 +123,8 @@ class App extends React.Component {
             reviewsMeta={this.state.reviewsMeta}
           />
           <Comparison
+            product={this.state.product}
+            styles={this.state.styles}
             relatedProducts={this.state.relatedProducts}
           />
           <Reviews
