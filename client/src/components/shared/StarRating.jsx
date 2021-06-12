@@ -2,7 +2,6 @@ import React from 'react';
 import stars from '../../assets/stars/index.js';
 
 const StarRating = ({ score }) => {
-
   const style = {
     height: '20px',
     width: '110px'

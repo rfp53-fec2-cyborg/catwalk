@@ -13,7 +13,7 @@ const postInteractions = async (data) => {
     headers: {
       'Authorization': apiKey
     },
-    body: data
+    data: data
   };
   try {
     const response = await axios(config);

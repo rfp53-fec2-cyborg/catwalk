@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { reviews } from '../../../mock-data/reviews.js';
 import ReviewListEntry from './ReviewListEntry.jsx';
+import AddReviews from './AddReviews.jsx';
 
 const ReviewList = (props) => {
 
   const data = props.props.data;
+  const reviewsMeta = props.props.data.reviewsMeta;
   const ratingFilter = props.props.ratingFilter;
   const sortedListOfReviews = props.sortedListOfReviews;
 
@@ -40,6 +42,7 @@ const ReviewList = (props) => {
     <>
       {filterReviewsByRating()}
       {showMoreReviews()}
+      <AddReviews data={data}/>
     </>
   );
 };
