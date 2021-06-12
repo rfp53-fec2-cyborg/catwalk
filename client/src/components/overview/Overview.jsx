@@ -60,6 +60,13 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
       Promise.all([...Array(selectedQuantity).keys()].map(index => {
         return requester.addToCart({'sku_id': selectedSkuId});
       }))
+        .then(() => {
+          return requester.getCart();
+        })
+        .then((cart) => {
+          console.log('skuID:', selectedSkuId);
+          console.log('cart:', cart);
+        })
         .catch(err => {
           console.log(err);
         });
@@ -99,9 +106,9 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
   return (
     <div>
       <Rating reviewsMeta={reviewsMeta} />
-      <p>{product.category}</p>
+      <h5>{product.category}</h5>
       <h1>{product.name}</h1>
-      <p>{formatPrice(product.default_price)}</p>
+      <h5>{formatPrice(product.default_price)}</h5>
       <Styles
         styles={styles}
         selectedStyle={selectedStyle}
