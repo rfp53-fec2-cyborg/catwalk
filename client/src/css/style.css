@@ -1,0 +1,114 @@
+
+/*
+main gray: #484848
+alternate gray (lighter): #808080
+disabled gray: #B4B4B4
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  /* margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit; */
+  vertical-align: baseline;
+  font-family: Helvetica, sans-serif;
+  color: #484848;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  font-family: Helvetica, sans-serif;
+  color: #484848;
+}
+
+p, h1, h2, h3, h4, h5, h6, div {
+  color: #484848;
+}
+
+p, a {
+  font-size: 13px;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
+h5 {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02rem;
+  margin-block-start: 1em;
+  margin-block-end: 0.6em;
+}
+
+h4 span {
+  font-weight: 500;
+}
+
+select, button {
+  padding: 15px;
+  height: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #fff;
+  border: solid 1px #808080;
+  text-transform: uppercase;
+}
+
+select:disabled, button:disabled {
+  border-color: #B4B4B4;
+}
+
+.rating-breakdown:hover {
+  background-color: rgb(236, 227, 227);
+  cursor: pointer;
+}
+
+.small-circle-checkmark {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-image: url('../assets/checkmark.svg');
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border: 1px solid #484848;
+}
+
+.social-media-button {
+  height: 20px;
+  width: 20px;
+}

@@ -1,0 +1,6 @@
+.style-thumbnail {
+  object-fit: cover;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
