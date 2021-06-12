@@ -1,3 +1,7 @@
+import './css/style.css';
+import './css/comparison.css';
+import './css/overview.css';
+import './css/reviews.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Requester from './Requester.js';

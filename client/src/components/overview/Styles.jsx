@@ -9,7 +9,7 @@ const Styles = ({ styles, selectedStyle, handleStyleClick }) => {
   return (
     <div>
       <h4>
-        STYLE > <span style={{fontWeight: '500'}}>{selectedStyle.name}</span>
+        STYLE > <span >{selectedStyle.name}</span>
       </h4>
       <table>
         <tbody>
