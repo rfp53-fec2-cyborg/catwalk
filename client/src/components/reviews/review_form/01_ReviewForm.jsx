@@ -28,7 +28,7 @@ const testData = {
   'summary': 'Lorem ipsum',
   'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   'recommend': false,
-  'name': 'Lorem',
+  'name': 'Godfrey Testing',
   'email': 'lorem@ipsum.com',
   'photos': [],
   'characteristics': {}
@@ -88,7 +88,7 @@ const ReviewForm = ({data}) => {
 
     const errorList = Object.values(formErrorMessages);
     const hasNoErrors = (currentValue) => currentValue.length === 0;
-
+    debugger;
     if (errorList.every(hasNoErrors)) {
       setFormValid(true);
       submitForm(formDetails);
@@ -101,12 +101,11 @@ const ReviewForm = ({data}) => {
     setFormDetails({...formDetails, [key]: value});
   };
 
-  const submitForm = async () => {
+  const submitForm = async (form) => {
     try {
-      // console.log(formDetails);
-      let submitReviewResponse = await requester.postReview(testData);
+      let submitReviewResponse = await requester.postReview(form);
       console.log(submitReviewResponse);
-      setFormDetails(initialFormState);
+      setFormDetails({...initialFormState});
     } catch (err) {
       console.error('Error with posting data to API: ', err);
     }
@@ -150,7 +149,8 @@ const ReviewForm = ({data}) => {
         </div>
 
       </form>
-      <button type="submit" onClick={() => validateFormBeforeSubmission()}> Submit Review </button>
+      <button type="submit" onClick={validateFormBeforeSubmission}> Submit Review </button>
+      <button type="submit" onClick={() => submitForm(testData)}> FOR TESTING SUBMIT TEST DATA </button>
     </>
   );
 
