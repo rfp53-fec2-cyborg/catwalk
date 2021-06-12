@@ -6,11 +6,13 @@ const SummaryAndBody = (props) => {
     <>
       <div id="review-form-text">
         <label forhtml="summary"> Summary </label>
-        <textarea name="summary" onChange={(e) => props.handleOnChange(e.target.name, e.target.value)} />
+        <textarea name="summary" defaultValue="Example: Best purchase ever!" onChange={(e) => props.handleOnChange(e.target.name, e.target.value)} />
+        <div className="error-message">{props.formErrorMessages.error_summary}</div>
       </div>
       <div>
         <label forhtml="body"> Body </label>
-        <textarea name="body" onChange={(e) => props.handleOnChange(e.target.name, e.target.value)} />
+        <textarea name="body" defaultValue="Why did you like the product or not?" onChange={(e) => props.handleOnChange(e.target.name, e.target.value)} />
+        <div className="error-message">{props.formErrorMessages.error_body}</div>
       </div>
     </>
   );
