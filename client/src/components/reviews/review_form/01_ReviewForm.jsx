@@ -37,6 +37,7 @@ const ReviewForm = ({data}) => {
 
   const [formCharacteristicFields, setSormCharacteristicFields] = useState(Object.keys(characteristics));
   const [underSubmission, setUnderSubmission] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
   const [formDetails, setFormDetails] = useState({
     'product_id': data.product.id,
     'rating': 0,
@@ -90,6 +91,7 @@ const ReviewForm = ({data}) => {
     try {
       let submitReviewResponse = await requester.postReview(formDetails);
       console.log(submitReviewResponse);
+      setSubmitSuccess(true);
     } catch (err) {
       console.error('Error with posting data to API: ', err);
     }
@@ -133,7 +135,13 @@ const ReviewForm = ({data}) => {
           <h4> Personal Information </h4>
           <PersonalInfo handleOnChange={handleOnChange} formErrorMessages={formErrorMessages}/>
         </div>
-        <button type="submit" disabled={underSubmission} > Submit Review </button>
+        {submitSuccess === false
+          ?
+          <>
+            <button name="form-submit" type="submit" disabled={underSubmission} >Submit Review</button>
+          </>
+          : <div > Review has been submitted </div>
+        }
       </form>
     </>
   );

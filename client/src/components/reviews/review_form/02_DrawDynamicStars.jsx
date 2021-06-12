@@ -26,6 +26,7 @@ const DrawDynamicStars = (props) => {
     for (var i = 0; i < 5; i++) {
       starDiv.push(
         <img
+          id={`${i + 1}-form-star`}
           key={`star_${i}`}
           value={i + 1}
           src={stars.singleUnfilledStar}
@@ -44,7 +45,7 @@ const DrawDynamicStars = (props) => {
   };
 
   return (
-    <div>
+    <div id="form-stars">
       {state.areStarsDrawn === false
         ? drawUnfilledStars()
         : <> <StarRating score={state.rating}/> {relatedStarRating[state.rating]} </>
