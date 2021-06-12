@@ -505,6 +505,7 @@ test('Overview matches snapshot', () => {
       reviewsMeta={reviewsMeta}
     />
   );
+
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });

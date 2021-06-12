@@ -1,5 +1,6 @@
 import React from 'react';
 import StylesRow from './StylesRow.jsx';
+import SizeSelector from './SizeSelector.jsx';
 
 const Styles = ({ styles, selectedStyle, handleStyleClick }) => {
 
