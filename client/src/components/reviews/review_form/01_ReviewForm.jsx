@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from '../../shared/Modal.jsx';
+import { usePrevious } from '../../shared/usePreviousHook.jsx';
 import DrawDynamicStars from './02_DrawDynamicStars.jsx';
 import Recommendation from './03_Recommendation.jsx';
 import Characteristics from './04_Characteristics.jsx';
@@ -22,23 +23,24 @@ const initialFormState = {
   'characteristics': {},
 };
 
-const testData = {
-  'product_id': 17067,
-  'rating': 5,
-  'summary': 'Lorem ipsum',
-  'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  'recommend': false,
-  'name': 'Godfrey Testing',
-  'email': 'lorem@ipsum.com',
-  'photos': [],
-  'characteristics': {}
-};
+// const testData = {
+//   'product_id': 17067,
+//   'rating': 4,
+//   'summary': 'Works amazing with PS4',
+//   'body': 'I was looking for a keyboard/mouse set to play some games on my PS4 (trying to get used to it before getting a PC) and this set is exactly what I wanted. It works flawlessly, all I had to do was plug it in. No adaptor, no extra USB hub... nothing. It works GREAT right out of the box!',
+//   'recommend': false,
+//   'name': 'Random user',
+//   'email': 'random@random.com',
+//   'photos': [],
+//   'characteristics': {}
+// };
 
 const ReviewForm = ({data}) => {
 
   const characteristics = data.reviewsMeta.characteristics;
+
   const [formCharacteristicFields, setSormCharacteristicFields] = useState(Object.keys(characteristics));
-  const [formValid, setFormValid] = useState(false);
+  const [underSubmission, setUnderSubmission] = useState(false);
   const [formDetails, setFormDetails] = useState({
     'product_id': data.product.id,
     'rating': 0,
@@ -51,6 +53,7 @@ const ReviewForm = ({data}) => {
     'characteristics': {},
   });
   const [formErrorMessages, setFormErrorMessages] = useState({
+    'isErrorFree': null,
     'error_rating': '',
     'error_recommend': '',
     'error_summary': '',
@@ -61,61 +64,68 @@ const ReviewForm = ({data}) => {
     // 'error_characteristics': '',
   });
 
-  const validateFormBeforeSubmission = () => {
-    if (formDetails.rating === 0) {
-      setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'error_rating': 'Rating is required.'}; });
-    }
-
-    if (typeof formDetails.recommend !== 'boolean') {
-      setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'error_recommend': 'Recommendation is required.'}; });
-    }
-
-    if (formDetails.summary.length < 1) {
-      setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'error_summary': 'Summary is required.'}; });
-    }
-
-    if (formDetails.body.length < 50) {
-      setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'error_body': 'Body is required.'}; });
-    }
-
-    if (formDetails.name.length < 1) {
-      setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'error_name': 'Name is required.'}; });
-    }
-
-    if (formDetails.email.indexOf('@') === -1) {
-      setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'error_email': 'Valid email address is required.'}; });
-    }
-
-    const errorList = Object.values(formErrorMessages);
-    const hasNoErrors = (currentValue) => currentValue.length === 0;
-    debugger;
-    if (errorList.every(hasNoErrors)) {
-      setFormValid(true);
-      submitForm(formDetails);
-    } else {
-      setFormValid(false);
-    }
-  };
-
   const handleOnChange = (key, value) => {
     setFormDetails({...formDetails, [key]: value});
   };
 
-  const submitForm = async (form) => {
-    try {
-      let submitReviewResponse = await requester.postReview(form);
-      console.log(submitReviewResponse);
-      setFormDetails({...initialFormState});
-    } catch (err) {
-      console.error('Error with posting data to API: ', err);
+  const validateForm = async (e) => {
+    e.preventDefault();
+
+    setUnderSubmission(true);
+    if (formDetails.rating === 0) {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_rating': 'Rating is required.'}; });
+    } else {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
     }
+    if (typeof formDetails.recommend !== 'boolean') {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_recommend': 'Recommendation is required.'}; });
+    } else {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
+    }
+    if (formDetails.summary.length < 1) {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_summary': 'Summary is required.'}; });
+    } else {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
+    }
+    if (formDetails.body.length < 50) {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_body': 'Body is required.'}; });
+    } else {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
+    }
+    if (formDetails.name.length < 1) {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_name': 'Name is required.'}; });
+    } else {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
+    }
+    if (formDetails.email.indexOf('@') === -1) {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_email': 'Valid email address is required.'}; });
+    } else {
+      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
+    }
+    submitForm();
+  };
+
+  const prevErrorState = usePrevious(formErrorMessages);
+
+  const submitForm = async () => {
+    console.log(prevErrorState);
+    if (prevErrorState.isErrorFree) {
+      try {
+        let submitReviewResponse = await requester.postReview(formDetails);
+        console.log(submitReviewResponse);
+      } catch (err) {
+        console.error('Error with posting data to API: ', err);
+      }
+    }
+    console.log('Submission process is over');
+    setUnderSubmission(false);
   };
 
   const content = (
     <>
       <h2> Write Your Review </h2>
       <h3> About the {data.product.name}</h3>
-      <form >
+      <form onSubmit={validateForm}>
         <div id="review-form-rating">
           <h4> Overall Rating </h4>
           <DrawDynamicStars handleOnChange={handleOnChange}/>
@@ -124,13 +134,13 @@ const ReviewForm = ({data}) => {
 
         <div>
           <h4> Recommendation </h4>
-          <Recommendation handleOnChange={handleOnChange}/>
+          <Recommendation handleOnChange={handleOnChange} />
           <div className="error-message">{formErrorMessages.error_recommend}</div>
         </div>
 
         <div>
           <h4> Characteristics </h4>
-          <Characteristics handleOnChange={handleOnChange}/>
+          <Characteristics handleOnChange={handleOnChange} />
         </div>
 
         <div>
@@ -140,17 +150,16 @@ const ReviewForm = ({data}) => {
 
         <div>
           <h4> Upload Photos </h4>
-          <UploadPhotos handleOnChange={handleOnChange}/>
+          <UploadPhotos handleOnChange={handleOnChange} />
         </div>
 
         <div>
           <h4> Personal Information </h4>
           <PersonalInfo handleOnChange={handleOnChange} formErrorMessages={formErrorMessages}/>
         </div>
-
+        <button type="submit" disabled={underSubmission} > Submit Review </button>
       </form>
-      <button type="submit" onClick={validateFormBeforeSubmission}> Submit Review </button>
-      <button type="submit" onClick={() => submitForm(testData)}> FOR TESTING SUBMIT TEST DATA </button>
+      {/* <button type="submit" onClick={() => submitForm(testData)}> FOR TESTING SUBMIT TEST DATA </button> */}
     </>
   );
 
