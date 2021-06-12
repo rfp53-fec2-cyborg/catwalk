@@ -1,10 +1,8 @@
 import React from 'react';
 
-const SizeSelector = ({ skus, selectedSkuId, handleSkuSelection }) => {
+const SizeSelector = ({ showWarning, isOutOfStock, skus, selectedSkuId, handleSkuSelection }) => {
 
-  const isOutOfStock = skus.every(sku => {
-    return sku.quantity === 0;
-  });
+  const warningMessage = <div>Please select size</div>;
 
   const outOfStockMenu = () => {
     return (
@@ -33,6 +31,7 @@ const SizeSelector = ({ skus, selectedSkuId, handleSkuSelection }) => {
 
   return (
     <>
+      {showWarning ? warningMessage : null}
       <label htmlFor='size-select'></label>
       <select
         id='size-select'

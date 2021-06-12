@@ -237,6 +237,11 @@ exports[`Overview matches snapshot 1`] = `
       -
     </option>
   </select>
+  <button
+    onClick={[Function]}
+  >
+    Add to Cart
+  </button>
   <div>
     <h4>
       A sneaker dynasty

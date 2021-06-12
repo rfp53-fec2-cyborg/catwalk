@@ -31,7 +31,7 @@ const postCart = async (data) => {
       'Authorization': apiKey,
       'Content-Type': 'application/json'
     },
-    body: data,
+    data: data,
   };
 
   try {
