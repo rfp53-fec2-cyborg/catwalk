@@ -31,18 +31,6 @@ const errorMessage = {
   'email_errorMsg': 'Valid email address is required.',
 };
 
-// const testData = {
-//   'product_id': 17067,
-//   'rating': 4,
-//   'summary': 'Works amazing with PS4',
-//   'body': 'I was looking for a keyboard/mouse set to play some games on my PS4 (trying to get used to it before getting a PC) and this set is exactly what I wanted. It works flawlessly, all I had to do was plug it in. No adaptor, no extra USB hub... nothing. It works GREAT right out of the box!',
-//   'recommend': false,
-//   'name': 'Random user',
-//   'email': 'random@random.com',
-//   'photos': [],
-//   'characteristics': {}
-// };
-
 const ReviewForm = ({data}) => {
 
   const characteristics = data.reviewsMeta.characteristics;
@@ -90,17 +78,12 @@ const ReviewForm = ({data}) => {
 
     var isErrorFree = true;
     for (var key in errorLogic) {
-      // need to find out why previous error messages are not saved
       if (errorLogic[key]()) {
         await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, [`${key}_errorMsg`]: errorMessage[`${key}_errorMsg`]}; });
         isErrorFree = false;
       }
     }
-    if (isErrorFree) {
-      submitForm();
-    } else {
-      setUnderSubmission(false);
-    }
+    isErrorFree ? submitForm() : setUnderSubmission(false);
   };
 
   const submitForm = async () => {
@@ -152,7 +135,6 @@ const ReviewForm = ({data}) => {
         </div>
         <button type="submit" disabled={underSubmission} > Submit Review </button>
       </form>
-      {/* <button type="submit" onClick={() => submitForm(testData)}> FOR TESTING SUBMIT TEST DATA </button> */}
     </>
   );
 

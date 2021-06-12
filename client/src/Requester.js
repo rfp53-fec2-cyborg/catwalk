@@ -41,7 +41,7 @@ const Requester = () => {
   };
 
   const post = (endpoint, data, params) => {
-    return axios.post(`${SERVER_URL}/${endpoint}`, data )
+    return axios.post(`${SERVER_URL}/${endpoint}`, { data, params })
       .then((response) => {
         return response.data;
       })
