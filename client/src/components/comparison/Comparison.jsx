@@ -14,7 +14,7 @@ const Comparison = ({/*product,*/ relatedProducts, styles}) => {
   let mockStyles = productStyles;
   // console.log(mockStyles);
   // const [data] = useState(mockProducts);
-  // console.log(styles);
+  console.log(styles);
   let detaledRelatedProductsArr = [];
   // console.log(relatedProducts); // [17068, 17069, 17074, 17073]
   let getTheDeets = ()=> {
@@ -34,7 +34,7 @@ const Comparison = ({/*product,*/ relatedProducts, styles}) => {
     }
     return detaledRelatedProductsArr;
   };
-  // console.log('why cant i get the individual value?', detaledRelatedProductsArr[0]); // maybe its an async thing? maybe i need to leverage the lifecycle and have it in state? maybe in index?
+  // console.log('why cant i get the individual value?', detaledRelatedProductsArr); // maybe its an async thing? maybe i need to leverage the lifecycle and have it in state? maybe in index?
 
   // need several functions here
   // function that will handle product click
