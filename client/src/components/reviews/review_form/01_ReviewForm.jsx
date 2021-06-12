@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Modal from '../../shared/Modal.jsx';
-import { usePrevious } from '../../shared/usePreviousHook.jsx';
 import DrawDynamicStars from './02_DrawDynamicStars.jsx';
 import Recommendation from './03_Recommendation.jsx';
 import Characteristics from './04_Characteristics.jsx';
@@ -21,6 +20,15 @@ const initialFormState = {
   'email': '',
   'photos': [],
   'characteristics': {},
+};
+
+const errorMessage = {
+  'rating_errorMsg': 'Rating is required.',
+  'recommend_errorMsg': 'Recommendation is required.',
+  'summary_errorMsg': 'Summary is required.',
+  'body_errorMsg': 'Body is required.',
+  'name_errorMsg': 'Name is required.',
+  'email_errorMsg': 'Valid email address is required.',
 };
 
 // const testData = {
@@ -53,16 +61,24 @@ const ReviewForm = ({data}) => {
     'characteristics': {},
   });
   const [formErrorMessages, setFormErrorMessages] = useState({
-    'isErrorFree': null,
-    'error_rating': '',
-    'error_recommend': '',
-    'error_summary': '',
-    'error_body': '',
-    'error_name': '',
-    'error_email': '',
+    'rating_errorMsg': '',
+    'recommend_errorMsg': '',
+    'summary_errorMsg': '',
+    'body_errorMsg': '',
+    'name_errorMsg': '',
+    'email_errorMsg': '',
     // 'error_photos': '',
     // 'error_characteristics': '',
   });
+
+  const errorLogic = {
+    'rating': () => formDetails.rating === 0,
+    'recommend': () => typeof formDetails.recommend !== 'boolean',
+    'summary': () => formDetails.summary.length < 1,
+    'body': () => formDetails.body.length < 50,
+    'name': () => formDetails.name.length < 1,
+    'email': () => formDetails.email.indexOf('@') === -1,
+  };
 
   const handleOnChange = (key, value) => {
     setFormDetails({...formDetails, [key]: value});
@@ -70,52 +86,29 @@ const ReviewForm = ({data}) => {
 
   const validateForm = async (e) => {
     e.preventDefault();
-
     setUnderSubmission(true);
-    if (formDetails.rating === 0) {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_rating': 'Rating is required.'}; });
-    } else {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
+
+    var isErrorFree = true;
+    for (var key in errorLogic) {
+      // need to find out why previous error messages are not saved
+      if (errorLogic[key]()) {
+        await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, [`${key}_errorMsg`]: errorMessage[`${key}_errorMsg`]}; });
+        isErrorFree = false;
+      }
     }
-    if (typeof formDetails.recommend !== 'boolean') {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_recommend': 'Recommendation is required.'}; });
+    if (isErrorFree) {
+      submitForm();
     } else {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
+      setUnderSubmission(false);
     }
-    if (formDetails.summary.length < 1) {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_summary': 'Summary is required.'}; });
-    } else {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
-    }
-    if (formDetails.body.length < 50) {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_body': 'Body is required.'}; });
-    } else {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
-    }
-    if (formDetails.name.length < 1) {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_name': 'Name is required.'}; });
-    } else {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
-    }
-    if (formDetails.email.indexOf('@') === -1) {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': false, 'error_email': 'Valid email address is required.'}; });
-    } else {
-      await setFormErrorMessages(prevErrMsg => { return {...prevErrMsg, 'isErrorFree': true }; });
-    }
-    submitForm();
   };
 
-  const prevErrorState = usePrevious(formErrorMessages);
-
   const submitForm = async () => {
-    console.log(prevErrorState);
-    if (prevErrorState.isErrorFree) {
-      try {
-        let submitReviewResponse = await requester.postReview(formDetails);
-        console.log(submitReviewResponse);
-      } catch (err) {
-        console.error('Error with posting data to API: ', err);
-      }
+    try {
+      let submitReviewResponse = await requester.postReview(formDetails);
+      console.log(submitReviewResponse);
+    } catch (err) {
+      console.error('Error with posting data to API: ', err);
     }
     console.log('Submission process is over');
     setUnderSubmission(false);
@@ -129,13 +122,13 @@ const ReviewForm = ({data}) => {
         <div id="review-form-rating">
           <h4> Overall Rating </h4>
           <DrawDynamicStars handleOnChange={handleOnChange}/>
-          <div className="error-message">{formErrorMessages.error_rating}</div>
+          <div className="error-message">{formErrorMessages.rating_errorMsg}</div>
         </div>
 
         <div>
           <h4> Recommendation </h4>
           <Recommendation handleOnChange={handleOnChange} />
-          <div className="error-message">{formErrorMessages.error_recommend}</div>
+          <div className="error-message">{formErrorMessages.recommend_errorMsg}</div>
         </div>
 
         <div>
