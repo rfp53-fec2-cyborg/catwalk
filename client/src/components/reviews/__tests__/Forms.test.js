@@ -64,7 +64,10 @@ afterAll(() => server.close());
 describe( 'Review Form', () => {
   it('should render the basic fields', () => {
     const data = {reviews, reviewsMeta, product};
-    render(<ReviewForm data={data}/>);
+
+    act(() => {
+      render(<ReviewForm data={data}/>);
+    });
 
     expect(screen.getByRole('heading', { name: 'Write Your Review' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Overall Rating' })).toBeInTheDocument();
@@ -87,11 +90,11 @@ describe( 'Review Form', () => {
 
 test('Review cannot be submitted if Rating and Recommend fields are not set', async () => {
   const data = {reviews, reviewsMeta, product};
-  act(() => {
+  await act( async () => {
     render(<ReviewForm data={data}/>);
   });
 
-  act(() => {
+  await act( async () => {
     fireEvent.submit(screen.getByText(/submit review/i));
   });
 
@@ -110,11 +113,14 @@ test('Review cannot be submitted if Rating and Recommend fields are not set', as
 test('Review form cannot be successfully updated and submitted', async () => {
   const data = {reviews, reviewsMeta, product};
   const mockSave = jest.fn();
-  render(<ReviewForm formDetails={mockSave} data={data}/>);
+  await act( async () => {
+    render(<ReviewForm formDetails={mockSave} data={data}/>);
+  });
 
-  const submitButton = screen.getByRole('button', {name: /submit review/i});
-  fireEvent.submit(submitButton);
-
+  await act( async () => {
+    const submitButton = screen.getByRole('button', {name: /submit review/i});
+    fireEvent.submit(submitButton);
+  });
   expect(mockSave).not.toBeCalled();
 });
 
