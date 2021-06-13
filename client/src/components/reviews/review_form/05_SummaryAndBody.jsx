@@ -5,12 +5,12 @@ const SummaryAndBody = (props) => {
   return (
     <>
       <div id="review-form-text">
-        <label for="form-summary"> Summary </label>
+        <label htmlFor="form-summary"> Summary </label>
         <textarea id="form-summary" name="summary" placeholder="Example: Best purchase ever!" onChange={(e) => props.handleOnChange(e.target.name, e.target.value)} />
         <div className="error-message">{props.formErrorMessages.summary_errorMsg}</div>
       </div>
       <div>
-        <label for="body-summary"> Body </label>
+        <label htmlFor="body-summary"> Body </label>
         <textarea id="body-summary" name="body" placeholder="Why did you like the product or not?" onChange={(e) => props.handleOnChange(e.target.name, e.target.value)} />
         <div className="error-message">{props.formErrorMessages.body_errorMsg}</div>
       </div>
