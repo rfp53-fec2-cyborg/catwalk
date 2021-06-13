@@ -113,18 +113,13 @@ select:disabled, button:disabled {
   width: 20px;
 }
 
-.rating-breakdown:hover {
-  background-color: rgb(236, 227, 227);
-  cursor: pointer;
-};
-
 .error-message {
-  font: 12px;
+  font-size: 14px;
   color: rgb(228, 90, 90);
 }
 
-.caution-text {
-  font: 12px;
+.caution-message {
+  font-size: 14px;
   color: rgb(167, 172, 170);
 }
 
