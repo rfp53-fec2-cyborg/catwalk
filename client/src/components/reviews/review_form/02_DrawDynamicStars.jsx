@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import stars from '../../../assets/stars/index.js';
-import StarRating from '../../shared/StarRating.jsx';
+import StarRatingDynamic from '../../shared/StarRatingDynamic.jsx';
 
 const starStyle = {
   width: '22.5px',
@@ -8,11 +8,11 @@ const starStyle = {
 };
 
 const relatedStarRating = {
-  '1.00': 'Poor',
-  '2.00': 'Fair',
-  '3.00': 'Average',
-  '4.00': 'Good',
-  '5.00': 'Great'
+  '1': 'Poor',
+  '2': 'Fair',
+  '3': 'Average',
+  '4': 'Good',
+  '5': 'Great'
 };
 
 const DrawDynamicStars = (props) => {
@@ -26,29 +26,30 @@ const DrawDynamicStars = (props) => {
     for (var i = 0; i < 5; i++) {
       starDiv.push(
         <img
-          id={`${i + 1}-form-star`}
-          key={`star_${i}`}
+          alt={`unfilled-star-${i + 1}`}
+          id={`unfilled-star-${i + 1}`}
+          key={`unfilled-star-${i + 1}`}
           value={i + 1}
           src={stars.singleUnfilledStar}
           style={starStyle}
-          onClick={drawFilledStars}
+          onClick={handleRating}
         />
       );
     }
     return starDiv;
   };
 
-  const drawFilledStars = (e) => {
-    const rating = e ? e.target.getAttribute('value') : 0;
-    setState({rating: `${rating}.00`, areStarsDrawn: true});
-    props.handleOnChange('rating', Number(rating));
+  const handleRating = (e) => {
+    const rating = e ? Number(e.target.getAttribute('value')) : 0;
+    setState({rating: rating, areStarsDrawn: true});
+    props.handleOnChange('rating', rating);
   };
 
   return (
     <div id="form-stars">
       {state.areStarsDrawn === false
         ? drawUnfilledStars()
-        : <> <StarRating score={state.rating}/> {relatedStarRating[state.rating]} </>
+        : <div data-testid="grading-description" > <StarRatingDynamic handleRating={handleRating} rating={state.rating} /> {relatedStarRating[state.rating]} </div>
       }
     </div>
   );
