@@ -31,7 +31,7 @@ it ('Reviews component renders without crashing', () => {
 
 it ('ReviewList component renders without crashing', () => {
   const div = document.createElement('div');
-  const props = {reviews, reviewsMeta, ratingFilter: []};
+  const props = {data: {reviews, reviewsMeta}, ratingFilter: []};
   const sortedListOfReviews = [];
   ReactDOM.render(<ReviewList props={props} sortedListOfReviews={sortedListOfReviews}/>, div);
 });

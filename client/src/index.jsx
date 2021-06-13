@@ -132,6 +132,7 @@ class App extends React.Component {
             relatedProducts={this.state.relatedProducts}
           />
           <Reviews
+            product={this.state.product}
             reviews={this.state.reviews}
             reviewsMeta={this.state.reviewsMeta}
           />
