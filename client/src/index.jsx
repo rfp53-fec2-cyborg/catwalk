@@ -2,14 +2,17 @@ import './css/style.css';
 import './css/comparison.css';
 import './css/overview.css';
 import './css/reviews.css';
+import './css/loadingSpinner.css';
+import magnifyingGlass from './assets/magnifying_glass.png';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Requester from './Requester.js';
-import {MakeRating} from './helpers/MakeRating.js';
+import { MakeRating } from './helpers/MakeRating.js';
 import Overview from './components/overview/Overview.jsx';
 import Comparison from './components/comparison/Comparison.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
 import QandA from './components/qanda/QandA.jsx';
+import LoadingSpinner from './components/shared/LoadingSpinner.jsx';
 
 const requester = Requester();
 
@@ -51,7 +54,7 @@ class App extends React.Component {
    * @returns A promise that resolves to a single product
    */
   getArbitraryProduct() {
-    return requester.getProducts({page: 1, count: 1})
+    return requester.getProducts({ page: 1, count: 1 })
       .then(products => {
         return products[0];
       })
@@ -76,7 +79,7 @@ class App extends React.Component {
         return this.addRatingsMeta();
       })
       .then(() => {
-        this.setState({isLoaded: true});
+        this.setState({ isLoaded: true });
       })
       .catch(console.log);
   }
@@ -116,33 +119,37 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.isLoaded) {
-      return (
-        <div>
-          <Overview
-            product={this.state.product}
-            styles={this.state.styles.results}
-            cart={this.state.cart}
-            reviewsMeta={this.state.reviewsMeta}
-          />
-          <Comparison
-            relatedProducts={this.state.relatedProducts}
-          />
-          <Reviews
-            product={this.state.product}
-            reviews={this.state.reviews}
-            reviewsMeta={this.state.reviewsMeta}
-          />
-          <QandA />
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          Insert fun loading animation here
-        </div>
-      );
-    }
+    return (
+      <div className='app'>
+        {this.state.isLoaded ?
+          <>
+            <div className='header'>
+              <h3>Catborg</h3>
+              <div className='searchForm'>
+                <div className='searchField'></div>
+                <img src={magnifyingGlass} />
+              </div>
+            </div>
+            <Overview
+              product={this.state.product}
+              styles={this.state.styles.results}
+              cart={this.state.cart}
+              reviewsMeta={this.state.reviewsMeta}
+            />
+            <Comparison
+              relatedProducts={this.state.relatedProducts}
+            />
+            <Reviews
+              product={this.state.product}
+              reviews={this.state.reviews}
+              reviewsMeta={this.state.reviewsMeta}
+            />
+            <QandA />
+          </> :
+          <LoadingSpinner />
+        }
+      </div>
+    );
   }
 }
 
