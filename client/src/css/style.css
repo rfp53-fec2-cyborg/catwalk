@@ -127,3 +127,62 @@ select:disabled, button:disabled {
   font: 12px;
   color: rgb(167, 172, 170);
 }
+
+.header {
+  background-color: #484848;
+  padding: 10px 25px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header > * {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.header > h3 {
+  color: white;
+  font-style: italic;
+  text-shadow:
+    2px 2px #484848,
+    2px -2px #484848,
+    -2px 2px #484848,
+    -2px -2px #484848;
+  border-bottom: solid white;
+  display: inline-block;
+  letter-spacing: 0.03em;
+}
+
+.header > .searchForm {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.searchForm > .searchField {
+  width: 100px;
+  border-bottom: solid white 1px;
+}
+
+.searchForm > * {
+  margin-left: 15px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
