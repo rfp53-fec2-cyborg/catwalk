@@ -4,3 +4,34 @@
   width: 80px;
   border-radius: 50%;
 }
+
+.overview-container {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  grid-template-rows: minmax(80%, auto) auto;
+  grid-template-areas:
+    "gallery details"
+    "description description";
+  grid-column-gap: 30px;
+  place-items: stretch;
+  place-content: stretch;
+  min-height: 800px;
+  margin-top: 20px;
+}
+
+.image-gallery {
+  grid-area: gallery;
+  background-color: #dddddd;
+}
+
+.product-details {
+  grid-area: details;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.product-description {
+  grid-area: description;
+}
