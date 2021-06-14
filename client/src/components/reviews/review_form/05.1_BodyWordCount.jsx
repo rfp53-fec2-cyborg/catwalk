@@ -12,7 +12,7 @@ const BodyWordCount = ({formDetailsBodyLength}) => {
     <p id="body-word-count">
       {wordCount < 50
         ? `Minimum required characters left: ${50 - wordCount}.`
-        : 'Minimum reached.'
+        : `Minimum reached. Character count: ${wordCount}/1000.`
       }
     </p>
   );
