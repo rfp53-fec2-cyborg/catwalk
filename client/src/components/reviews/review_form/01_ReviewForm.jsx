@@ -34,9 +34,6 @@ const errorMessage = {
 
 const ReviewForm = ({data}) => {
 
-  const characteristics = data.reviewsMeta.characteristics;
-
-  const [formCharacteristicFields, setSormCharacteristicFields] = useState(Object.keys(characteristics));
   const [underSubmission, setUnderSubmission] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [formDetails, setFormDetails] = useState({
@@ -119,7 +116,7 @@ const ReviewForm = ({data}) => {
 
         <div>
           <h4> Characteristics </h4>
-          <Characteristics handleOnChange={handleOnChange} />
+          <Characteristics handleOnChange={handleOnChange} reviewsMeta={data.reviewsMeta}/>
         </div>
 
         <div>
