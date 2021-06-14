@@ -27,7 +27,7 @@ const errorMessage = {
   'rating_errorMsg': 'Rating is required.',
   'recommend_errorMsg': 'Recommendation is required.',
   'summary_errorMsg': 'Summary is required.',
-  'body_errorMsg': 'Body is required.',
+  'body_errorMsg': 'Minimum of 50 characters is required.',
   'name_errorMsg': 'Name is required.',
   'email_errorMsg': 'Valid email address is required.',
 };
