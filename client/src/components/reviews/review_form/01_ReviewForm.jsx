@@ -96,7 +96,7 @@ const ReviewForm = ({data}) => {
     console.log('Submission process is over');
     setUnderSubmission(false);
   };
-
+  console.log(formDetails);
   const content = (
     <>
       <h2> Write Your Review </h2>
@@ -116,7 +116,7 @@ const ReviewForm = ({data}) => {
 
         <div>
           <h4> Characteristics </h4>
-          <Characteristics handleOnChange={handleOnChange} reviewsMeta={data.reviewsMeta}/>
+          <Characteristics formDetails={formDetails} handleOnChange={handleOnChange} reviewsMeta={data.reviewsMeta}/>
         </div>
 
         <div>

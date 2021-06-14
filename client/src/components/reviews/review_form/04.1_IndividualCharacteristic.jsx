@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Description from './04.2_Description.jsx';
+import ShowRatingDesc from './04.2_ShowRatingDesc.jsx';
 
 const characteristicDescription = {
   Size: ['A size too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'A size too wide'],
@@ -10,29 +10,32 @@ const characteristicDescription = {
   Fit: ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'Runs long']
 };
 
-const IndividualCharacteristic = ({value}) => {
+const IndividualCharacteristic = (props) => {
 
-  console.log(value);
+  const id = props.value.details.id;
+  const characteristic = props.value.characteristic;
+  const [rating, setRating] = useState({});
 
-  const id = value.details.id;
-  const characteristic = value.characteristic;
+  const handleCharacteristicRating = (e) => {
+    const characteristicID = e.target.name;
+    const rating = e.target.value;
+    props.handleOnChange('characteristics', {...props.formDetails.characteristics, [characteristicID]: Number(rating)});
+  };
 
   return (
     <>
-      <div key={`${characteristic}-${id}`}>
-        <span>
-          {characteristicDescription[value.characteristic].map((desc, index) => {
-            let rating = index + 1;
-            return (
-              <>
-                <label htmlFor={id} key={`${id}-${rating}`} > {rating} </label>
-                <input name={id} value={rating} type="radio" />
-              </>
-            );
-          })}
-        </span>
+      <div key={id}>
+        {characteristicDescription[characteristic].map((desc, index) => {
+          let rating = index + 1;
+          return (
+            <span key={`${id}-${desc}-${rating}`} >
+              <label htmlFor={id} > {rating} </label>
+              <input name={id} value={rating} type="radio" onChange={handleCharacteristicRating}/>
+            </span>
+          );
+        })}
       </div>
-      <Description characteristic={value.characteristic} />
+      <ShowRatingDesc characteristic={characteristic} desc={characteristicDescription}/>
     </>
   );
 };
