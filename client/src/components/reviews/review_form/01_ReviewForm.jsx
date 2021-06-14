@@ -96,12 +96,12 @@ const ReviewForm = ({data}) => {
     console.log('Submission process is over');
     setUnderSubmission(false);
   };
-  console.log(formDetails);
+
   const content = (
-    <>
+    <div className="modal-body">
       <h2> Write Your Review </h2>
       <h3> About the {data.product.name}</h3>
-      <form onSubmit={validateForm}>
+      <form onSubmit={validateForm} >
         <div id="review-form-rating">
           <h4> Overall Rating </h4>
           <DrawDynamicStars handleOnChange={handleOnChange}/>
@@ -142,7 +142,7 @@ const ReviewForm = ({data}) => {
           : <div > Review has been submitted </div>
         }
       </form>
-    </>
+    </div>
   );
 
   return (

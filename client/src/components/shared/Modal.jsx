@@ -25,28 +25,17 @@
 
 import React, { useState } from 'react';
 
-// temporary styling for modal
-var modalStyle = {
-  position: 'fixed',
-  background: 'white',
-  height: 'auto',
-  width: 'auto',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%,-50%)',
-  border: '2px solid',
-};
-
-
 const Modal = (props) => {
   const [showModal, setShowModal] = useState(true);
 
   if (showModal) {
     return (
-      <section style={modalStyle} >
-        {props.content}
-        <div>
-          <button onClick={() => setShowModal(current => !current)}> Close </button>
+      <section className="modal" >
+        <div className="modal-dialog" >
+          {props.content}
+          <div>
+            <button onClick={() => setShowModal(current => !current)}> Close </button>
+          </div>
         </div>
       </section>
     );

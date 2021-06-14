@@ -181,3 +181,23 @@ html, body, #root {
   height: 100%;
   margin: 0;
 }
+
+
+.modal {
+  position: fixed;
+  background: white;
+  height: auto;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 2px solid;
+};
+
+.modal-dialog{
+  overflow-y: initial !important
+}
+.modal-body{
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
