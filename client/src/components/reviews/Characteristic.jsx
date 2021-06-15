@@ -10,30 +10,6 @@ const characteristicDesc = {
   Fit: ['Too small', 'Perfect', 'Too big'],
 };
 
-const containerStyle = {
-  width: '20%',
-  position: 'relative',
-  marginBottom: '10px',
-};
-
-const barStyle = {
-  width: '100%',
-  backgroundColor: '#e0e0de',
-  height: '1em',
-};
-
-const fillerDesc = {
-  width: '100%',
-  display: 'flex',
-  justifyContent: 'space-between',
-};
-
-const desc = {
-  fontSize: '13px',
-  textAlign: 'center',
-  padding: '1px'
-};
-
 const Characteristic = ({value}) => {
 
   const score = value.details.value;
@@ -45,14 +21,14 @@ const Characteristic = ({value}) => {
   };
 
   return (
-    <div style={containerStyle}>
+    <div className="progress-container" >
       <div> {value.characteristic} </div>
-      <div style={barStyle}>
+      <div className="progress-bar" >
         <div style={fillerStyle} > <img alt={`downArrow_${value.details.id}`} src={downArrow}/> </div>
       </div>
-      <div style={fillerDesc} >
+      <div className="progress-filler-desc" >
         {characteristicDesc[value.characteristic].map((value, index) =>
-          <label key={index} style={desc} > {value}</label>
+          <label key={index} className="progress-desc" > {value}</label>
         )}
       </div>
     </div>

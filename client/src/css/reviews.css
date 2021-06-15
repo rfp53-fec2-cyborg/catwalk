@@ -1,3 +1,39 @@
+.progress-container {
+  width: 20%;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0de;
+  height: 1em;
+}
+
+.progress-filler-desc {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-desc {
+  font-size: 13px;
+  text-align: center;
+  padding: 1px;
+}
+
+.indiv-star {
+  width: 22.5px;
+  height: 22.5px;
+}
+
+.modal-image {
+  width: 35em;
+  height: auto;
+  position: relative;
+  margin: 0 auto;
+}
+
 .review-thumbnail {
   width: 125px;
   height: 125px;
@@ -7,4 +43,3 @@
   background-color: rgb(236, 227, 227);
   cursor: pointer;
 };
-

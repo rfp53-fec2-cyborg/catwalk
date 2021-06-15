@@ -56,8 +56,7 @@ const ReviewListEntry = (props) => {
         {props.review.photos.map((photo, index) => {
           return <img
             name="photo"
-            width="125"
-            height="125"
+            className="review-thumbnail"
             key={photo.id}
             id={photo.url}
             src={checkValidPhoto(photo.url)}
