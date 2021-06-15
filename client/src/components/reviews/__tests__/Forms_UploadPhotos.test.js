@@ -21,7 +21,8 @@ describe('Photo upload process', () => {
     render(<UploadPhotos formDetails={formDetails} handleOnChange={handleOnChange} />);
 
     const file = new File(['I am a photo'], 'photo.png');
-    userEvent.click(screen.getByTestId('imageUpload'), { target: { file: [file]}});
+    await userEvent.click(screen.getByTestId('imageUpload'), { target: { file: [file]}});
     expect(handleOnChange).toHaveBeenCalledTimes(1);
+    expect(screen.getByTestId('imageUpload').file.length).toBeGreaterThan(0);
   });
 });

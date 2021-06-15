@@ -14,7 +14,9 @@ const UploadPhotos = (props) => {
     fileReader.onload = () => {
       // readyState of 2 means the entire read request has been completed
       if (fileReader.readyState === 2) {
+        // set to state to show thumbnails
         setPhotos(prevThumbnails => [...prevThumbnails, fileReader.result]);
+        // call function to send photo data to be transformed into hosted URL
         retrieveTransformedImageURL({file: fileReader.result});
       }
     };
