@@ -137,7 +137,7 @@ const ReviewForm = ({data}) => {
         {submitSuccess === false
           ?
           <>
-            <button name="form-submit" type="submit" disabled={underSubmission} >Submit Review</button>
+            <button type="submit" name="submit" value="submit-form" disabled={underSubmission} >Submit Review</button>
           </>
           : <div > Review has been submitted </div>
         }
