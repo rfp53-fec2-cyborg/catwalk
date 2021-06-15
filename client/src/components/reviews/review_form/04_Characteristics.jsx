@@ -9,9 +9,9 @@ const Characteristics = (props) => {
   return (
     <>
       {formCharacteristics.map((value, index) =>
-        <div key={value.details.id}> {value.characteristic}
+        <label key={value.details.id}> {value.characteristic}
           <IndividualCharacteristic formDetails={props.formDetails} value={value} handleOnChange={props.handleOnChange}/>
-        </div>
+        </label>
       )}
     </>
   );

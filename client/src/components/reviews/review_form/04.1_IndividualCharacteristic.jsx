@@ -24,13 +24,13 @@ const IndividualCharacteristic = (props) => {
 
   return (
     <>
-      <div key={id}>
+      <div key={id} >
         {characteristicDescription[characteristic].map((desc, index) => {
           let rating = index + 1;
           return (
             <span key={`${id}-${desc}-${rating}`} >
-              <label htmlFor={id} > {rating} </label>
-              <input name={id} value={rating} type="radio" onChange={handleCharacteristicRating}/>
+              <label htmlFor={`${id}-${rating}`} > {rating} </label>
+              <input id={`${id}-${rating}`} name={id} value={rating} type="radio" onChange={handleCharacteristicRating}/>
             </span>
           );
         })}
