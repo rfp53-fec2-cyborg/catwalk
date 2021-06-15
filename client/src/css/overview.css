@@ -116,3 +116,7 @@
 .product-description {
   grid-area: description;
 }
+
+.fade-in {
+  transition: all 300ms ease;
+}

@@ -39,7 +39,7 @@ const Gallery = ({ selectedStyle }) => {
   const Arrow = ({ direction, handleImageArrowClick, imgSrc }) => {
     return (
       <div
-        className={`main-image-arrow ${direction}`}
+        className={`main-image-arrow fade-in ${direction}`}
         data-direction={direction}
         onClick={handleImageArrowClick}
       >
