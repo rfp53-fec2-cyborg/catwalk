@@ -82,6 +82,10 @@
   padding: 1px;
 }
 
+.indiv-characteristic {
+  margin-bottom: 10px;
+}
+
 .indiv-star {
   width: 22.5px;
   height: 22.5px;
@@ -94,6 +98,9 @@
   margin: 0 auto;
 }
 
+#form-name, #form-email {
+  width: 100%;
+}
 
 .rating-breakdown:hover {
   background-color: rgb(236, 227, 227);
