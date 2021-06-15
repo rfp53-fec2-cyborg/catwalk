@@ -47,7 +47,7 @@ class Comparison extends React.Component {
         });
       })
       .then(this.getTheStyles())
-      .then(this.getTheStarRating())
+      // .then(this.getTheStarRating())
       .catch(console.log('err?'));
   };
   // get and store each styleObj from each product in the relatedProducts array
@@ -63,16 +63,16 @@ class Comparison extends React.Component {
   };
 
   // get and store each starRating svg num for each product in the relatedProducts array
-  getTheStarRating = ()=> {
-    return Promise.all(this.state.relatedProducts.map(productID => rerequester.getReviewsMeta(`${productID}`)))
-      .then((data) => {
-        // console.log('RevMeta', data);
-        this.setState({
-          reviewsMetaArr: data
-        });
-      })
-      .catch(console.log('err??'));
-  };
+  // getTheStarRating = ()=> {
+  //   return Promise.all(this.state.relatedProducts.map(productID => rerequester.getReviewsMeta(`${productID}`)))
+  //     .then((data) => {
+  //       // console.log('RevMeta', data);
+  //       this.setState({
+  //         reviewsMetaArr: data
+  //       });
+  //     })
+  //     .catch(console.log('err??'));
+  // };
 
   componentDidMount() {
     this.getTheDeets();
@@ -80,9 +80,6 @@ class Comparison extends React.Component {
 
   render() {
     // console.log(this.state.styles);
-    // console.log('loaded detaledRelatedProductsArr', this.state.detaledRelatedProductsArr);
-    // console.log('relstyles', this.state.relatedProductsStylesArr);
-
 
     return (
       <div>
