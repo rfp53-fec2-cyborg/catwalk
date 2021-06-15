@@ -5,8 +5,8 @@ const requester = Requester();
 
 const UploadPhotos = (props) => {
 
-  const [photos, setPhotos] = useState([]);
-  const [photoUrl, setPhotoUrl] = useState([]);
+  const [photoThumbnail, setPhotoThumbnail] = useState([]);
+  const [transformedPhotoUrl, setTransformedPhotoUrl] = useState([]);
 
   const handleUploadedImage = (e) => {
     // https://developer.mozilla.org/en-US/docs/Web/API/FileReader
@@ -15,7 +15,7 @@ const UploadPhotos = (props) => {
       // readyState of 2 means the entire read request has been completed
       if (fileReader.readyState === 2) {
         // set to state to show thumbnails
-        setPhotos(prevThumbnails => [...prevThumbnails, fileReader.result]);
+        setPhotoThumbnail(prevThumbnails => [...prevThumbnails, fileReader.result]);
         // call function to send photo data to be transformed into hosted URL
         retrieveTransformedImageURL({file: fileReader.result});
       }
@@ -27,7 +27,7 @@ const UploadPhotos = (props) => {
   const retrieveTransformedImageURL = async (file) => {
     try {
       let imageUrl = await requester.uploadImage(file);
-      setPhotoUrl(prevElements => [...prevElements, imageUrl]);
+      setTransformedPhotoUrl(prevElements => [...prevElements, imageUrl]);
     } catch (err) {
       console.error(err);
     }
@@ -35,17 +35,17 @@ const UploadPhotos = (props) => {
 
 
   useEffect(() => {
-    props.handleOnChange('photos', photoUrl);
-  }, [photoUrl]);
+    props.handleOnChange('photos', transformedPhotoUrl);
+  }, [transformedPhotoUrl]);
 
   return (
     <label> Select a maximum of 5 photos to upload:
       <div className="image-holder">
-        {photos.map((currentPhoto, index) =>
-          <img key={index} src={currentPhoto} alt="uploaded-image" className="thumbnail" />
+        {photoThumbnail.map((currentPhotoThumbnail, index) =>
+          <img key={index} src={currentPhotoThumbnail} alt="uploaded-image" className="style-thumbnail" />
         )}
       </div>
-      {photos.length < 5
+      {photoThumbnail.length < 5
         ? <input type="file" accept="image/*" name="upload-image" data-testid="imageUpload" onChange={handleUploadedImage}/>
         : null}
     </label>

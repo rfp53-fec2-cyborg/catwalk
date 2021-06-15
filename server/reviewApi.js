@@ -102,7 +102,6 @@ const putReviewReport = async (data) => {
 
 const uploadPhoto = async ({file}) => {
 
-  console.log(file);
   const formData = {file, 'upload_preset': cloudinaryPreset};
 
   try {

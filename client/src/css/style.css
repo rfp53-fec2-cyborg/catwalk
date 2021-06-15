@@ -202,7 +202,3 @@ html, body, #root {
   overflow-y: auto;
 }
 
-.thumbnail {
-  width: 125px;
-  height: 125px;
-}

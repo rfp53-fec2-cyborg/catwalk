@@ -142,7 +142,7 @@ app.get('/cart', async (req, res) => {
 
 app.post('/cart', async (req, res) => {
   try {
-    const data = await uploadPhoto(req.body);
+    const data = await postCart(req.body);
     res.json(data);
   } catch (err) {
     console.error(err);

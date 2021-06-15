@@ -87,9 +87,7 @@ const ReviewForm = ({data}) => {
 
   const submitForm = async () => {
     try {
-      console.log(formDetails);
       let submitReviewResponse = await requester.postReview(formDetails);
-      console.log(submitReviewResponse);
       setSubmitSuccess(true);
     } catch (err) {
       console.error('Error with posting data to API: ', err);
