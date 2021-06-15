@@ -44,7 +44,7 @@ const UploadPhotos = (props) => {
         )}
       </div>
       {photos.length < 5
-        ? <input type="file" accept="image/*" name="upload-image" onChange={handleUploadedImage}/>
+        ? <input type="file" accept="image/*" name="upload-image" data-testid="imageUpload" onChange={handleUploadedImage}/>
         : null}
     </label>
   );
