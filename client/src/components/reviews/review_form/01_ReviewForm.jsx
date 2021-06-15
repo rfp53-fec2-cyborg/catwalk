@@ -88,7 +88,6 @@ const ReviewForm = ({data}) => {
   const submitForm = async () => {
     try {
       let submitReviewResponse = await requester.postReview(formDetails);
-      console.log(submitReviewResponse);
       setSubmitSuccess(true);
     } catch (err) {
       console.error('Error with posting data to API: ', err);
@@ -127,7 +126,7 @@ const ReviewForm = ({data}) => {
 
         <div>
           <h4> Upload Photos </h4>
-          <UploadPhotos handleOnChange={handleOnChange} />
+          <UploadPhotos formDetails={formDetails} handleOnChange={handleOnChange} />
         </div>
 
         <div>
@@ -137,7 +136,7 @@ const ReviewForm = ({data}) => {
         {submitSuccess === false
           ?
           <>
-            <button name="form-submit" type="submit" disabled={underSubmission} >Submit Review</button>
+            <button type="submit" name="submit" value="submit-form" disabled={underSubmission} >Submit Review</button>
           </>
           : <div > Review has been submitted </div>
         }

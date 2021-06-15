@@ -109,6 +109,10 @@ const Requester = () => {
     return post('cart', data);
   };
 
+  requester.uploadImage = (data) => {
+    return post('upload-photo', data);
+  };
+
   return requester;
 };
 

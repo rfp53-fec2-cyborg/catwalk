@@ -1,4 +1,10 @@
+.review-thumbnail {
+  width: 125px;
+  height: 125px;
+}
+
 .rating-breakdown:hover {
   background-color: rgb(236, 227, 227);
   cursor: pointer;
 };
+
