@@ -39,7 +39,8 @@
 }
 
 .main-image-pane {
-  background-color: #dddddd;
+  /* background-color: #dddddd; */
+  position: relative;
 }
 
 .gallery-thumbnail-container {
@@ -73,6 +74,29 @@
   /* top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); */
+}
+
+.main-image-arrow {
+  position: absolute;
+  top: 50%;
+  padding: 7px 5px 5px;
+  border-radius: 3px;
+  background-color: #dddddd80;
+}
+
+.main-image-arrow:hover {
+  background-color: #B4B4B480;
+}
+
+.main-image-arrow.right {
+  left: 100%;
+  transform: translate(-100%, -50%);
+  /* margin-right: 5px; */
+}
+
+.main-image-arrow.left {
+  transform: translate(0, -50%);
+  /* margin-left: 5px; */
 }
 
 .main-image {
