@@ -16,13 +16,11 @@ class Comparison extends React.Component {
       detaledRelatedProductsArr: [],
       relatedProductsStylesArr: [],
       outfitList: [],
+      reviewsMetaArr: [],
       activeIndex: 0,
       styles: this.props.styles
     };
-    // this.fetchAndStore = this.props.fetchAndStore.bind(this);
   }
-
-
 
   // function that will handle product click
 
@@ -49,9 +47,10 @@ class Comparison extends React.Component {
         });
       })
       .then(this.getTheStyles())
+      .then(this.getTheStarRating())
       .catch(console.log('err?'));
   };
-
+  // get and store each styleObj from each product in the relatedProducts array
   getTheStyles = ()=> {
     return Promise.all(this.state.relatedProducts.map(relatedProduct => rerequester.getProductStyles(`${relatedProduct}`)))
       .then((data) => {
@@ -60,9 +59,18 @@ class Comparison extends React.Component {
           relatedProductsStylesArr: data
         });
       })
-      // .then(this.setState({
-      //   isLoaded: true
-      // }))
+      .catch(console.log('err??'));
+  };
+
+  // get and store each starRating svg num for each product in the relatedProducts array
+  getTheStarRating = ()=> {
+    return Promise.all(this.state.relatedProducts.map(productID => rerequester.getReviewsMeta(`${productID}`)))
+      .then((data) => {
+        // console.log('RevMeta', data);
+        this.setState({
+          reviewsMetaArr: data
+        });
+      })
       .catch(console.log('err??'));
   };
 
@@ -79,7 +87,7 @@ class Comparison extends React.Component {
     return (
       <div>
         { this.state.relatedProductsStylesArr.length ?
-          <div style={{display: 'grid', gridTemplateColumns: '=400px', gridTemplateRows: '400px', gap: '0px 0px'}}>
+          <div>
             <RelatedProducts detaledRelatedProductsArr={this.state.detaledRelatedProductsArr} relatedProductsStylesArr={this.state.relatedProductsStylesArr}/>
             {/* <UserOutfitItems productStyles={productStyles}/> */}
           </div> :
