@@ -22,6 +22,7 @@
 .image-gallery {
   grid-area: gallery;
   background-color: #dddddd;
+  position: relative;
 }
 
 .product-details {
@@ -34,4 +35,44 @@
 
 .product-description {
   grid-area: description;
+}
+
+.main-photo, .gallery-thumbnail{
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gallery-thumbnail:hover {
+  cursor: pointer;
+}
+
+.gallery-thumbnails {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.gallery-thumbnail-container {
+  height: 100px;
+  width: 70px;
+  position: relative;
+  border: solid 1px #808080;
+  margin-bottom: 20px;
+}
+
+.gallery-thumbnail-container.current-photo::after {
+  background-color: #484848;
+  height: 4px;
+  width: 72px;
+  position: absolute;
+  content: '';
+  top: 103%;
+  left: -1px;
 }

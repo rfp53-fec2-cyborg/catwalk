@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Requester from '../../Requester.js';
+import Gallery from './Gallery.jsx';
 import Rating from './Rating.jsx';
 import Styles from './Styles.jsx';
 import SizeSelector from './SizeSelector.jsx';
@@ -106,6 +107,9 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
   return (
     <div className='overview-container'>
       <div className='image-gallery'>
+        <Gallery
+          selectedStyle={selectedStyle}
+        />
       </div>
       <div className='product-details'>
         <Rating reviewsMeta={reviewsMeta} />
