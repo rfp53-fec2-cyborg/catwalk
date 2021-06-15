@@ -38,13 +38,12 @@ const ReviewListEntry = (props) => {
   };
 
   return (
-    <article style={style} >
+    <article className="review-card" >
       {/* Show reviewer name, review date, and the rating */}
-      <div> {props.review.reviewer_name}, {stringToDate(props.review.date)} </div>
-      <StarRating score={`${props.review.rating}.00`} />
+      <StarRating score={`${props.review.rating}.00`} /> <span className="review-name-date"> {props.review.reviewer_name}, {stringToDate(props.review.date)} </span>
 
       {/* Show maximum of 60 characters for the summary */}
-      <div> {props.review.summary.length > summaryMaxLength
+      <div className="review-body" > {props.review.summary.length > summaryMaxLength
         ? `${props.review.summary.substring(0, summaryMaxLength)}...`
         : props.review.summary}
       </div>
@@ -53,7 +52,7 @@ const ReviewListEntry = (props) => {
       {showDescription()}
 
       {/* Show images */}
-      <div>
+      <div className="review-photo">
         {props.review.photos.map((photo, index) => {
           return <img
             name="photo"
@@ -75,11 +74,11 @@ const ReviewListEntry = (props) => {
       </div>
 
       {/* Product recommendation from review */}
-      {props.review.recommend ? <div> <img src={checkmark}/> I recommend this product </div> : null}
+      {props.review.recommend ? <div className="review-recommend"> <img src={checkmark}/> I recommend this product </div> : null}
 
       {/* Show response if there is a response */}
       {props.review.response
-        ? <div> Response from seller: <p> {props.review.response} </p> </div>
+        ? <div className="review-response"> Response from seller: <p> {props.review.response} </p> </div>
         : null}
 
       {/* Uses shared component to mark something helpful or not */}

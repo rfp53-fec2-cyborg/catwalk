@@ -18,8 +18,33 @@
   justify-content: space-between;
 }
 
+.review-card {
+  border-bottom: 1px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.review-card > div, p {
+  padding: 5px;
+  margin: 5px;
+}
+
+.review-name-date {
+  float: right;
+}
+
 .rating-breakdown {
   display: flex;
+}
+
+.review-thumbnail {
+  width: 125px;
+  height: 125px;
+}
+
+.review-body {
+  font-weight: bold;
+  font-size: 21px;
 }
 
 .overall-rating {
@@ -69,10 +94,6 @@
   margin: 0 auto;
 }
 
-.review-thumbnail {
-  width: 125px;
-  height: 125px;
-}
 
 .rating-breakdown:hover {
   background-color: rgb(236, 227, 227);
