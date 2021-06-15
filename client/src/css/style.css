@@ -113,18 +113,13 @@ select:disabled, button:disabled {
   width: 20px;
 }
 
-.rating-breakdown:hover {
-  background-color: rgb(236, 227, 227);
-  cursor: pointer;
-};
-
 .error-message {
-  font: 12px;
+  font-size: 14px;
   color: rgb(228, 90, 90);
 }
 
-.caution-text {
-  font: 12px;
+.caution-message {
+  font-size: 14px;
   color: rgb(167, 172, 170);
 }
 
@@ -185,4 +180,24 @@ select:disabled, button:disabled {
 html, body, #root {
   height: 100%;
   margin: 0;
+}
+
+
+.modal {
+  position: fixed;
+  background: white;
+  height: auto;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 2px solid;
+};
+
+.modal-dialog{
+  overflow-y: initial !important
+}
+.modal-body{
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
 }

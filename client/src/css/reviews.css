@@ -1,0 +1,4 @@
+.rating-breakdown:hover {
+  background-color: rgb(236, 227, 227);
+  cursor: pointer;
+};
