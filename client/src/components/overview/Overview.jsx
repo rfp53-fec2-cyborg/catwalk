@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Requester from '../../Requester.js';
+import Gallery from './Gallery.jsx';
 import Rating from './Rating.jsx';
 import Styles from './Styles.jsx';
 import SizeSelector from './SizeSelector.jsx';
@@ -104,40 +105,52 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
   };
 
   return (
-    <div>
-      <Rating reviewsMeta={reviewsMeta} />
-      <h5>{product.category}</h5>
-      <h1>{product.name}</h1>
-      <h5>{formatPrice(product.default_price)}</h5>
-      <Styles
-        styles={styles}
-        selectedStyle={selectedStyle}
-        handleStyleClick={handleStyleClick}
-        handleSkuSelection={handleSkuSelection}
-      />
-      <SizeSelector
-        showWarning={showWarning}
-        isOutOfStock={isOutOfStock}
-        skus={skusToArray(selectedStyle.skus)}
-        selectedSkuId={selectedSkuId}
-        handleSkuSelection={handleSkuSelection}
-      />
-      <QuantitySelector
-        quantity={selectedSkuId ?
-          selectedStyle.skus[selectedSkuId].quantity :
-          0}
-        handleQuantitySelection={handleQuantitySelection}
-      />
-      <AddToCart
-        isOutOfStock={isOutOfStock}
-        handleAddToCart={handleAddToCart}
-      />
-      {
-        product.description ?
-          <Description description={product.description} slogan={product.slogan} /> :
-          null
-      }
-      <SocialMediaList />
+    <div className='overview-container'>
+      <div className='image-gallery'>
+        <Gallery
+          key={selectedStyle.style_id}
+          selectedStyle={selectedStyle}
+        />
+      </div>
+      <div className='product-details'>
+        <Rating reviewsMeta={reviewsMeta} />
+        <h5>{product.category}</h5>
+        <h1>{product.name}</h1>
+        <h5>{formatPrice(product.default_price)}</h5>
+        <Styles
+          styles={styles}
+          selectedStyle={selectedStyle}
+          handleStyleClick={handleStyleClick}
+          handleSkuSelection={handleSkuSelection}
+        />
+        <div className='cart-controls'>
+          <SizeSelector
+            showWarning={showWarning}
+            isOutOfStock={isOutOfStock}
+            skus={skusToArray(selectedStyle.skus)}
+            selectedSkuId={selectedSkuId}
+            handleSkuSelection={handleSkuSelection}
+          />
+          <QuantitySelector
+            quantity={selectedSkuId ?
+              selectedStyle.skus[selectedSkuId].quantity :
+              0}
+            handleQuantitySelection={handleQuantitySelection}
+          />
+          <AddToCart
+            isOutOfStock={isOutOfStock}
+            handleAddToCart={handleAddToCart}
+          />
+        </div>
+      </div>
+      <div className='product-description'>
+        {
+          product.description ?
+            <Description description={product.description} slogan={product.slogan} /> :
+            null
+        }
+        <SocialMediaList />
+      </div>
     </div>
   );
 };
