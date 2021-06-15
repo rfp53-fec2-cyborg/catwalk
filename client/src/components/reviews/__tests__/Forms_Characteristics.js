@@ -92,11 +92,27 @@ describe('Characteristics of a product can be rated', () => {
     render(<IndividualCharacteristic formDetails={props.formDetails} value={props.value} handleOnChange={handleOnChange}/>);
 
     const rating3 = screen.getByRole('radio', {name: /3/i});
-    const qualityDesc = ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'];
+    // const qualityDesc = ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'];
 
     userEvent.click(rating3);
-    expect(rating3.value).toBe('What I expected-57225-3');
+    expect(rating3.value).toBe('3');
+    expect(rating3.checked).toBe(true);
     expect(screen.getByText(/what i expected/i)).toBeDefined();
+  });
+
+  it('Only one rating can be selected at once', async () => {
+    render(<IndividualCharacteristic formDetails={props.formDetails} value={props.value} handleOnChange={handleOnChange}/>);
+
+    const rating3 = screen.getByRole('radio', {name: /3/i});
+    const rating4 = screen.getByRole('radio', {name: /4/i});
+    // const qualityDesc = ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'];
+
+    userEvent.click(rating3);
+    userEvent.click(rating4);
+    expect(rating4.value).toBe('4');
+    expect(rating4.checked).toBe(true);
+    expect(rating3.checked).toBe(false);
+    expect(screen.getByText(/pretty great/i)).toBeDefined();
   });
 
 });

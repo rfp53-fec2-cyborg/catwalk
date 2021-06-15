@@ -14,7 +14,7 @@ const ShowRatingDesc = (props) => {
         Hide grading description
         <ul className="characteristic-desc-list">
           {props.desc[props.characteristic].map((desc, index) =>
-            <p key={index + 1} id={index + 1} > {`${index + 1} ${desc}`} </p>
+            <p key={index + 1} > {`${index + 1} ${desc}`} </p>
           )}
         </ul>
       </article>

@@ -17,9 +17,9 @@ const IndividualCharacteristic = (props) => {
   const [description, setDescription] = useState({});
 
   const handleCharacteristicRating = (e) => {
-    const ratingDesc = e.target.value.split('-')[0];
-    const characteristicID = e.target.value.split('-')[1];
-    const rating = e.target.value.split('-')[2];
+    const ratingDesc = e.target.getAttribute('data-desc');
+    const characteristicID = e.target.name;
+    const rating = e.target.value;
     setDescription(prevDesc => { return {...prevDesc, [characteristic]: {ratingDesc, rating}}; });
     props.handleOnChange('characteristics', {...props.formDetails.characteristics, [characteristicID]: Number(rating)});
   };
@@ -27,13 +27,19 @@ const IndividualCharacteristic = (props) => {
   return (
     <>
       <div key={id} >
-        <div>{description[characteristic] ? description[characteristic].ratingDesc : null}</div>
+        {description[characteristic] ? <div> {description[characteristic].ratingDesc} </div> : null}
         {characteristicDescription[characteristic].map((desc, index) => {
           let rating = index + 1;
           return (
-            <span key={`${id}-${desc}-${rating}`} >
-              <label htmlFor={`${id}-${rating}`} > {rating} </label>
-              <input id={`${id}-${rating}`} name={id} value={`${desc}-${id}-${rating}`} type="radio" onChange={handleCharacteristicRating}/>
+            <span key={`${id}-${rating}`} >
+              <label > {rating}
+                <input
+                  data-desc={desc}
+                  name={id}
+                  value={rating}
+                  type="radio"
+                  onChange={handleCharacteristicRating}/>
+              </label>
             </span>
           );
         })}
