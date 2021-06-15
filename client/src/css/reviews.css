@@ -4,7 +4,36 @@
   grid-template-rows: auto;
 }
 
-.progress-container {
+.breakdown-container {
+  min-height: 712px;
+}
+
+.breakdown-container > div {
+  padding-bottom: 10px;
+}
+
+.rating-breakdown {
+  display: flex;
+  padding-right: 20%;
+  justify-content: space-between;
+}
+
+.rating-breakdown {
+  display: flex;
+}
+
+.overall-rating {
+  font-size: 50px;
+  margin-bottom: 10px;
+  padding-bottom : 10px;
+}
+
+.recommendation-percentage {
+  margin-bottom: 10px;
+  padding-bottom : 10px;
+}
+
+.progress-box {
   width: 80%;
   position: relative;
   margin-bottom: 10px;
@@ -49,3 +78,4 @@
   background-color: rgb(236, 227, 227);
   cursor: pointer;
 };
+

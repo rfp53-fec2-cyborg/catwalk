@@ -35,10 +35,10 @@ const RatingBreakdown = ({data}) => {
       <h5> Rating Breakdown </h5>
       <div className="container">
         <div className="breakdown-container">
-          <div> {overallRating} <StarRating score={overallRating}/> </div>
-          <>
-            <RatingFilterDesc data={ratingFilter} setRatingFilter={setRatingFilter}/>
-          </>
+          <div className="overall-rating" > {overallRating} <StarRating score={overallRating}/> </div>
+          <Recommended recommendedData={ratingOverview.recommended}/>
+          <RatingFilterDesc data={ratingFilter} setRatingFilter={setRatingFilter}/>
+
           {starData.map((value, index) => {
             let key = starData.length;
             var {rating, ratingCount} = {rating: key - index, ratingCount: value[key - index]};
@@ -52,7 +52,6 @@ const RatingBreakdown = ({data}) => {
               </div>
             );
           })}
-          <Recommended recommendedData={ratingOverview.recommended}/>
           <ProductBreakdown data={data}/>
         </div>
 

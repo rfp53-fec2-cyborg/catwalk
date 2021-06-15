@@ -21,7 +21,7 @@ const Characteristic = ({value}) => {
   };
 
   return (
-    <div className="progress-container" >
+    <div className="progress-box" >
       <div> {value.characteristic} </div>
       <div className="progress-bar" >
         <div style={fillerStyle} > <img alt={`downArrow_${value.details.id}`} src={downArrow}/> </div>

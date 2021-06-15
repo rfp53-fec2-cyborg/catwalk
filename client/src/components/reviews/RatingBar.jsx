@@ -11,7 +11,7 @@ const RatingBar = (props) => {
   };
 
   return (
-    <div className="progress-container" >
+    <div className="progress-box" >
       <div className="progress-bar">
         <div style={fillerStyles} > {props.ratingCount} </div>
       </div>
