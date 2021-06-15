@@ -34,9 +34,6 @@ const errorMessage = {
 
 const ReviewForm = ({data}) => {
 
-  const characteristics = data.reviewsMeta.characteristics;
-
-  const [formCharacteristicFields, setSormCharacteristicFields] = useState(Object.keys(characteristics));
   const [underSubmission, setUnderSubmission] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [formDetails, setFormDetails] = useState({
@@ -101,10 +98,10 @@ const ReviewForm = ({data}) => {
   };
 
   const content = (
-    <>
+    <div className="modal-body">
       <h2> Write Your Review </h2>
       <h3> About the {data.product.name}</h3>
-      <form onSubmit={validateForm}>
+      <form onSubmit={validateForm} >
         <div id="review-form-rating">
           <h4> Overall Rating </h4>
           <DrawDynamicStars handleOnChange={handleOnChange}/>
@@ -119,7 +116,7 @@ const ReviewForm = ({data}) => {
 
         <div>
           <h4> Characteristics </h4>
-          <Characteristics handleOnChange={handleOnChange} />
+          <Characteristics formDetails={formDetails} handleOnChange={handleOnChange} reviewsMeta={data.reviewsMeta}/>
         </div>
 
         <div>
@@ -145,7 +142,7 @@ const ReviewForm = ({data}) => {
           : <div > Review has been submitted </div>
         }
       </form>
-    </>
+    </div>
   );
 
   return (

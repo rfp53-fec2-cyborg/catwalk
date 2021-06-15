@@ -18,11 +18,11 @@ describe('Word count messaging and logic', () => {
   it('Minimum reached message appears correctly if body word count is equal to greater than 50', async () => {
     const formDetailsBodyLength = 50;
     const {container} = render(<BodyWordCount formDetailsBodyLength={formDetailsBodyLength} />);
-    expect(screen.getByText('Minimum reached.')).toBeDefined();
+    expect(screen.getByText('Minimum reached. Character count: 50/1000.')).toBeDefined();
 
     const updateProps = props => render(<BodyWordCount {...props} />, {container});
     updateProps({formDetailsBodyLength: 75});
-    expect(screen.getByText('Minimum reached.')).toBeDefined();
+    expect(screen.getByText('Minimum reached. Character count: 75/1000.')).toBeDefined();
   });
 
   it('Minimum required message appears correctly if body word count is less than 50', async () => {
