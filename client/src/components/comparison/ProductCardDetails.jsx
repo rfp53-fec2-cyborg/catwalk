@@ -3,8 +3,8 @@ import React, {useEffect, useState} from 'react';
 const ProductCardDetails = ({detaledRelatedProduct, relatedProductsStylesArr}) => {
 
   let currentId = detaledRelatedProduct.id;
-  console.log('styles',relatedProductsStylesArr);
-  console.log('detales',detaledRelatedProduct);
+  // console.log('styles', relatedProductsStylesArr);
+  // console.log('detales', detaledRelatedProduct);
 
 
 
