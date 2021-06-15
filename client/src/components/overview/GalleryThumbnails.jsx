@@ -1,21 +1,21 @@
 import React from 'react';
 
-const GalleryThumbnails = ({ selectedThumbnail, images, handleThumbnailClick }) => {
-  const thumbnailsHtml = images.map((image, index) => {
+const GalleryThumbnails = ({ selectedThumbnail, photos, handleThumbnailClick }) => {
+  const thumbnailsHtml = photos.map((photo, index) => {
     return (
       <div
         className={
-          selectedThumbnail === image.thumbnail_url ?
+          selectedThumbnail === photo.thumbnail_url ?
             'gallery-thumbnail-container current-photo' :
             'gallery-thumbnail-container'
         }
         onClick={handleThumbnailClick}
         data-index={index}
-        data-thumbnail-url={image.thumbnail_url}
+        data-thumbnail-url={photo.thumbnail_url}
         key={`gallery_thumbnail_${index}`}
       >
         <img
-          src={image.thumbnail_url}
+          src={photo.thumbnail_url}
           className='gallery-thumbnail'
         >
         </img>
@@ -23,9 +23,9 @@ const GalleryThumbnails = ({ selectedThumbnail, images, handleThumbnailClick }) 
   });
 
   return (
-    <div className='gallery-thumbnails'>
+    <>
       {thumbnailsHtml}
-    </div>
+    </>
   );
 };
 

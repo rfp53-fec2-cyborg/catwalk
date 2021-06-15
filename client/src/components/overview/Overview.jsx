@@ -108,6 +108,7 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
     <div className='overview-container'>
       <div className='image-gallery'>
         <Gallery
+          key={selectedStyle.style_id}
           selectedStyle={selectedStyle}
         />
       </div>
