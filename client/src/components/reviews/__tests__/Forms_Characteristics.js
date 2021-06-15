@@ -88,13 +88,15 @@ describe('Characteristics of a product can be rated', () => {
   });
 
 
-  it('When rating is selected, correct characteristic id is returned', async () => {
+  it('When rating is selected, correct characteristic id and description is returned', async () => {
     render(<IndividualCharacteristic formDetails={props.formDetails} value={props.value} handleOnChange={handleOnChange}/>);
 
     const rating3 = screen.getByRole('radio', {name: /3/i});
+    const qualityDesc = ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'];
 
     userEvent.click(rating3);
-    expect(rating3.id).toBe('57225-3');
+    expect(rating3.value).toBe('What I expected-57225-3');
+    expect(screen.getByText(/what i expected/i)).toBeDefined();
   });
 
 });
