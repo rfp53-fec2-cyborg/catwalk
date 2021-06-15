@@ -7,7 +7,6 @@ import ReactDOM from 'react-dom';
 import Reviews from '../Reviews.jsx';
 import ReviewList from '../ReviewList.jsx';
 import ReviewListEntry from '../ReviewListEntry.jsx';
-import Rating from '../Rating.jsx';
 import RatingBreakdown from '../RatingBreakdown.jsx';
 import RatingBar from '../RatingBar.jsx';
 import Sorting from '../Sorting.jsx';
