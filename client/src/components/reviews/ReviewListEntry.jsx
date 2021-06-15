@@ -4,6 +4,7 @@ import { checkValidPhoto } from '../../helpers/imageFunctions.js';
 import MarkAsHelpful from '../shared/MarkAsHelpful.jsx';
 import ModalPhoto from './ModalPhoto.jsx';
 import checkmark from '../../assets/checkmark.svg';
+import StarRating from '../shared/StarRating.jsx';
 
 // temporary styling for spacing
 var style = {
@@ -40,7 +41,7 @@ const ReviewListEntry = (props) => {
     <article style={style} >
       {/* Show reviewer name, review date, and the rating */}
       <div> {props.review.reviewer_name}, {stringToDate(props.review.date)} </div>
-      <div> {props.review.rating} stars</div>
+      <StarRating score={`${props.review.rating}.00`} />
 
       {/* Show maximum of 60 characters for the summary */}
       <div> {props.review.summary.length > summaryMaxLength
