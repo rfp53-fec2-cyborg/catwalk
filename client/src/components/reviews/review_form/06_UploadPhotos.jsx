@@ -42,7 +42,7 @@ const UploadPhotos = (props) => {
     <label> Select a maximum of 5 photos to upload:
       <div className="image-holder">
         {photoThumbnail.map((currentPhotoThumbnail, index) =>
-          <img key={index} src={currentPhotoThumbnail} alt="uploaded-image" className="style-thumbnail" />
+          <img key={index} src={currentPhotoThumbnail} alt="uploaded-image" className="review-thumbnail" />
         )}
       </div>
       {photoThumbnail.length < 5
