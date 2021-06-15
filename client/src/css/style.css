@@ -79,8 +79,8 @@ h4 span {
 
 select, button {
   padding: 15px;
-  height: 65px;
-  font-size: 16px;
+  height: 50px;
+  font-size: 12px;
   font-weight: 600;
   background-color: #fff;
   border: solid 1px #808080;
@@ -201,3 +201,4 @@ html, body, #root {
   max-height: calc(100vh - 200px);
   overflow-y: auto;
 }
+
