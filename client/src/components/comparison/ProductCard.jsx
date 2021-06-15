@@ -29,7 +29,7 @@ const ProductCard = ({detaledRelatedProduct, relatedProductsStylesArr}) => {
   // function to have compare modal button/icon to go here
 
   return (
-    <div style={{borderStyle: 'solid'}}/*id="productCard"style={{display: 'grid', gridTemplateColumns: '1fr', gridTemplateRows: '60% 40%', gap: '0px 0px', borderStyle: 'solid', borderWidth: '2px', margin: '5px'}}*/>
+    <div>
       {/* button/icon to bring up compare modal will go here */}
       <div>
         <img src={getTheCorrectPic(relatedProductsStylesArr, currentId)} alt='Image Not Available'/>

@@ -6,7 +6,7 @@ const UserOutfitItems = (props) => {
   return (
     <div>
       <h3>Your Outfit</h3>
-      <div id="productsContainer"style={{display: 'grid', gridTemplateColumns: '250px 250px 250px 250px 250px', gridTemplateRows: '375px, gap: 0px 0px', padding: '0px', margin: '20px 40px 20px', overflow: scroll}}>
+      <div>
         {props.productStyles.map((productStyle, index) => {
           return <UserOutfitCard
             key={index}

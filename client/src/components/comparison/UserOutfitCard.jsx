@@ -5,7 +5,6 @@ const UserOutfitCard = (props) => {
   return (
     <div>
       <div>Image</div><br></br>
-      {/* i probably need to seperate the image from the rest of the card, and what about the star icon? */}
       <div>Category</div><br></br>
       <div>Expanded Product Name with Extra Text</div><br></br>
       <div>Price</div><br></br>
