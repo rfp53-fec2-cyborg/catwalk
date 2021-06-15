@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Requester from '../../../Requester.js';
+
+const requester = Requester();
 
 const UploadPhotos = (props) => {
 
   const [photos, setPhotos] = useState([]);
+  const [photoUrl, setPhotoUrl] = useState([]);
 
   const handleUploadedImage = (e) => {
     // https://developer.mozilla.org/en-US/docs/Web/API/FileReader
@@ -10,20 +14,33 @@ const UploadPhotos = (props) => {
     fileReader.onload = () => {
       // readyState of 2 means the entire read request has been completed
       if (fileReader.readyState === 2) {
-        setPhotos(prevPhotos => [...prevPhotos, fileReader.result]);
+        setPhotos(prevThumbnails => [...prevThumbnails, fileReader.result]);
+        retrieveTransformedImageURL({file: fileReader.result});
       }
     };
     // reads image data and shows a thumbnail with one of many methods
     fileReader.readAsDataURL(e.target.files[0]);
   };
 
-  console.log(photos);
+  const retrieveTransformedImageURL = async (file) => {
+    try {
+      let imageUrl = await requester.uploadImage(file);
+      setPhotoUrl(prevElements => [...prevElements, imageUrl]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+
+  useEffect(() => {
+    props.handleOnChange('photos', photoUrl);
+  }, [photoUrl]);
 
   return (
     <label> Select a maximum of 5 photos to upload:
       <div className="image-holder">
         {photos.map((currentPhoto, index) =>
-          <img src={currentPhoto} alt="uploaded-image" />
+          <img key={index} src={currentPhoto} alt="uploaded-image" className="thumbnail" />
         )}
       </div>
       {photos.length < 5

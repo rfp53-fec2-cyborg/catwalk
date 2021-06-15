@@ -6,11 +6,11 @@ const port = 3000;
 
 require('dotenv').config({path: 'server/.env'});
 const { getProducts, getProductsId, getProductsIdRelated, getProductsIdStyles } = require('./productApi.js');
-const { getReviews, getReviewsMeta, postReview, putReviewHelpful, putReviewReport } = require('./reviewApi.js');
+const { getReviews, getReviewsMeta, postReview, putReviewHelpful, putReviewReport, uploadPhoto } = require('./reviewApi.js');
 const { getCart, postCart } = require('./cartApi.js');
 const { postInteractions } = require('./interactionsApi.js');
 
-app.use(express.json());
+app.use(express.json({limit: '50mb'}));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/', (req, res) => {
@@ -141,10 +141,8 @@ app.get('/cart', async (req, res) => {
 });
 
 app.post('/cart', async (req, res) => {
-  // console.log(req.body);
-  const body = JSON.stringify(req.body);
   try {
-    const data = await postCart(body);
+    const data = await uploadPhoto(req.body);
     res.json(data);
   } catch (err) {
     console.error(err);
@@ -161,6 +159,21 @@ app.post('/interactions', async (req, res) => {
   const body = JSON.stringify(req.body);
   try {
     const data = await postInteractions(body);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err.code);
+  }
+});
+
+/*
+############################ UPLOAD PHOTOS ############################
+*/
+
+app.post('/upload-photo', async (req, res) => {
+  // console.log(req.body);
+  try {
+    const data = await uploadPhoto(req.body);
     res.json(data);
   } catch (err) {
     console.error(err);

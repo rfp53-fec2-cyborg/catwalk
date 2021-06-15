@@ -87,6 +87,7 @@ const ReviewForm = ({data}) => {
 
   const submitForm = async () => {
     try {
+      console.log(formDetails);
       let submitReviewResponse = await requester.postReview(formDetails);
       console.log(submitReviewResponse);
       setSubmitSuccess(true);
@@ -127,7 +128,7 @@ const ReviewForm = ({data}) => {
 
         <div>
           <h4> Upload Photos </h4>
-          <UploadPhotos handleOnChange={handleOnChange} />
+          <UploadPhotos formDetails={formDetails} handleOnChange={handleOnChange} />
         </div>
 
         <div>

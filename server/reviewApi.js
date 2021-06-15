@@ -5,6 +5,8 @@ require('dotenv').config();
 
 const url = process.env.SERVER;
 const apiKey = process.env.API_KEY;
+const cloudinaryUrl = process.env.CLOUDINARY_URL;
+const cloudinaryPreset = process.env.CLOUDINARY_PRESET;
 
 const getReviews = async (params) => {
   var config = {
@@ -98,10 +100,30 @@ const putReviewReport = async (data) => {
   }
 };
 
+const uploadPhoto = async ({file}) => {
+
+  console.log(file);
+  const formData = {file, 'upload_preset': cloudinaryPreset};
+
+  try {
+    var config = {
+      method: 'post',
+      url: cloudinaryUrl,
+      data: formData,
+    };
+    const response = await axios(config);
+    return response.data.url;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+};
+
 module.exports = {
   getReviews,
   getReviewsMeta,
   postReview,
   putReviewHelpful,
-  putReviewReport
+  putReviewReport,
+  uploadPhoto
 };

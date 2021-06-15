@@ -201,3 +201,8 @@ html, body, #root {
   max-height: calc(100vh - 200px);
   overflow-y: auto;
 }
+
+.thumbnail {
+  width: 125px;
+  height: 125px;
+}
