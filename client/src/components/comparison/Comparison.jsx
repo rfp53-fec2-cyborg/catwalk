@@ -59,7 +59,9 @@ class Comparison extends React.Component {
           relatedProductsStylesArr: data
         });
       })
-      .catch(console.log('err??'));
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   // get and store each starRating svg num for each product in the relatedProducts array
