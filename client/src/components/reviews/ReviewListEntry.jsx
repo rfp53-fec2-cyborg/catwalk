@@ -78,7 +78,7 @@ const ReviewListEntry = (props) => {
 
       {/* Show response if there is a response */}
       {props.review.response
-        ? <div className="review-response"> Response from seller: <p> {props.review.response} </p> </div>
+        ? <div className="review-response"> Response: <p> {props.review.response} </p> </div>
         : null}
 
       {/* Uses shared component to mark something helpful or not */}
