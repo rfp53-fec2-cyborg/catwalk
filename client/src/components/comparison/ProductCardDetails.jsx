@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 const ProductCardDetails = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
-  console.log(detailedRelatedProduct);
+  // console.log(detailedRelatedProduct);
   return (
     <>
       <div>{detailedRelatedProduct.category}</div>
