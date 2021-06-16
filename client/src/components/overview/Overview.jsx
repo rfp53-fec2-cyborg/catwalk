@@ -106,12 +106,10 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
 
   return (
     <div className='overview-container'>
-      <div className='image-gallery'>
-        <Gallery
-          key={selectedStyle.style_id}
-          selectedStyle={selectedStyle}
-        />
-      </div>
+      <Gallery
+        key={selectedStyle.style_id}
+        selectedStyle={selectedStyle}
+      />
       <div className='product-details'>
         <Rating reviewsMeta={reviewsMeta} />
         <h5>{product.category}</h5>
