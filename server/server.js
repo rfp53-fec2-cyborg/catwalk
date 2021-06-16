@@ -106,7 +106,7 @@ app.post('/reviews', async (req, res) => {
 
 app.put('/reviews/:review_id/helpful', async (req, res) => {
   // console.log(req.params);
-  const productID = req.params.productID;
+  const reviewID = req.params.review_id;
   try {
     await putReviewHelpful(productID);
     res.status(204);
@@ -118,7 +118,7 @@ app.put('/reviews/:review_id/helpful', async (req, res) => {
 
 app.put('/reviews/:review_id/report', async (req, res) => {
   // console.log(req.params);
-  const productID = req.params.productID;
+  const reviewID = req.params.review_id;
   try {
     await putReviewReport(productID);
     res.status(204);

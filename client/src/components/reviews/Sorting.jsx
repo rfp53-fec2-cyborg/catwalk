@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { reviews } from '../../../mock-data/reviews.js';
 import { sort } from '../../helpers/sort.js';
 import ReviewList from './ReviewList.jsx';
@@ -27,12 +27,9 @@ const Sorting = (props) => {
       'product_id': Number(reviews.product)
     };
     try {
-      console.log('Sorted reviews retrieved from API');
       let reviewData = await requester.getReviews(params);
       setSortedListOfReviews(reviewData.results);
     } catch (err) {
-      console.error('Error with fetching data from API: ', err);
-      console.log('Sort reviews retrieved from internal function.');
       let sortView = err.response.config.params.sort;
       let selfSortedData = await sort(reviews.results);
       setSortedListOfReviews(selfSortedData[sortView]);
@@ -45,7 +42,11 @@ const Sorting = (props) => {
         <option value="newest" > Newest </option>
         <option value="helpful" > Helpful </option>
       </select>
-      <ReviewList props={props} sortedListOfReviews={sortedListOfReviews}/>
+      <ReviewList
+        props={props}
+        sortedListOfReviews={sortedListOfReviews}
+        sortView={sortView}
+        getSortView={getSortView} />
     </div>
   );
 };
