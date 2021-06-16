@@ -101,43 +101,43 @@ const ReviewForm = ({data}) => {
       <h2> Write Your Review </h2>
       <h3> About the {data.product.name}</h3>
       <form onSubmit={validateForm} >
-        <div id="review-form-rating">
+        <div id="review-form-rating" className="form-section">
           <h4> Overall Rating </h4>
           <DrawDynamicStars handleOnChange={handleOnChange}/>
           <div className="error-message">{formErrorMessages.rating_errorMsg}</div>
         </div>
 
-        <div>
+        <div className="form-section">
           <h4> Recommendation </h4>
           <Recommendation handleOnChange={handleOnChange} />
           <div className="error-message">{formErrorMessages.recommend_errorMsg}</div>
         </div>
 
-        <div>
+        <div className="form-section">
           <h4> Characteristics </h4>
           <Characteristics formDetails={formDetails} handleOnChange={handleOnChange} reviewsMeta={data.reviewsMeta}/>
         </div>
 
-        <div>
+        <div className="form-section">
           <h4> Summary and Body </h4>
           <SummaryAndBody handleOnChange={handleOnChange} formErrorMessages={formErrorMessages} formDetails={formDetails}/>
           <BodyWordCount formDetailsBodyLength={formDetails.body.length}/>
         </div>
 
-        <div>
+        <div className="form-section">
           <h4> Upload Photos </h4>
           <UploadPhotos formDetails={formDetails} handleOnChange={handleOnChange} />
         </div>
 
-        <div>
+        <div className="form-section">
           <h4> Personal Information </h4>
           <PersonalInfo handleOnChange={handleOnChange} formErrorMessages={formErrorMessages}/>
         </div>
         {submitSuccess === false
           ?
-          <>
+          <div className="modal-button" >
             <button type="submit" name="submit" value="submit-form" disabled={underSubmission} >Submit Review</button>
-          </>
+          </div>
           : <div > Review has been submitted </div>
         }
       </form>

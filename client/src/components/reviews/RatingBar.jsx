@@ -1,11 +1,5 @@
 import React from 'react';
 
-const containerStyles = {
-  height: '1em',
-  width: '20%',
-  backgroundColor: '#e0e0de',
-};
-
 const RatingBar = (props) => {
 
   const percentage = Math.ceil(props.ratingCount / props.ratingOverview.maxRating * 100);
@@ -17,8 +11,10 @@ const RatingBar = (props) => {
   };
 
   return (
-    <div style={containerStyles}>
-      <div style={fillerStyles} > {props.ratingCount} </div>
+    <div className="progress-box" >
+      <div className="progress-bar">
+        <div style={fillerStyles} > {props.ratingCount} </div>
+      </div>
     </div>
   );
 };

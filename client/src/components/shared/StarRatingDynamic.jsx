@@ -2,10 +2,6 @@ import React from 'react';
 import stars from '../../assets/stars/index.js';
 
 const StarRatingDynamic = (props) => {
-  const starStyle = {
-    width: '22.5px',
-    height: '22.5px'
-  };
 
   const drawFilledStars = (e) => {
     const starDiv = [];
@@ -17,7 +13,7 @@ const StarRatingDynamic = (props) => {
           key={`filled-star-${i + 1}`}
           value={i + 1}
           src={stars.singleFilledStar}
-          style={starStyle}
+          className="indiv-star"
           onClick={props.handleRating}
         />
       );
@@ -31,7 +27,7 @@ const StarRatingDynamic = (props) => {
           key={`unfilled-star-${remaining + 1}`}
           value={remaining + 1}
           src={stars.singleUnfilledStar}
-          style={starStyle}
+          className="indiv-star"
           onClick={props.handleRating}
         />
       );

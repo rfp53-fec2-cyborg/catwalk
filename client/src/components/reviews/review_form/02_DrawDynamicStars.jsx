@@ -2,11 +2,6 @@ import React, { useState } from 'react';
 import stars from '../../../assets/stars/index.js';
 import StarRatingDynamic from '../../shared/StarRatingDynamic.jsx';
 
-const starStyle = {
-  width: '22.5px',
-  height: '22.5px'
-};
-
 const relatedStarRating = {
   '1': 'Poor',
   '2': 'Fair',
@@ -31,7 +26,7 @@ const DrawDynamicStars = (props) => {
           key={`unfilled-star-${i + 1}`}
           value={i + 1}
           src={stars.singleUnfilledStar}
-          style={starStyle}
+          className="indiv-star"
           onClick={handleRating}
         />
       );
