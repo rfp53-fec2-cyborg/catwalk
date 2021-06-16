@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { stringToDate } from '../../helpers/dateFunctions.js';
 import { checkValidPhoto } from '../../helpers/imageFunctions.js';
-import MarkAsHelpful from '../shared/MarkAsHelpful.jsx';
+import MarkAsHelpfulOrReport from './MarkAsHelpfulOrReport.jsx';
 import ModalPhoto from './ModalPhoto.jsx';
 import checkmark from '../../assets/checkmark.svg';
+import Requester from '../../Requester.js';
 
+const requester = Requester();
 // temporary styling for spacing
 var style = {
   padding: '5px',
@@ -17,9 +19,24 @@ const ReviewListEntry = (props) => {
   const bodyMaxLength = 250;
   const [extendedView, setExtendedView] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const reviewID = props.review.review_id;
 
-  const reportReview = () => {
-    console.log('Will be used with API when ready');
+  const reportReview = async (id) => {
+    try {
+      let response = await requester.reportReview(id);
+      props.getSortView(props.sortView);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const markReviewAsHelpful = async (id) => {
+    try {
+      let response = await requester.markReviewHelpful(id);
+      props.getSortView(props.sortView);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const showDescription = () => {
@@ -82,13 +99,14 @@ const ReviewListEntry = (props) => {
         ? <div> Response from seller: <p> {props.review.response} </p> </div>
         : null}
 
-      {/* Uses shared component to mark something helpful or not */}
-      <MarkAsHelpful
+      {/* Uses shared component to mark something helpful or report */}
+      <MarkAsHelpfulOrReport
         helpfulness={props.review.helpfulness}
+        reviewID={reviewID}
+        markReviewAsHelpful={markReviewAsHelpful}
+        reportReview={reportReview}
       />
 
-      {/* Uses shared component to report / may need to break up into shared component for other widgets*/}
-      <div> <u onClick={reportReview} >Report</u> </div>
     </article>
   );
 };
