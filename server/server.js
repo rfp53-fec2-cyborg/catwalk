@@ -11,9 +11,8 @@ const { getReviews, getReviewsMeta, postReview, putReviewHelpful, putReviewRepor
 const { getCart, postCart } = require('./cartApi.js');
 const { postInteractions } = require('./interactionsApi.js');
 
-app.use(compression());
+app.use(compression({level: 1}));
 app.use(express.json({limit: '50mb'}));
-app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/', (req, res) => {
   res.end();
