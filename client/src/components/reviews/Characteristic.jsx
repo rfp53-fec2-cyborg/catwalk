@@ -1,5 +1,5 @@
 import React from 'react';
-import downArrow from '../../assets/down-arrow.svg';
+import downArrow from '../../assets/arrow-down.svg';
 
 const characteristicDesc = {
   Size: ['Too small', 'Perfect', 'Too big'],
