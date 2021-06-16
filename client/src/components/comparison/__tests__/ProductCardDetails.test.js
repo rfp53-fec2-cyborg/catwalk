@@ -10,7 +10,7 @@ import {productRelated} from '../../../../mock-data/productRelated.js';
 
 
 // test visual/render
-const detaledRelatedProduct = {
+const detailedRelatedProduct = {
   'category': 'Shoes',
   'name': 'Joe',
   'price': '2.00'
@@ -18,7 +18,7 @@ const detaledRelatedProduct = {
 
 const relatedProductsStylesArr = [];
 test('renders the product card details', () => {
-  render(<ProductCardDetails detaledRelatedProduct={detaledRelatedProduct} relatedProductsStylesArr={relatedProductsStylesArr}/>);
+  render(<ProductCardDetails detailedRelatedProduct={detailedRelatedProduct} relatedProductsStylesArr={relatedProductsStylesArr}/>);
 
   const checkCategory = screen.getByText('Shoes');
   expect(checkCategory).toBeDefined();

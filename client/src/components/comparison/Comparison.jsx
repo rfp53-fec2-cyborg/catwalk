@@ -59,8 +59,8 @@ class Comparison extends React.Component {
           relatedProductsStylesArr: data
         });
       })
-      .catch(err => {
-        console.log(err);
+      .catch(() => {
+        console.log('err');
       });
   };
 

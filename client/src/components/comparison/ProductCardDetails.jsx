@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 const ProductCardDetails = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
-
-  let currentId = detailedRelatedProduct.id;
-
+  console.log(detailedRelatedProduct);
   return (
     <>
       <div>{detailedRelatedProduct.category}</div>
