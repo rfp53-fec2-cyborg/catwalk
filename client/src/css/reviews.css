@@ -1,6 +1,116 @@
+#form-name, #form-email {
+  width: 100%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  grid-template-rows: auto;
+}
+
+.breakdown-container {
+  min-height: 712px;
+}
+
+.breakdown-container > div {
+  padding-bottom: 10px;
+}
+
+.rating-breakdown {
+  display: flex;
+  padding-right: 20%;
+  justify-content: space-between;
+}
+
+.review-card {
+  border-bottom: 1px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.review-card > * {
+  padding: 5px 0 5px 0;
+  margin: 5px;
+}
+
+.review-name-date {
+  float: right;
+}
+
 .review-thumbnail {
   width: 125px;
   height: 125px;
+  padding: 0 10px 0 0;
+}
+
+.review-body {
+  font-weight: bold;
+  font-size: 21px;
+}
+
+.review-response {
+  background-color: grey;
+}
+
+.form-section {
+  border-bottom: 1px solid black;
+  padding: 0 0 15px 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.rating-breakdown {
+  display: flex;
+}
+
+.overall-rating {
+  font-size: 50px;
+  margin-bottom: 10px;
+  padding-bottom : 10px;
+}
+
+.recommendation-percentage {
+  margin-bottom: 10px;
+  padding-bottom : 10px;
+}
+
+.progress-box {
+  width: 80%;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0de;
+  height: 1em;
+}
+
+.progress-filler-desc {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-desc {
+  font-size: 13px;
+  text-align: center;
+  padding: 1px;
+}
+
+.indiv-characteristic {
+  margin-bottom: 10px;
+}
+
+.indiv-characteristic > label > div {
+  padding: 5px;
+  margin: 5px;
+}
+
+.indiv-star {
+  width: 22.5px;
+  height: 22.5px;
+  padding: 2px;
 }
 
 .rating-breakdown:hover {

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReviewList from './ReviewList.jsx';
-import Rating from './Rating.jsx';
+import RatingBreakdown from './RatingBreakdown.jsx';
 
 const Reviews = (props) => {
 
@@ -8,7 +8,7 @@ const Reviews = (props) => {
     <div>
       <h2>RATINGS & REVIEWS</h2>
       <>
-        <Rating reviews={props}/>
+        <RatingBreakdown data={props}/>
       </>
     </div>
   );

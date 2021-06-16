@@ -6,9 +6,9 @@ const Recommended = ({recommendedData}) => {
 
   if (Number(recommendedData.true) > 0) {
     return (
-      <>
+      <div className="recommendation-percentage">
         {Math.ceil(Number(recommendedData.true) / max * 100)}% of reviews recommend this product.
-      </>
+      </div>
     );
   }
   return null;

@@ -7,13 +7,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
       className="product-breakdown"
     >
       <div
-        style={
-          Object {
-            "marginBottom": "10px",
-            "position": "relative",
-            "width": "20%",
-          }
-        }
+        className="progress-box"
       >
         <div>
            
@@ -21,13 +15,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
            
         </div>
         <div
-          style={
-            Object {
-              "backgroundColor": "#e0e0de",
-              "height": "1em",
-              "width": "100%",
-            }
-          }
+          className="progress-bar"
         >
           <div
             style={
@@ -46,46 +34,22 @@ exports[`ProductBreakdown matches snapshot 1`] = `
           </div>
         </div>
         <div
-          style={
-            Object {
-              "display": "flex",
-              "justifyContent": "space-between",
-              "width": "100%",
-            }
-          }
+          className="progress-filler-desc"
         >
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             Too small
           </label>
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             Perfect
           </label>
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             Too big
@@ -99,13 +63,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
       className="product-breakdown"
     >
       <div
-        style={
-          Object {
-            "marginBottom": "10px",
-            "position": "relative",
-            "width": "20%",
-          }
-        }
+        className="progress-box"
       >
         <div>
            
@@ -113,13 +71,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
            
         </div>
         <div
-          style={
-            Object {
-              "backgroundColor": "#e0e0de",
-              "height": "1em",
-              "width": "100%",
-            }
-          }
+          className="progress-bar"
         >
           <div
             style={
@@ -138,46 +90,22 @@ exports[`ProductBreakdown matches snapshot 1`] = `
           </div>
         </div>
         <div
-          style={
-            Object {
-              "display": "flex",
-              "justifyContent": "space-between",
-              "width": "100%",
-            }
-          }
+          className="progress-filler-desc"
         >
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             Too small
           </label>
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             Perfect
           </label>
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             Too big
@@ -191,13 +119,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
       className="product-breakdown"
     >
       <div
-        style={
-          Object {
-            "marginBottom": "10px",
-            "position": "relative",
-            "width": "20%",
-          }
-        }
+        className="progress-box"
       >
         <div>
            
@@ -205,13 +127,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
            
         </div>
         <div
-          style={
-            Object {
-              "backgroundColor": "#e0e0de",
-              "height": "1em",
-              "width": "100%",
-            }
-          }
+          className="progress-bar"
         >
           <div
             style={
@@ -230,46 +146,22 @@ exports[`ProductBreakdown matches snapshot 1`] = `
           </div>
         </div>
         <div
-          style={
-            Object {
-              "display": "flex",
-              "justifyContent": "space-between",
-              "width": "100%",
-            }
-          }
+          className="progress-filler-desc"
         >
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             Poor
           </label>
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             
           </label>
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             Great
@@ -283,13 +175,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
       className="product-breakdown"
     >
       <div
-        style={
-          Object {
-            "marginBottom": "10px",
-            "position": "relative",
-            "width": "20%",
-          }
-        }
+        className="progress-box"
       >
         <div>
            
@@ -297,13 +183,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
            
         </div>
         <div
-          style={
-            Object {
-              "backgroundColor": "#e0e0de",
-              "height": "1em",
-              "width": "100%",
-            }
-          }
+          className="progress-bar"
         >
           <div
             style={
@@ -322,46 +202,22 @@ exports[`ProductBreakdown matches snapshot 1`] = `
           </div>
         </div>
         <div
-          style={
-            Object {
-              "display": "flex",
-              "justifyContent": "space-between",
-              "width": "100%",
-            }
-          }
+          className="progress-filler-desc"
         >
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             Poor
           </label>
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             
           </label>
           <label
-            style={
-              Object {
-                "fontSize": "13px",
-                "padding": "1px",
-                "textAlign": "center",
-              }
-            }
+            className="progress-desc"
           >
              
             Great
