@@ -4,6 +4,8 @@ import UserOutfitItems from './UserOutfitItems.jsx';
 import Requester from '../../Requester.js';
 import LoadingSpinner from '../../components/shared/LoadingSpinner.jsx';
 
+import StarRating from '../shared/StarRating.jsx';
+
 const rerequester = Requester();
 
 class Comparison extends React.Component {
@@ -18,6 +20,8 @@ class Comparison extends React.Component {
       activeIndex: 0,
       styles: this.props.styles
     };
+    this.fetchAndStore = this.props.fetchAndStore.bind(this);
+    this.addRatingsMeta = this.props.addRatingsMeta.bind(this);
   }
 
   // function that will handle product click
@@ -46,7 +50,7 @@ class Comparison extends React.Component {
       .then(() => {
         return this.getTheStyles();
       })
-      // .then(this.getTheStarRating())
+      .then(this.getTheRatingMeta())
       .catch(() => {
         console.log('err');
       });
@@ -65,30 +69,38 @@ class Comparison extends React.Component {
   };
 
   // get and store each starRating svg num for each product in the relatedProducts array
-  // getTheStarRating = ()=> {
-  //   return Promise.all(this.state.relatedProducts.map(productID => rerequester.getReviewsMeta(`${productID}`)))
-  //     .then((data) => {
-  //       // console.log('RevMeta', data);
-  //       this.setState({
-  //         reviewsMetaArr: data
-  //       });
-  //     })
-  //     .catch(() => {
-  //     console.log('err');
-  //   });
-  // };
+  getTheRatingMeta = ()=> {
+    return Promise.all(this.state.relatedProducts.map(relatedProduct => {
+      return rerequester.getReviewsMeta({'product_id': `${relatedProduct}`});
+    }))
+      .then((data) => {
+        this.setState({
+          reviewsMetaArr: data
+        });
+      })
+      .catch(() => {
+        console.log('err');
+      });
+  };
+
+
 
   componentDidMount() {
     this.getTheDeets();
   }
 
   render() {
+    // console.log('RevMeta', this.state.reviewsMetaArr[0].roundedValue);
 
     return (
       <div>
         { this.state.relatedProductsStylesArr.length ?
           <div>
-            <RelatedProducts detailedRelatedProductsArr={this.state.detailedRelatedProductsArr} relatedProductsStylesArr={this.state.relatedProductsStylesArr}/>
+            <RelatedProducts
+              detailedRelatedProductsArr={this.state.detailedRelatedProductsArr}
+              relatedProductsStylesArr={this.state.relatedProductsStylesArr}
+              reviewsMetaArr={this.state.reviewsMetaArr}
+            />
             {/* <UserOutfitItems productStyles={productStyles}/> */}
           </div> :
           <>

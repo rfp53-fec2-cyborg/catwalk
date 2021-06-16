@@ -139,8 +139,9 @@ class App extends React.Component {
             />
             <Comparison
               relatedProducts={this.state.relatedProducts}
-              fetchAndStore={this.fetchAndStore}
               styles={this.state.styles}
+              fetchAndStore={this.fetchAndStore}
+              addRatingsMeta={this.addRatingsMeta}
             />
             <Reviews
               product={this.state.product}

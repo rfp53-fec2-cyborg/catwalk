@@ -13,6 +13,7 @@ const RelatedProducts = ({detailedRelatedProductsArr, relatedProductsStylesArr})
             key={index}
             detailedRelatedProduct={detailedRelatedProduct}
             relatedProductsStylesArr={relatedProductsStylesArr}
+            reviewsMetaArr={this.state.reviewsMetaArr}
           />;
         })}
       </div>
