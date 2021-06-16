@@ -1,18 +1,14 @@
 import React, {useEffect, useState} from 'react';
 
-const ProductCardDetails = ({detaledRelatedProduct, relatedProductsStylesArr}) => {
+const ProductCardDetails = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
 
-  let currentId = detaledRelatedProduct.id;
-  // console.log('styles', relatedProductsStylesArr);
-  // console.log('detales', detaledRelatedProduct);
-
-
+  let currentId = detailedRelatedProduct.id;
 
   return (
     <>
-      <div>{detaledRelatedProduct.category}</div>
-      <div>{detaledRelatedProduct.name}</div>
-      <div>{'$' + detaledRelatedProduct.default_price}</div>
+      <div>{detailedRelatedProduct.category}</div>
+      <div>{detailedRelatedProduct.name}</div>
+      <div>{'$' + detailedRelatedProduct.default_price}</div>
     </>
   );
 };

@@ -2,18 +2,16 @@ import React from 'React';
 import ProductCard from './ProductCard.jsx';
 
 
-const RelatedProducts = ({detaledRelatedProductsArr, relatedProductsStylesArr}) => {
-  // console.log(detaledRelatedProductsArr);
-  // console.log(relatedProductsStylesArr);
+const RelatedProducts = ({detailedRelatedProductsArr, relatedProductsStylesArr}) => {
 
   return (
     <div>
       <h3>Related Products</h3>
       <div>
-        {detaledRelatedProductsArr.map((detaledRelatedProduct, index) => {
+        {detailedRelatedProductsArr.map((detailedRelatedProduct, index) => {
           return <ProductCard
             key={index}
-            detaledRelatedProduct={detaledRelatedProduct}
+            detailedRelatedProduct={detailedRelatedProduct}
             relatedProductsStylesArr={relatedProductsStylesArr}
           />;
         })}

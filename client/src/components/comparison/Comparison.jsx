@@ -1,8 +1,6 @@
 import React, {useEffect, useState/*, useContext*/} from 'react';
 import RelatedProducts from './RelatedProducts.jsx';
 import UserOutfitItems from './UserOutfitItems.jsx';
-// import {products} from '../../../mock-data/products.js';
-// import {productStyles} from '../../../mock-data/productStyles.js';
 import Requester from '../../Requester.js';
 import LoadingSpinner from '../../components/shared/LoadingSpinner.jsx';
 
@@ -13,7 +11,7 @@ class Comparison extends React.Component {
     super(props);
     this.state = {
       relatedProducts: this.props.relatedProducts,
-      detaledRelatedProductsArr: [],
+      detailedRelatedProductsArr: [],
       relatedProductsStylesArr: [],
       outfitList: [],
       reviewsMetaArr: [],
@@ -41,25 +39,29 @@ class Comparison extends React.Component {
   getTheDeets = ()=> {
     return Promise.all(this.state.relatedProducts.map(relatedProduct => rerequester.getProduct(relatedProduct)))
       .then((data) => {
-        // console.log('this is working', data);
-        this.setState({
-          detaledRelatedProductsArr: data
+        return this.setState({
+          detailedRelatedProductsArr: data
         });
       })
-      .then(this.getTheStyles())
+      .then(() => {
+        return this.getTheStyles();
+      })
       // .then(this.getTheStarRating())
-      .catch(console.log('err?'));
+      .catch(() => {
+        console.log('err');
+      });
   };
   // get and store each styleObj from each product in the relatedProducts array
   getTheStyles = ()=> {
     return Promise.all(this.state.relatedProducts.map(relatedProduct => rerequester.getProductStyles(`${relatedProduct}`)))
       .then((data) => {
-        // console.log('hit', data);
-        this.setState({
+        return this.setState({
           relatedProductsStylesArr: data
         });
       })
-      .catch(console.log('err??'));
+      .catch(() => {
+        console.log('err');
+      });
   };
 
   // get and store each starRating svg num for each product in the relatedProducts array
@@ -71,7 +73,9 @@ class Comparison extends React.Component {
   //         reviewsMetaArr: data
   //       });
   //     })
-  //     .catch(console.log('err??'));
+  //     .catch(() => {
+  //     console.log('err');
+  //   });
   // };
 
   componentDidMount() {
@@ -79,13 +83,12 @@ class Comparison extends React.Component {
   }
 
   render() {
-    // console.log(this.state.styles);
 
     return (
       <div>
         { this.state.relatedProductsStylesArr.length ?
           <div>
-            <RelatedProducts detaledRelatedProductsArr={this.state.detaledRelatedProductsArr} relatedProductsStylesArr={this.state.relatedProductsStylesArr}/>
+            <RelatedProducts detailedRelatedProductsArr={this.state.detailedRelatedProductsArr} relatedProductsStylesArr={this.state.relatedProductsStylesArr}/>
             {/* <UserOutfitItems productStyles={productStyles}/> */}
           </div> :
           <>
