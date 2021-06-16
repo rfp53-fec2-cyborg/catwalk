@@ -56,7 +56,6 @@ class App extends React.Component {
   getArbitraryProduct() {
     return requester.getProducts({ page: 1, count: 1 })
       .then(products => {
-        console.log(products);
         return products[0];
       })
       .catch(console.log);

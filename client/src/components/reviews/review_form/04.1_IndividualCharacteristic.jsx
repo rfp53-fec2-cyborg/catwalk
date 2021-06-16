@@ -27,7 +27,7 @@ const IndividualCharacteristic = (props) => {
   return (
     <>
       <div key={id} >
-        {description[characteristic] ? <div> {description[characteristic].ratingDesc} </div> : null}
+        {description[characteristic] ? <div className="caution-message"> {description[characteristic].ratingDesc} </div> : null}
         {characteristicDescription[characteristic].map((desc, index) => {
           let rating = index + 1;
           return (

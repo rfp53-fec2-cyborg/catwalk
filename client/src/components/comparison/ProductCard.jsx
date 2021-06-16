@@ -35,7 +35,11 @@ const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
       <div>
         <img src={getTheCorrectPic(relatedProductsStylesArr, currentId) || defaultPic} alt='Image Not Available'/>
       </div>
-      <ProductCardDetails detailedRelatedProduct={detailedRelatedProduct} relatedProductsStylesArr={relatedProductsStylesArr}/>
+      <ProductCardDetails
+        detailedRelatedProduct={detailedRelatedProduct}
+        relatedProductsStylesArr={relatedProductsStylesArr}
+        reviewsMetaArr={this.state.reviewsMetaArr}
+      />
       <div>Star Rating</div>
     </div>
   );

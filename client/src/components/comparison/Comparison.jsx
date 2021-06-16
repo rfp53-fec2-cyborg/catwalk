@@ -111,5 +111,3 @@ class Comparison extends React.Component {
     );
   }
 }
-
-export default Comparison;

@@ -11,19 +11,17 @@ const ProductBreakdown = ({data}) => {
   const [listOfCharacteristics, setListOfCharacteristics] = useState(storeCharacteristicsInArray(characteristics));
 
   return (
-    <>
-      <div>
-        {listOfCharacteristics.map((value, index) => {
-          return (
-            <div key={value.details.id}>
-              <div className="product-breakdown" >
-                <Characteristic value={value}/>
-              </div>
+    <div>
+      {listOfCharacteristics.map((value, index) => {
+        return (
+          <div key={value.details.id}>
+            <div className="product-breakdown" >
+              <Characteristic value={value}/>
             </div>
-          );
-        })}
-      </div>
-    </>
+          </div>
+        );
+      })}
+    </div>
   );
 };
 
