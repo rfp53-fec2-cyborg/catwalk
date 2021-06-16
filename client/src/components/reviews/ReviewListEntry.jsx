@@ -5,7 +5,9 @@ import MarkAsHelpfulOrReport from './MarkAsHelpfulOrReport.jsx';
 import ModalPhoto from './ModalPhoto.jsx';
 import checkmark from '../../assets/checkmark.svg';
 import StarRating from '../shared/StarRating.jsx';
+import Requester from '../../Requester.js';
 
+const requester = Requester();
 
 const ReviewListEntry = (props) => {
 
