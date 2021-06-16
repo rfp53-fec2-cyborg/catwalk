@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { reviews } from '../../../mock-data/reviews.js';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import AddReviews from './AddReviews.jsx';
 
