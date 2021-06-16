@@ -6,11 +6,6 @@ import ModalPhoto from './ModalPhoto.jsx';
 import checkmark from '../../assets/checkmark.svg';
 import StarRating from '../shared/StarRating.jsx';
 
-// temporary styling for spacing
-var style = {
-  padding: '5px',
-  margin: '5px',
-};
 
 const ReviewListEntry = (props) => {
 
