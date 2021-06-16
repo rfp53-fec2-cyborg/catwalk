@@ -1,3 +1,7 @@
+#form-name, #form-email {
+  width: 100%;
+}
+
 .container {
   display: grid;
   grid-template-columns: 35% 65%;
@@ -24,8 +28,8 @@
   margin-bottom: 20px;
 }
 
-.review-card > div, p {
-  padding: 5px;
+.review-card > * {
+  padding: 5px 0 5px 0;
   margin: 5px;
 }
 
@@ -33,13 +37,10 @@
   float: right;
 }
 
-.rating-breakdown {
-  display: flex;
-}
-
 .review-thumbnail {
   width: 125px;
   height: 125px;
+  padding: 0 10px 0 0;
 }
 
 .review-body {
@@ -49,6 +50,17 @@
 
 .review-response {
   background-color: grey;
+}
+
+.form-section {
+  border-bottom: 1px solid black;
+  padding: 0 0 15px 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.rating-breakdown {
+  display: flex;
 }
 
 .overall-rating {
@@ -90,20 +102,15 @@
   margin-bottom: 10px;
 }
 
+.indiv-characteristic > label > div {
+  padding: 5px;
+  margin: 5px;
+}
+
 .indiv-star {
   width: 22.5px;
   height: 22.5px;
-}
-
-.modal-image {
-  width: 35em;
-  height: auto;
-  position: relative;
-  margin: 0 auto;
-}
-
-#form-name, #form-email {
-  width: 100%;
+  padding: 2px;
 }
 
 .rating-breakdown:hover {

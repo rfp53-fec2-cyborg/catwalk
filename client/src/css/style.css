@@ -79,6 +79,7 @@ h4 span {
 
 select, button {
   padding: 15px;
+  margin: 5px;
   height: 50px;
   font-size: 12px;
   font-weight: 600;
@@ -88,12 +89,23 @@ select, button {
 }
 
 select:disabled, button:disabled {
-  border-color: #B4B4B4;
+  border-color: #000000;
+  background-color: #ffc038;
+  color: rgba(172, 164, 164, 0.521);
 }
 
-.rating-breakdown:hover {
-  background-color: rgb(236, 227, 227);
+select:enabled, button:enabled {
+  border-color: #000000;
+  background-color: #ffc038;
+  color: black;
+}
+
+u:hover, button:hover , input:hover {
   cursor: pointer;
+};
+
+textarea {
+  width: 100%;
 }
 
 .small-circle-checkmark {
@@ -194,7 +206,7 @@ html, body, #root {
   border: 2px solid;
 };
 
-.modal-dialog{
+.modal-dialog {
   height: 200px;
   width: 400px;
   overflow: hidden;
@@ -209,8 +221,15 @@ html, body, #root {
   margin: 20px;
 }
 
-textarea {
-  width: 100%;
+.modal-image {
+  width: 35em;
+  height: auto;
+  position: relative;
+  margin: 0 auto;
+}
+
+.modal-button {
+  text-align: center;
 }
 
 ::-webkit-scrollbar {

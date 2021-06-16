@@ -33,7 +33,7 @@ const Modal = (props) => {
       <section className="modal" >
         <div className="modal-dialog" >
           {props.content}
-          <div>
+          <div className="modal-button" >
             <button onClick={() => setShowModal(current => !current)}> Close </button>
           </div>
         </div>
