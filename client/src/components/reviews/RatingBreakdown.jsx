@@ -8,7 +8,7 @@ import StarRating from '../shared/StarRating.jsx';
 
 import { MakeRating, reverseRatingFromHighestToLowestInArray } from '../../helpers/MakeRating.js';
 
-const RatingBreakdown = ({data}) => {
+const RatingBreakdown = ({ data, ...props }) => {
 
   const ratingOverview = data.reviewsMeta;
   const ratingData = MakeRating(ratingOverview.ratings);
@@ -17,7 +17,7 @@ const RatingBreakdown = ({data}) => {
   const [ratingFilter, setRatingFilter] = useState([]);
   const [overallRating, setOverallRating] = useState(ratingData.roundedValue);
 
-  const handleRatingSelected = (e) => {
+  let handleRatingSelected = (e) => {
     let ratingValue = Number(e.currentTarget.getAttribute('value'));
     let index = ratingFilter.indexOf(ratingValue);
     if (index > -1) {
@@ -29,6 +29,7 @@ const RatingBreakdown = ({data}) => {
       setRatingFilter(array => [...array, ratingValue]);
     }
   };
+  handleRatingSelected = props.addClickReporting(handleRatingSelected);
 
   return (
     <>
