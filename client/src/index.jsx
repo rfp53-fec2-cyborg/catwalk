@@ -3,12 +3,15 @@ import './css/comparison.css';
 import './css/overview.css';
 import './css/reviews.css';
 import './css/loadingSpinner.css';
-import magnifyingGlass from './assets/magnifying_glass.png';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Requester from './Requester.js';
 import { MakeRating } from './helpers/MakeRating.js';
+<<<<<<< HEAD
 import withClickReporting from './helpers/withClickReporting.js';
+=======
+import Header from './components/Header.jsx';
+>>>>>>> 299ac4e (- User can now toggle between two color schemes, light and dark; toggle is done via radio buttons in the page header)
 import Overview from './components/overview/Overview.jsx';
 import Comparison from './components/comparison/Comparison.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
@@ -137,6 +140,7 @@ class App extends React.Component {
       <div className='app'>
         {this.state.isLoaded ?
           <>
+<<<<<<< HEAD
             <div className='header'>
               <h3>Catborg</h3>
               <div className='searchForm'>
@@ -145,6 +149,10 @@ class App extends React.Component {
               </div>
             </div>
             <OverviewWithClickReporting
+=======
+            <Header />
+            <Overview
+>>>>>>> 299ac4e (- User can now toggle between two color schemes, light and dark; toggle is done via radio buttons in the page header)
               product={this.state.product}
               styles={this.state.styles.results}
               cart={this.state.cart}

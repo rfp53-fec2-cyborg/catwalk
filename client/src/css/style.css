@@ -29,7 +29,7 @@
   --color-neutral-lightest: #e0e0de;
   --color-neutral-lightest-hover: #ece3e3;
 
-  --color-primary: #ffc038;
+  --color-primary: green;
 
   --color-background: #fff;
   --color-background-alt: #000000;
@@ -197,6 +197,11 @@ textarea {
   border-bottom: solid var(--color-text-alt);
   display: inline-block;
   letter-spacing: 0.03em;
+}
+
+.header label {
+  color: var(--color-text-alt);
+  font-size: 12px;
 }
 
 .header > .searchForm {
