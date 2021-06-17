@@ -32,7 +32,7 @@ const errorMessage = {
   'email_errorMsg': 'Valid email address is required.',
 };
 
-const ReviewForm = ({data}) => {
+const ReviewForm = ({data, reportClick}) => {
 
   const [underSubmission, setUnderSubmission] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -83,6 +83,7 @@ const ReviewForm = ({data}) => {
       }
     }
     isErrorFree ? submitForm() : setUnderSubmission(false);
+    if (reportClick) { reportClick(e); }
   };
 
   const submitForm = async () => {

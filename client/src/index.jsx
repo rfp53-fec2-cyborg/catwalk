@@ -8,6 +8,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Requester from './Requester.js';
 import { MakeRating } from './helpers/MakeRating.js';
+import withClickReporting from './helpers/withClickReporting.js';
 import Overview from './components/overview/Overview.jsx';
 import Comparison from './components/comparison/Comparison.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
@@ -131,6 +132,7 @@ class App extends React.Component {
   }
 
   render() {
+    const OverviewWithClickReporting = withClickReporting(Overview, 'Overview');
     return (
       <div className='app'>
         {this.state.isLoaded ?
@@ -142,7 +144,7 @@ class App extends React.Component {
                 <img src={magnifyingGlass} />
               </div>
             </div>
-            <Overview
+            <OverviewWithClickReporting
               product={this.state.product}
               styles={this.state.styles.results}
               cart={this.state.cart}

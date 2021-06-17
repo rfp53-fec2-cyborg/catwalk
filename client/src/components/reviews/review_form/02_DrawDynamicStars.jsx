@@ -10,7 +10,7 @@ const relatedStarRating = {
   '5': 'Great'
 };
 
-const DrawDynamicStars = (props) => {
+const DrawDynamicStars = ({ reportClick, ...props }) => {
   const [state, setState] = useState({
     rating: 0,
     areStarsDrawn: false,
@@ -38,6 +38,7 @@ const DrawDynamicStars = (props) => {
     const rating = e ? Number(e.target.getAttribute('value')) : 0;
     setState({rating: rating, areStarsDrawn: true});
     props.handleOnChange('rating', rating);
+    if (reportClick) { reportClick(e); }
   };
 
   return (

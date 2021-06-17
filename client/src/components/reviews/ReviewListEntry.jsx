@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { stringToDate } from '../../helpers/dateFunctions.js';
 import { checkValidPhoto } from '../../helpers/imageFunctions.js';
+import withClickReporting from '../../helpers/withClickReporting';
 import MarkAsHelpfulOrReport from './MarkAsHelpfulOrReport.jsx';
 import ModalPhoto from './ModalPhoto.jsx';
 import checkmark from '../../assets/checkmark.svg';
@@ -49,6 +50,10 @@ const ReviewListEntry = (props) => {
     );
   };
 
+  const MarkAsHelpfulOrReportWithClickReporting = withClickReporting(
+    MarkAsHelpfulOrReport,
+    'MarkAsHelpfulOrReport');
+
   return (
     <article className="review-card" >
       {/* Show reviewer name, review date, and the rating */}
@@ -94,7 +99,7 @@ const ReviewListEntry = (props) => {
         : null}
 
       {/* Uses shared component to mark something helpful or report */}
-      <MarkAsHelpfulOrReport
+      <MarkAsHelpfulOrReportWithClickReporting
         helpfulness={props.review.helpfulness}
         reviewID={reviewID}
         markReviewAsHelpful={markReviewAsHelpful}
