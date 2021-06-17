@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { reviews } from '../../../mock-data/reviews.js';
 import { sort } from '../../helpers/sort.js';
 import ReviewList from './ReviewList.jsx';
 import Requester from '../../Requester.js';

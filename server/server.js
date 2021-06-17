@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const express = require('express');
 const path = require('path');
+const compression = require('compression');
 const app = express();
 const port = 3000;
 
@@ -10,6 +11,7 @@ const { getReviews, getReviewsMeta, postReview, putReviewHelpful, putReviewRepor
 const { getCart, postCart } = require('./cartApi.js');
 const { postInteractions } = require('./interactionsApi.js');
 
+app.use(compression({level: 1}));
 app.use(express.json({limit: '50mb'}));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
@@ -94,8 +96,8 @@ app.post('/reviews', async (req, res) => {
   // console.log(req.body);
   const body = JSON.stringify(req.body);
   try {
-    const data = await postReview(body);
-    res.json(data);
+    await postReview(body);
+    res.status(201);
   } catch (err) {
     console.error(err);
     res.status(500).send(err.code);
@@ -106,8 +108,8 @@ app.put('/reviews/:review_id/helpful', async (req, res) => {
   // console.log(req.params);
   const reviewID = req.params.review_id;
   try {
-    const data = await putReviewHelpful(reviewID);
-    res.json(data);
+    await putReviewHelpful(productID);
+    res.status(204);
   } catch (err) {
     console.error(err);
     res.status(500).send(err.code);
@@ -118,8 +120,8 @@ app.put('/reviews/:review_id/report', async (req, res) => {
   // console.log(req.params);
   const reviewID = req.params.review_id;
   try {
-    const data = await putReviewReport(reviewID);
-    res.json(data);
+    await putReviewReport(productID);
+    res.status(204);
   } catch (err) {
     console.error(err);
     res.status(500).send(err.code);
@@ -142,8 +144,8 @@ app.get('/cart', async (req, res) => {
 
 app.post('/cart', async (req, res) => {
   try {
-    const data = await postCart(req.body);
-    res.json(data);
+    await postCart(req.body);
+    res.status(201);
   } catch (err) {
     console.error(err);
     res.status(500).send(err.code);
