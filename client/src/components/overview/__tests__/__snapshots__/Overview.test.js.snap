@@ -295,9 +295,11 @@ exports[`Overview matches snapshot 1`] = `
         disabled={false}
         id="size-select"
         onChange={[Function]}
+        readOnly={true}
         value=""
       >
         <option
+          readOnly={true}
           value=""
         >
           SELECT SIZE
