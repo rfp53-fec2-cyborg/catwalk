@@ -12,7 +12,7 @@ import SocialMediaList from './SocialMediaList.jsx';
 
 const requester = Requester();
 
-const Overview = ({ product, styles, cart, reviewsMeta, ...props }) => {
+const Overview = ({ product, styles, cart, reviewsMeta, reportClick }) => {
 
   const selectedSkuIdDefault = '';
   const selectedQuantityDefault = 1;
@@ -40,20 +40,20 @@ const Overview = ({ product, styles, cart, reviewsMeta, ...props }) => {
     setSelectedSkuId(selectedSkuIdDefault);
     setSelectedQuantity(selectedQuantityDefault);
     setSelectedStyle(getStyleById(styleID));
+    if (reportClick) { reportClick(event); }
   };
-  handleStyleClick = props.addClickReporting(handleStyleClick);
 
   let handleSkuSelection = (event) => {
     const skuId = event.target.value.toString();
     setSelectedSkuId(skuId);
+    if (reportClick) { reportClick(event); }
   };
-  handleSkuSelection = props.addClickReporting(handleSkuSelection);
 
   let handleQuantitySelection = (event) => {
     const quantity = event.target.value;
     setSelectedQuantity(Number.parseInt(quantity));
+    if (reportClick) { reportClick(event); }
   };
-  handleQuantitySelection = props.addClickReporting(handleQuantitySelection);
 
   let handleAddToCart = (event) => {
     if (selectedSkuId === '') {
@@ -70,8 +70,8 @@ const Overview = ({ product, styles, cart, reviewsMeta, ...props }) => {
           console.log(err);
         });
     }
+    if (reportClick) { reportClick(event); }
   };
-  handleAddToCart = props.addClickReporting(handleAddToCart);
 
   // Utilities
   const formatPrice = price => {

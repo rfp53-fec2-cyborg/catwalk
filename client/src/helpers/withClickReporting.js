@@ -7,25 +7,17 @@ const getDisplayName = (WrappedComponent) => {
   return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 };
 
-const withClickReporting = (WrappedComponent, widget = 'Component') => {
+const withClickReporting = (WrappedComponent, widget) => {
   class WithClickReporting extends React.Component {
     constructor(props) {
       super(props);
-      this.clickHandlerWithReporting = this.clickHandlerWithReporting.bind(this);
       this.reportClick = this.reportClick.bind(this);
-    }
-
-    clickHandlerWithReporting(clickHandler) {
-      return (event) => {
-        this.reportClick(event);
-        clickHandler(event);
-      };
     }
 
     reportClick(event) {
       const data = {
         element: event.target.tagName,
-        widget,
+        widget: widget || 'Component',
         time: Date.now().toString()
       };
       console.log('data:', data);
@@ -41,7 +33,7 @@ const withClickReporting = (WrappedComponent, widget = 'Component') => {
     render() {
       return (
         <WrappedComponent
-          addClickReporting={this.clickHandlerWithReporting}
+          reportClick={this.reportClick}
           {...this.props}
         />
       );

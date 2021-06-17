@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RatingBar from './RatingBar.jsx';
 import Sorting from './Sorting.jsx';
+import withClickReporting from '../../helpers/withClickReporting';
 import RatingFilterDesc from './RatingFilterDesc.jsx';
 import Recommended from './Recommended.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
@@ -8,7 +9,7 @@ import StarRating from '../shared/StarRating.jsx';
 
 import { MakeRating, reverseRatingFromHighestToLowestInArray } from '../../helpers/MakeRating.js';
 
-const RatingBreakdown = ({ data, ...props }) => {
+const RatingBreakdown = ({ data, reportClick }) => {
 
   const ratingOverview = data.reviewsMeta;
   const ratingData = MakeRating(ratingOverview.ratings);
@@ -28,8 +29,10 @@ const RatingBreakdown = ({ data, ...props }) => {
     } else {
       setRatingFilter(array => [...array, ratingValue]);
     }
+    if (reportClick) { reportClick(event); }
   };
-  handleRatingSelected = props.addClickReporting(handleRatingSelected);
+
+  const SortingWithClickReporting = withClickReporting(Sorting, 'Sorting');
 
   return (
     <>
@@ -57,7 +60,7 @@ const RatingBreakdown = ({ data, ...props }) => {
         </div>
 
         <div className="review-list-container">
-          <Sorting data={data} ratingFilter={ratingFilter}/>
+          <SortingWithClickReporting data={data} ratingFilter={ratingFilter}/>
         </div>
       </div>
     </>

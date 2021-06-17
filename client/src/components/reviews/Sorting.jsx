@@ -17,6 +17,7 @@ const Sorting = (props) => {
     const view = e.target.value;
     setSortView(view);
     getSortView(view);
+    if (props.reportClick) { props.reportClick(e); }
   };
 
   const getSortView = async (view) => {
