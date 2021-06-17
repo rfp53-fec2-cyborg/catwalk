@@ -149,6 +149,7 @@ app.post('/cart', async (req, res) => {
   try {
     await postCart(req.body);
     res.status(201);
+    res.end();
   } catch (err) {
     console.error(err);
     res.status(500).send(err.code);
