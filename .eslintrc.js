@@ -16,6 +16,7 @@ module.exports = {
       'jsx': true
     }
   },
+  ignorePatterns: ['bundle.js'],
   rules: {
     /* Indentation */
     'no-mixed-spaces-and-tabs': 2,

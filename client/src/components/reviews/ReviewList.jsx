@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { reviews } from '../../../mock-data/reviews.js';
+import React, { useState } from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import AddReviews from './AddReviews.jsx';
 
 const ReviewList = (props) => {
-
   const data = props.props.data;
   const reviewsMeta = props.props.data.reviewsMeta;
   const ratingFilter = props.props.ratingFilter;
@@ -34,6 +32,8 @@ const ReviewList = (props) => {
           review={review}
           key={review.review_id}
           index={index}
+          getSortView={props.getSortView}
+          sortView={props.sortView}
         />
       );
   };

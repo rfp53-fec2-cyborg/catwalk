@@ -33,7 +33,18 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.loadFirstProduct();
+    /*
+    Comments re: the initial function to call on component render in ln 46 and 47
+
+.   If the id is known and will not change, initial loading can be fixed to reduce loading time
+    We can bypass the and load all product data for a particular id instead
+
+    If the id is not known or may change, initial query to find all data, then determine first id to load
+    all product data for would be suggested
+    */
+
+    // this.loadFirstProduct();
+    this.loadAllProductData(17067);
   }
 
   /**
