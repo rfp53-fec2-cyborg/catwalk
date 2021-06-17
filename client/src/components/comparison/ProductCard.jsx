@@ -2,12 +2,8 @@ import React, {useEffect, useState} from 'react';
 import ProductCardDetails from './ProductCardDetails.jsx';
 import DefaultPic from '../../components/shared/LoadingSpinner.jsx';
 import { MakeRating } from '../../helpers/MakeRating.js';
-import StarRating from '../shared/StarRating.jsx';
 
 const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr, reviewsMetaArr, currentId, addRatingsMeta, currentReviewChars}) => {
-
-  // console.log('relatedProductsStylesArr', relatedProductsStylesArr);
-  // console.log('reviewsMetaArr', reviewsMetaArr[0].ratings.roundedValue);
 
   const currentReviewsMeta = (reviewsMetaArr, currentId) => {
     return reviewsMetaArr.filter(element => {
@@ -17,7 +13,6 @@ const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr, reviewsM
     });
   };
   const currentReviewMeta = currentReviewsMeta(reviewsMetaArr, currentId);
-  // console.log(currentReviewMeta[0].ratings.roundedValue);
 
   const currentRelatedProductsStyle = (relatedProductsStylesArr, currentId) => {
     return relatedProductsStylesArr.filter(element => {
@@ -47,18 +42,18 @@ const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr, reviewsM
   };
 
   return (
-    <div>
+    <div className='productCard'>
       {/* button/icon to bring up compare modal will go here */}
-      <div>
-        <img src={getTheCorrectPic(relatedProductsStylesArr, currentId) || defaultPic} alt='Image Not Available'/>
+      <div className='relatedProductImage'>
+        <img className='relatedProductImage' src={getTheCorrectPic(relatedProductsStylesArr, currentId) || defaultPic} alt='Image Not Available'/>
       </div>
       <ProductCardDetails
         detailedRelatedProduct={detailedRelatedProduct}
         relatedProductsStylesArr={relatedProductsStylesArr}
         reviewsMetaArr={reviewsMetaArr}
         currentReviewMeta={currentReviewMeta}
+        score={currentReviewMeta[0].ratings.roundedValue}
       />
-      <StarRating score={currentReviewMeta[0].ratings.roundedValue}/>
     </div>
   );
 

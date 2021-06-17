@@ -6,8 +6,8 @@ const RelatedProducts = ({detailedRelatedProductsArr, relatedProductsStylesArr, 
 
   return (
     <div>
-      <h3>Related Products</h3>
-      <div>
+      <h3 className='relatedProductTitle'>Related Products</h3>
+      <div className='relatedProductsContainer'>
         {detailedRelatedProductsArr.map((detailedRelatedProduct, index) => {
           return <ProductCard
             key={index}

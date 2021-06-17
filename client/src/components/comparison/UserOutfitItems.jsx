@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import UserOutfitCard from './UserOutfitCard.jsx';
 
-const UserOutfitItems = (props) => {
-  console.log(props.productStyles);
+const UserOutfitItems = ({relatedProductsStylesArr}) => {
+
   return (
     <div>
-      <h3>Your Outfit</h3>
-      <div>
-        {props.productStyles.map((productStyle, index) => {
+      <h3 className='relatedProductTitle'>Your Outfit</h3>
+      <div className='relatedProductsContainer'>
+        {relatedProductsStylesArr.map((productStyle, index) => {
           return <UserOutfitCard
             key={index}
             productStyle={productStyle}

@@ -71,7 +71,7 @@ class Comparison extends React.Component {
       });
   };
 
-  // get and store each
+  // get and store each review per product
   getTheReviews = ()=> {
     return Promise.all(this.state.relatedProducts.map(relatedProduct => {
       return rerequester.getReviews({'product_id': `${relatedProduct}`});
@@ -97,14 +97,11 @@ class Comparison extends React.Component {
         });
       })
       .then(() => {
-        // console.log(this.state.reviewsMetaArr);
         return this.setState(state => {
           let reviewsMeta = [];
           for (let j = 0; j < this.state.reviewsMetaArr.length; j++) {
             let element = this.state.reviewsMetaArr[j].ratings;
-            // console.log(this.state.reviewsMetaArr[j].ratings);
             let results = this.state.reviewsArr[j];
-            // console.log('abba', this.state.reviewsArr[j]);
             const reviewsMetaObj = element;
             const ratingsMetaObj = MakeRating(element, results);
             for (const key in ratingsMetaObj) {
@@ -112,10 +109,8 @@ class Comparison extends React.Component {
             }
             reviewsMeta.push(reviewsMetaObj);
           }
-          return { reviewsMeta }; // put it in state here
-        }, () =>{
-          // console.log(this.state.reviewsMetaArr);
-        });
+          return { reviewsMeta };
+        }, () => {});
       })
       .catch((err) => {
         console.log('err', err);
@@ -128,7 +123,7 @@ class Comparison extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='relatedItemsGrid'>
         { this.state.relatedProductsStylesArr.length ?
           <div>
             <RelatedProducts
@@ -138,7 +133,7 @@ class Comparison extends React.Component {
               addRatingsMeta={this.addRatingsMeta}
               currentReviewChars={this.state.currentReviewChars}
             />
-            {/* <UserOutfitItems productStyles={productStyles}/> */}
+            <UserOutfitItems relatedProductsStylesArr={this.state.relatedProductsStylesArr}/>
           </div> :
           <>
             <LoadingSpinner />
