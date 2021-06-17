@@ -20,11 +20,7 @@ const withClickReporting = (WrappedComponent, widget) => {
         widget: widget || 'Component',
         time: Date.now().toString()
       };
-      console.log('data:', data);
       requester.postInteraction(data)
-        .then(response => {
-          console.log('Response:', response);
-        })
         .catch(err => {
           console.log(err);
         });
