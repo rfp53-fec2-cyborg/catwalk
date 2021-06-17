@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { sort } from '../../helpers/sort.js';
 import ReviewList from './ReviewList.jsx';
 import Requester from '../../Requester.js';
+import withClickReporting from '../../helpers/withClickReporting.js';
 
 const requester = Requester();
 
@@ -35,6 +36,9 @@ const Sorting = (props) => {
       setSortedListOfReviews(selfSortedData[sortView]);
     }
   };
+
+  const ReviewListWithClickReporting = withClickReporting(ReviewList, 'ReviewList');
+
   return (
     <div>
       There are {reviewsMeta.numReviews} reviews. Sort on <select onChange={handleView}>
@@ -42,7 +46,7 @@ const Sorting = (props) => {
         <option value="newest" > Newest </option>
         <option value="helpful" > Helpful </option>
       </select>
-      <ReviewList
+      <ReviewListWithClickReporting
         props={props}
         sortedListOfReviews={sortedListOfReviews}
         sortView={sortView}
