@@ -113,6 +113,10 @@ const Requester = () => {
     return post('upload-photo', data);
   };
 
+  requester.postInteraction = (data) => {
+    return post('interactions', data);
+  };
+
   return requester;
 };
 

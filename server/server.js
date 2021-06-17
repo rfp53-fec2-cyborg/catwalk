@@ -162,7 +162,8 @@ app.post('/cart', async (req, res) => {
 
 app.post('/interactions', async (req, res) => {
   // console.log(req.body);
-  const body = JSON.stringify(req.body);
+  // const body = JSON.stringify(req.body);
+  const body = req.body;
   try {
     const data = await postInteractions(body);
     res.json(data);
