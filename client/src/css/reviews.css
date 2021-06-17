@@ -23,7 +23,8 @@
 }
 
 .review-card {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  border-bottom: 1px solid var(--color-neutral);
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -53,7 +54,8 @@
 }
 
 .form-section {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  border-bottom: 1px solid var(--color-neutral);
   padding: 0 0 15px 0;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -82,7 +84,7 @@
 
 .progress-bar {
   width: 100%;
-  background-color: #e0e0de;
+  background-color: var(--color-neutral-lightest);
   height: 1em;
 }
 
@@ -114,7 +116,7 @@
 }
 
 .rating-breakdown:hover {
-  background-color: rgb(236, 227, 227);
+  background-color: var(--color-neutral-lightest-hover);
   cursor: pointer;
 };
 
