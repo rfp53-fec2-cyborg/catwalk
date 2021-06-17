@@ -5,7 +5,7 @@ import arrowLeft from '../../assets/arrow-left.svg';
 import arrowUp from '../../assets/arrow-up.svg';
 import arrowDown from '../../assets/arrow-down.svg';
 
-const Gallery = ({ selectedStyle }) => {
+const Gallery = ({ selectedStyle, ...props }) => {
 
   // State and local variables
   // Strictly speaking, this is an anti-pattern. A piece of props is being saved to this component's state (mainImage). This led to a bug where the prop selectedStyle would change, but mainImage would not update. The ideal solution would be to store mainImage in the state of the parent component. I decided against that because the Gallery component is the only component that needs to use mainImage, and I didn't want to clutter the Overview component, which is already complex. The solution was to use the special key attribute on the invocation of the Gallery component in Overview. The style_id from selectedStyle is assigned to the key attribute, so when the selectedStyle changes, the key changes, and the Gallery component completely rerenders. Gallery's state is recomputed, and all is well. This solution would not be ideal if rerendering was expensive, but in this case, we will be rerendering most of the DOM elements anyways when selectedStyle changes.
@@ -29,7 +29,7 @@ const Gallery = ({ selectedStyle }) => {
   }, [mainImageIndex]);
 
   // Event handlers
-  const handleThumbnailArrowClick = (event) => {
+  let handleThumbnailArrowClick = (event) => {
     const direction = event.currentTarget.dataset.direction;
     if (direction === 'down' && thumbnailScroll + thumbnailScrollIncrement < thumbnailsMaxScrollHeight) {
       setThumbnailScroll(thumbnailScroll + thumbnailScrollIncrement);
@@ -37,8 +37,9 @@ const Gallery = ({ selectedStyle }) => {
       setThumbnailScroll(thumbnailScroll - thumbnailScrollIncrement);
     }
   };
+  handleThumbnailArrowClick = props.addClickReporting(handleThumbnailArrowClick);
 
-  const handleImageArrowClick = (event) => {
+  let handleImageArrowClick = (event) => {
     const direction = event.currentTarget.dataset.direction;
     if (direction === 'right' && mainImageIndex + 1 < photos.length) {
       setMainImageIndex(mainImageIndex + 1);
@@ -46,11 +47,13 @@ const Gallery = ({ selectedStyle }) => {
       setMainImageIndex(mainImageIndex - 1);
     }
   };
+  handleImageArrowClick = props.addClickReporting(handleImageArrowClick);
 
-  const handleThumbnailClick = (event) => {
+  let handleThumbnailClick = (event) => {
     const index = event.currentTarget.dataset.index;
     setMainImageIndex(index);
   };
+  handleThumbnailClick = props.addClickReporting(handleThumbnailClick);
 
   const Arrow = ({ direction, clickHandler, classStr, imgSrc }) => {
     return (
