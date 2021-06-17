@@ -2,7 +2,7 @@ import React from 'React';
 import ProductCard from './ProductCard.jsx';
 
 
-const RelatedProducts = ({detailedRelatedProductsArr, relatedProductsStylesArr}) => {
+const RelatedProducts = ({detailedRelatedProductsArr, relatedProductsStylesArr, reviewsMetaArr, addRatingsMeta, currentReviewChars}) => {
 
   return (
     <div>
@@ -12,8 +12,11 @@ const RelatedProducts = ({detailedRelatedProductsArr, relatedProductsStylesArr})
           return <ProductCard
             key={index}
             detailedRelatedProduct={detailedRelatedProduct}
+            currentId={detailedRelatedProduct.id}
             relatedProductsStylesArr={relatedProductsStylesArr}
-            reviewsMetaArr={this.state.reviewsMetaArr}
+            reviewsMetaArr={reviewsMetaArr}
+            addRatingsMeta={addRatingsMeta}
+            currentReviewChars={currentReviewChars}
           />;
         })}
       </div>

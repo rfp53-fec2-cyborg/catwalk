@@ -3,7 +3,7 @@ import RelatedProducts from './RelatedProducts.jsx';
 import UserOutfitItems from './UserOutfitItems.jsx';
 import Requester from '../../Requester.js';
 import LoadingSpinner from '../../components/shared/LoadingSpinner.jsx';
-
+import { MakeRating } from '../../helpers/MakeRating.js';
 import StarRating from '../shared/StarRating.jsx';
 
 const rerequester = Requester();
@@ -18,6 +18,8 @@ class Comparison extends React.Component {
       outfitList: [],
       reviewsMetaArr: [],
       activeIndex: 0,
+      reviewsArr: [],
+      currentReviewChars: {},
       styles: this.props.styles
     };
     this.fetchAndStore = this.props.fetchAndStore.bind(this);
@@ -50,9 +52,10 @@ class Comparison extends React.Component {
       .then(() => {
         return this.getTheStyles();
       })
+      .then(this.getTheReviews())
       .then(this.getTheRatingMeta())
-      .catch(() => {
-        console.log('err');
+      .catch((err) => {
+        console.log('err', err);
       });
   };
   // get and store each styleObj from each product in the relatedProducts array
@@ -63,8 +66,23 @@ class Comparison extends React.Component {
           relatedProductsStylesArr: data
         });
       })
-      .catch(() => {
-        console.log('err');
+      .catch((err) => {
+        console.log('err', err);
+      });
+  };
+
+  // get and store each
+  getTheReviews = ()=> {
+    return Promise.all(this.state.relatedProducts.map(relatedProduct => {
+      return rerequester.getReviews({'product_id': `${relatedProduct}`});
+    }))
+      .then((data) => {
+        return this.setState({
+          reviewsArr: data
+        });
+      })
+      .catch((err) => {
+        console.log('err', err);
       });
   };
 
@@ -78,20 +96,37 @@ class Comparison extends React.Component {
           reviewsMetaArr: data
         });
       })
-      .catch(() => {
-        console.log('err');
+      .then(() => {
+        // console.log(this.state.reviewsMetaArr);
+        return this.setState(state => {
+          let reviewsMeta = [];
+          for (let j = 0; j < this.state.reviewsMetaArr.length; j++) {
+            let element = this.state.reviewsMetaArr[j].ratings;
+            // console.log(this.state.reviewsMetaArr[j].ratings);
+            let results = this.state.reviewsArr[j];
+            // console.log('abba', this.state.reviewsArr[j]);
+            const reviewsMetaObj = element;
+            const ratingsMetaObj = MakeRating(element, results);
+            for (const key in ratingsMetaObj) {
+              reviewsMetaObj[key] = ratingsMetaObj[key];
+            }
+            reviewsMeta.push(reviewsMetaObj);
+          }
+          return { reviewsMeta }; // put it in state here
+        }, () =>{
+          // console.log(this.state.reviewsMetaArr);
+        });
+      })
+      .catch((err) => {
+        console.log('err', err);
       });
   };
-
-
 
   componentDidMount() {
     this.getTheDeets();
   }
 
   render() {
-    // console.log('RevMeta', this.state.reviewsMetaArr[0].roundedValue);
-
     return (
       <div>
         { this.state.relatedProductsStylesArr.length ?
@@ -100,6 +135,8 @@ class Comparison extends React.Component {
               detailedRelatedProductsArr={this.state.detailedRelatedProductsArr}
               relatedProductsStylesArr={this.state.relatedProductsStylesArr}
               reviewsMetaArr={this.state.reviewsMetaArr}
+              addRatingsMeta={this.addRatingsMeta}
+              currentReviewChars={this.state.currentReviewChars}
             />
             {/* <UserOutfitItems productStyles={productStyles}/> */}
           </div> :
@@ -111,3 +148,5 @@ class Comparison extends React.Component {
     );
   }
 }
+
+export default Comparison;

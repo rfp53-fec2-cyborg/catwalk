@@ -1,15 +1,35 @@
 import React, {useEffect, useState} from 'react';
 import ProductCardDetails from './ProductCardDetails.jsx';
 import DefaultPic from '../../components/shared/LoadingSpinner.jsx';
-/* import star rating? */
+import { MakeRating } from '../../helpers/MakeRating.js';
+import StarRating from '../shared/StarRating.jsx';
 
-const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
+const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr, reviewsMetaArr, currentId, addRatingsMeta, currentReviewChars}) => {
 
-  let currentId = detailedRelatedProduct.id;
+  // console.log('relatedProductsStylesArr', relatedProductsStylesArr);
+  // console.log('reviewsMetaArr', reviewsMetaArr[0].ratings.roundedValue);
+
+  const currentReviewsMeta = (reviewsMetaArr, currentId) => {
+    return reviewsMetaArr.filter(element => {
+      if (element.product_id === `${currentId}`) {
+        return element;
+      }
+    });
+  };
+  const currentReviewMeta = currentReviewsMeta(reviewsMetaArr, currentId);
+  // console.log(currentReviewMeta[0].ratings.roundedValue);
+
+  const currentRelatedProductsStyle = (relatedProductsStylesArr, currentId) => {
+    return relatedProductsStylesArr.filter(element => {
+      if (element.product_id === `${currentId}`) {
+        return element;
+      }
+    });
+  };
+  const currentRelatedProductStyle = currentRelatedProductsStyle(relatedProductsStylesArr, currentId);
 
   const defaultPic = 'https://i.imgur.com/R7mqXKL.png';
 
-  // function will need to filter the correct photo here later
   const getTheCorrectPic = (relatedProductsStylesArr, currentId) => {
     let possiblePicUrls = [];
     for (let i = 0; i < relatedProductsStylesArr.length; i++) {
@@ -25,9 +45,6 @@ const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
       }
     }
   };
-  // const image = relatedProductsStylesArr[1].results[0].photos[0].thumbnail_url;
-
-  // function to have compare modal button/icon to go here
 
   return (
     <div>
@@ -38,9 +55,10 @@ const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
       <ProductCardDetails
         detailedRelatedProduct={detailedRelatedProduct}
         relatedProductsStylesArr={relatedProductsStylesArr}
-        reviewsMetaArr={this.state.reviewsMetaArr}
+        reviewsMetaArr={reviewsMetaArr}
+        currentReviewMeta={currentReviewMeta}
       />
-      <div>Star Rating</div>
+      <StarRating score={currentReviewMeta[0].ratings.roundedValue}/>
     </div>
   );
 
