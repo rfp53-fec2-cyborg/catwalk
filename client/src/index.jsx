@@ -135,9 +135,9 @@ class App extends React.Component {
     const OverviewWithClickReporting = withClickReporting(Overview, 'Overview');
     return (
       <div className='app'>
+        <Header />
         {this.state.isLoaded ?
           <>
-            <Header />
             <Overview
               product={this.state.product}
               styles={this.state.styles.results}

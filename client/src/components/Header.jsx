@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import magnifyingGlass from '../assets/magnifying_glass.png';
 
 const Header = () => {
-
-  const [theme, setTheme] = useState(document.documentElement.className);
+  const currentTheme = window.localStorage.getItem('theme') || document.documentElement.className;
+  const [theme, setTheme] = useState(currentTheme);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -17,6 +17,7 @@ const Header = () => {
 
   useEffect(() => {
     document.documentElement.classList.add(theme);
+    window.localStorage.setItem('theme', theme);
   }, [theme]);
 
   const ThemeRadioButton = ({ value }) => {
