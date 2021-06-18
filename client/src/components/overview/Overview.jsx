@@ -3,6 +3,7 @@ import Requester from '../../Requester.js';
 import withClickReporting from '../../helpers/withClickReporting.js';
 import Gallery from './Gallery.jsx';
 import Rating from './Rating.jsx';
+import Price from './Price.jsx';
 import Styles from './Styles.jsx';
 import SizeSelector from './SizeSelector.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
@@ -82,14 +83,6 @@ const Overview = ({ product, styles, cart, reviewsMeta, reportClick }) => {
   };
 
   // Utilities
-  const formatPrice = price => {
-    price = '$' + price;
-    if (price.slice(-3) === '.00') {
-      price = price.slice(0, -3);
-    }
-    return price;
-  };
-
   const getStyleById = (styleID) => {
     for (let i = 0; i < styles.length; i++) {
       if (styles[i]['style_id'].toString() === styleID) {
@@ -122,7 +115,7 @@ const Overview = ({ product, styles, cart, reviewsMeta, reportClick }) => {
         <Rating reviewsMeta={reviewsMeta} />
         <div className="product-category-price">{product.category}</div>
         <div className="product-name">{product.name}</div>
-        <div className="product-category-price">{formatPrice(product.default_price)}</div>
+        <Price selectedStyle={selectedStyle} />
         <Styles
           styles={styles}
           selectedStyle={selectedStyle}
