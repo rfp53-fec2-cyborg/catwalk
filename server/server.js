@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const compression = require('compression');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 
@@ -11,6 +12,13 @@ const { getReviews, getReviewsMeta, postReview, putReviewHelpful, putReviewRepor
 const { getCart, postCart } = require('./cartApi.js');
 const { postInteractions } = require('./interactionsApi.js');
 
+const awsUrl = process.env.AWS_URL;
+
+app.use(cors({
+  origin: awsUrl,
+  methods: ['GET', 'POST', 'PUT'],
+  credentials: true
+}));
 app.use(compression({level: 1}));
 app.use(express.json({limit: '50mb'}));
 app.use(express.static(path.join(__dirname, '../client/dist')));
