@@ -112,9 +112,9 @@ const Overview = ({ product, styles, cart, reviewsMeta, reportClick }) => {
       />
       <div className='product-details'>
         <Rating reviewsMeta={reviewsMeta} />
-        <h5>{product.category}</h5>
-        <h1>{product.name}</h1>
-        <h5>{formatPrice(product.default_price)}</h5>
+        <div className="product-category-price">{product.category}</div>
+        <div className="product-name">{product.name}</div>
+        <div className="product-category-price">{formatPrice(product.default_price)}</div>
         <Styles
           styles={styles}
           selectedStyle={selectedStyle}

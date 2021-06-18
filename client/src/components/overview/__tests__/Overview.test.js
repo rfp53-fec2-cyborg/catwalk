@@ -7,6 +7,7 @@ import renderer from 'react-test-renderer';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 // import '@testing-library/jest-dom/extend-expect';
 import Overview from '../Overview.jsx';
+import intersectionObserverMock from '../../../../../__mocks__/intersectionObserverMock';
 
 
 const product = {

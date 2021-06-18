@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import magnifyingGlass from '../assets/magnifying_glass.png';
+import LazyImage from './shared/LazyImage.jsx';
 
 const Header = () => {
   const currentTheme = window.localStorage.getItem('theme') || document.documentElement.className;
@@ -44,7 +45,7 @@ const Header = () => {
       </form>
       <div className='searchForm'>
         <div className='searchField'></div>
-        <img src={magnifyingGlass} />
+        <LazyImage src={magnifyingGlass} alt="Magnifying glass in header"/>
       </div>
     </div>
   );

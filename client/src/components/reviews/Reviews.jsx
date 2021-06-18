@@ -7,7 +7,7 @@ const Reviews = (props) => {
   const RatingBreakdownWithClickReporting = withClickReporting(RatingBreakdown, 'RatingBreakdown');
   return (
     <div>
-      <h2>RATINGS & REVIEWS</h2>
+      <h2 id="reviews">RATINGS & REVIEWS</h2>
       <>
         <RatingBreakdownWithClickReporting data={props}/>
       </>
