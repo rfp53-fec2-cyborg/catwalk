@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyImage from '../shared/LazyImage.jsx';
 
 const GalleryThumbnails = ({ selectedThumbnail, photos, handleThumbnailClick }) => {
   const thumbnailsHtml = photos.map((photo, index) => {
@@ -14,11 +15,11 @@ const GalleryThumbnails = ({ selectedThumbnail, photos, handleThumbnailClick }) 
         data-thumbnail-url={photo.thumbnail_url}
         key={`gallery_thumbnail_${index}`}
       >
-        <img
+        <LazyImage
           src={photo.thumbnail_url}
           className='gallery-thumbnail'
-        >
-        </img>
+          alt="Thumbnail picture of different styles"
+        />
       </div>);
   });
 

@@ -12,8 +12,8 @@ import Header from './components/Header.jsx';
 import Overview from './components/overview/Overview.jsx';
 import Comparison from './components/comparison/Comparison.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
-import QandA from './components/qanda/QandA.jsx';
 import LoadingSpinner from './components/shared/LoadingSpinner.jsx';
+import LazyImage from './components/shared/LazyImage.jsx';
 
 const requester = Requester();
 
@@ -163,7 +163,6 @@ class App extends React.Component {
               reviews={this.state.reviews}
               reviewsMeta={this.state.reviewsMeta}
             />
-            <QandA />
           </> :
           <LoadingSpinner />
         }

@@ -28,6 +28,7 @@ const DrawDynamicStars = ({ reportClick, ...props }) => {
           src={stars.singleUnfilledStar}
           className="indiv-star"
           onClick={handleRating}
+          alt="One unfilled star"
         />
       );
     }

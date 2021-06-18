@@ -6,8 +6,9 @@ const RatingBar = (props) => {
   const fillerStyles = {
     height: '100%',
     width: `${percentage}%`,
-    backgroundColor: '#58BC33',
+    backgroundColor: '#4aa564',
     textAlign: 'right',
+    color: '#212121'
   };
 
   return (
