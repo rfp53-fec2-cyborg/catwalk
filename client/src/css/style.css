@@ -1,17 +1,20 @@
 :root,
 :root.light {
   --color-neutral: #484848;
+  --color-neutral-light-mode: #484848;
   --color-neutral-light: #808080;
   --color-neutral-disabled: #B4B4B4;
   --color-neutral-lighter-transparent: #dddddd80;
   --color-neutral-lighter-transparent-hover: #B4B4B480;
   --color-neutral-lightest: #e0e0de;
   --color-neutral-lightest-hover: #ece3e3;
+  --color-neutral-always-light: #fff;
 
   --color-primary: #ffc038;
 
   --color-background: #fff;
   --color-background-alt: #000000;
+  --color-background-alt2: #484848;
 
   --color-text: var(--color-neutral);
   --color-text-alt: #fff;
@@ -21,24 +24,27 @@
 }
 
 :root.dark {
-  --color-neutral: red;
-  --color-neutral-light: #808080;
-  --color-neutral-disabled: #B4B4B4;
-  --color-neutral-lighter-transparent: #dddddd80;
-  --color-neutral-lighter-transparent-hover: #B4B4B480;
-  --color-neutral-lightest: #e0e0de;
-  --color-neutral-lightest-hover: #ece3e3;
+  --color-neutral: #CFD8DC;
+  --color-neutral-light-mode: #ccaeae;
+  --color-neutral-light: #e3ecf0;
+  --color-neutral-disabled: #FAFAFA;
+  --color-neutral-lighter-transparent: #B0BEC580;
+  --color-neutral-lighter-transparent-hover: #98a4aa80;
+  --color-neutral-lightest: #CFD8DC;
+  --color-neutral-lightest-hover: #a6afb3;
+  --color-neutral-always-light: #e3ecf0;
 
-  --color-primary: green;
+  --color-primary: #111E24;
 
-  --color-background: #fff;
-  --color-background-alt: #000000;
+  --color-background: #263238;
+  --color-background-alt: #ECEFF1;
+  --color-background-alt2: #182024;
 
-  --color-text: var(--color-neutral);
-  --color-text-alt: #fff;
+  --color-text: ;
+  --color-text-alt: ;
 
-  --color-error: #e45a5a;
-  --color-caution: #a7acaa;
+  --color-error: ;
+  --color-caution: ;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -90,6 +96,10 @@ table {
 * {
   font-family: Helvetica, sans-serif;
   color: var(--color-neutral);
+}
+
+html, body {
+  background-color: var(--color-background);
 }
 
 p, h1, h2, h3, h4, h5, h6, div {
@@ -150,7 +160,7 @@ textarea {
   width: 24px;
   border-radius: 50%;
   background-image: url('../assets/checkmark.svg');
-  background-color: var(--color-background);
+  background-color: var(--color-neutral-always-light);
   position: absolute;
   top: 0px;
   right: 0px;
@@ -173,7 +183,7 @@ textarea {
 }
 
 .header {
-  background-color: var(--color-neutral);
+  background-color: var(--color-background-alt2);
   padding: 10px 25px;
   display: flex;
   flex-wrap: nowrap;
@@ -190,11 +200,11 @@ textarea {
   color: var(--color-text-alt);
   font-style: italic;
   text-shadow:
-    2px 2px var(--color-neutral),
-    2px -2px var(--color-neutral),
-    -2px 2px var(--color-neutral),
-    -2px -2px var(--color-neutral);
-  border-bottom: solid var(--color-text-alt);
+  2px 2px var(--color-background-alt2),
+    2px -2px var(--color-background-alt2),
+    -2px 2px var(--color-background-alt2),
+    -2px -2px var(--color-background-alt2);
+    border-bottom: solid var(--color-text-alt);
   display: inline-block;
   letter-spacing: 0.03em;
 }
@@ -202,6 +212,11 @@ textarea {
 .header label {
   color: var(--color-text-alt);
   font-size: 12px;
+  margin: 0 5px;
+}
+
+.header input[type="radio"] {
+  vertical-align: top;
 }
 
 .header > .searchForm {

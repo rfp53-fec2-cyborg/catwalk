@@ -48,6 +48,7 @@
 .thumbnails-arrow {
   border-radius: 3px;
   padding: 3px;
+  background-color: var(--color-neutral-lighter-transparent);
 }
 
 .gallery-thumbnail-container {

@@ -16,13 +16,12 @@ const Header = () => {
   };
 
   useEffect(() => {
-    console.log('theme:', theme);
-    document.documentElement.classList.toggle(theme);
+    document.documentElement.classList.add(theme);
   }, [theme]);
 
   const ThemeRadioButton = ({ value }) => {
     return (
-      <label>{capitalize(value)}
+      <label>
         <input
           type="radio"
           name={value}
@@ -30,6 +29,7 @@ const Header = () => {
           checked={theme === `${value}`}
           onChange={handleChange}
         />
+        {capitalize(value)}
       </label>
     );
   };
