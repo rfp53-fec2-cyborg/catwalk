@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import StarRating from '../shared/StarRating.jsx';
 
-const ProductCardDetails = ({detailedRelatedProduct, relatedProductsStylesArr, currentReviewMeta}) => {
-  // console.log(detailedRelatedProduct);
+
+const ProductCardDetails = ({detailedRelatedProduct, relatedProductsStylesArr, currentReviewMeta, handleNewProductOnClick}) => {
+  // console.log(typeof handleNewProductOnClick);
   return (
-    <div>
+    <div className='productCardDetails' onClick={()=>(handleNewProductOnClick(detailedRelatedProduct.id))}>
       <div>{detailedRelatedProduct.category}</div>
       <div>{detailedRelatedProduct.name}</div>
       <div>{'$' + detailedRelatedProduct.default_price}</div>

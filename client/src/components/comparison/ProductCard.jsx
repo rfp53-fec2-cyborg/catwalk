@@ -3,7 +3,7 @@ import ProductCardDetails from './ProductCardDetails.jsx';
 import DefaultPic from '../../components/shared/LoadingSpinner.jsx';
 import { MakeRating } from '../../helpers/MakeRating.js';
 
-const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr, reviewsMetaArr, currentId, addRatingsMeta, currentReviewChars}) => {
+const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr, reviewsMetaArr, currentId, addRatingsMeta, currentReviewChars, handleNewProductOnClick}) => {
 
   const currentReviewsMeta = (reviewsMetaArr, currentId) => {
     return reviewsMetaArr.filter(element => {
@@ -53,6 +53,7 @@ const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr, reviewsM
         reviewsMetaArr={reviewsMetaArr}
         currentReviewMeta={currentReviewMeta}
         score={currentReviewMeta[0].ratings.roundedValue}
+        handleNewProductOnClick={handleNewProductOnClick}
       />
     </div>
   );

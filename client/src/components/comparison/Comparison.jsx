@@ -5,6 +5,8 @@ import Requester from '../../Requester.js';
 import LoadingSpinner from '../../components/shared/LoadingSpinner.jsx';
 import { MakeRating } from '../../helpers/MakeRating.js';
 import StarRating from '../shared/StarRating.jsx';
+import LeftArrow from './LeftArrow.jsx';
+import RightArrow from './RightArrow.jsx';
 
 const rerequester = Requester();
 
@@ -12,7 +14,6 @@ class Comparison extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      relatedProducts: this.props.relatedProducts,
       detailedRelatedProductsArr: [],
       relatedProductsStylesArr: [],
       outfitList: [],
@@ -20,13 +21,16 @@ class Comparison extends React.Component {
       activeIndex: 0,
       reviewsArr: [],
       currentReviewChars: {},
-      styles: this.props.styles
+      imagesToLeft: true,
+      imagesToRight: true,
+      cardOverflow: true
     };
     this.fetchAndStore = this.props.fetchAndStore.bind(this);
     this.addRatingsMeta = this.props.addRatingsMeta.bind(this);
+    this.scrollComparisonLeft = this.scrollComparisonLeft.bind(this);
+    this.scrollComparisonRight = this.scrollComparisonRight.bind(this);
+    this.isOverflowing = this.isOverflowing.bind(this);
   }
-
-  // function that will handle product click
 
   // function that will handle the compare Modal
 
@@ -43,7 +47,7 @@ class Comparison extends React.Component {
 
   // get and store the product obj from each product in the relatedProducts array
   getTheDeets = ()=> {
-    return Promise.all(this.state.relatedProducts.map(relatedProduct => rerequester.getProduct(relatedProduct)))
+    return Promise.all(this.props.relatedProducts.map(relatedProduct => rerequester.getProduct(relatedProduct)))
       .then((data) => {
         return this.setState({
           detailedRelatedProductsArr: data
@@ -60,7 +64,7 @@ class Comparison extends React.Component {
   };
   // get and store each styleObj from each product in the relatedProducts array
   getTheStyles = ()=> {
-    return Promise.all(this.state.relatedProducts.map(relatedProduct => rerequester.getProductStyles(`${relatedProduct}`)))
+    return Promise.all(this.props.relatedProducts.map(relatedProduct => rerequester.getProductStyles(`${relatedProduct}`)))
       .then((data) => {
         return this.setState({
           relatedProductsStylesArr: data
@@ -73,7 +77,7 @@ class Comparison extends React.Component {
 
   // get and store each review per product
   getTheReviews = ()=> {
-    return Promise.all(this.state.relatedProducts.map(relatedProduct => {
+    return Promise.all(this.props.relatedProducts.map(relatedProduct => {
       return rerequester.getReviews({'product_id': `${relatedProduct}`});
     }))
       .then((data) => {
@@ -88,7 +92,7 @@ class Comparison extends React.Component {
 
   // get and store each starRating svg num for each product in the relatedProducts array
   getTheRatingMeta = ()=> {
-    return Promise.all(this.state.relatedProducts.map(relatedProduct => {
+    return Promise.all(this.props.relatedProducts.map(relatedProduct => {
       return rerequester.getReviewsMeta({'product_id': `${relatedProduct}`});
     }))
       .then((data) => {
@@ -99,9 +103,9 @@ class Comparison extends React.Component {
       .then(() => {
         return this.setState(state => {
           let reviewsMeta = [];
-          for (let j = 0; j < this.state.reviewsMetaArr.length; j++) {
-            let element = this.state.reviewsMetaArr[j].ratings;
-            let results = this.state.reviewsArr[j];
+          for (let j = 0; j < state.reviewsMetaArr.length; j++) {
+            let element = state.reviewsMetaArr[j].ratings;
+            let results = state.reviewsArr[j];
             const reviewsMetaObj = element;
             const ratingsMetaObj = MakeRating(element, results);
             for (const key in ratingsMetaObj) {
@@ -117,6 +121,42 @@ class Comparison extends React.Component {
       });
   };
 
+  scrollComparisonLeft() {
+    this.setState({
+      imagesToTheRight: true,
+    });
+    const carousel = document.getElementByClassName('relatedProductsContainer');
+    carousel.scrollLeft -= 316;
+    if (carousel.scrollLeft <= 316) {
+      this.setState({
+        imagesToTheLeft: false,
+      });
+    }
+  }
+
+  scrollComparisonRight() {
+    this.setState({
+      imagesToTheLeft: true,
+    });
+    const carousel = document.getElementByClassName('relatedProductsContainer');
+    const amountLeftToScroll = carousel.scrollWidth - carousel.clientWidth;
+    carousel.scrollLeft += 316;
+    if (carousel.scrollLeft >= amountLeftToScroll - 316) {
+      this.setState({
+        imagesToTheRight: false,
+      });
+    }
+  }
+
+  isOverflowing() {
+    const carousel = document.getElementByClassName('relatedProductsContainer');
+    const bool = carousel.scrollWidth > carousel.clientWidth;
+    this.setState({
+      cardOverflow: bool,
+      imagesToTheRight: bool,
+    });
+  }
+
   componentDidMount() {
     this.getTheDeets();
   }
@@ -124,6 +164,9 @@ class Comparison extends React.Component {
   render() {
     return (
       <div className='relatedItemsGrid'>
+        <div className='rightButtonWrapper'>
+          {this.state.imagesToRight ? <RightArrow scrollComparisonRight={this.scrollComparisonRight}/> : null}
+        </div>
         { this.state.relatedProductsStylesArr.length ?
           <div>
             <RelatedProducts
@@ -132,8 +175,12 @@ class Comparison extends React.Component {
               reviewsMetaArr={this.state.reviewsMetaArr}
               addRatingsMeta={this.addRatingsMeta}
               currentReviewChars={this.state.currentReviewChars}
+              handleNewProductOnClick={this.props.handleNewProductOnClick}
             />
-            <UserOutfitItems relatedProductsStylesArr={this.state.relatedProductsStylesArr}/>
+            <div>
+              {this.state.imagesToLeft ? <LeftArrow scrollComparisonLeft={this.scrollComparisonLeft}/> : null}
+            </div>
+            <UserOutfitItems outfitList={this.state.outfitList}/>
           </div> :
           <>
             <LoadingSpinner />

@@ -30,6 +30,8 @@ class App extends React.Component {
     };
     this.loadFirstProduct = this.loadFirstProduct.bind(this);
     this.fetchAndStore = this.fetchAndStore.bind(this);
+    this.loadAllProductData = this.loadAllProductData.bind(this);
+    this.handleNewProductOnClick = this.handleNewProductOnClick.bind(this);
   }
 
   componentDidMount() {
@@ -129,6 +131,13 @@ class App extends React.Component {
     });
   }
 
+  handleNewProductOnClick(productID) {
+    this.setState({
+      isLoaded: false
+    });
+    this.loadAllProductData(productID);
+  }
+
   render() {
     return (
       <div className='app'>
@@ -149,9 +158,9 @@ class App extends React.Component {
             />
             <Comparison
               relatedProducts={this.state.relatedProducts}
-              styles={this.state.styles}
               fetchAndStore={this.fetchAndStore}
               addRatingsMeta={this.addRatingsMeta}
+              handleNewProductOnClick={this.handleNewProductOnClick}
             />
             <Reviews
               product={this.state.product}

@@ -1,67 +1,87 @@
 .relatedItemsGrid {
   display: grid;
   grid-template-columns: 1200px;
-  grid-template-rows: 50% 1fr;
+  grid-template-rows:  50% 1fr;
   gap: 0px 0px;
 }
+
 .relatedProductTitle {
   padding: 0px;
   margin: 20px 48px 5px;
 }
+
 .UserOutfitContainer {
   display: grid;
-  grid-template-columns: 250px 250px 250px 250px 250px;
+  grid-template-columns: repeat(12, 250px);
   grid-template-rows: 375px;
   gap: 0px 0px;
   padding: 0px;
   margin: 20px 40px 20px;
   overflow: scroll;
 }
+
 .relatedProductsContainer {
   display: grid;
-  grid-template-columns: 250px 250px 250px 250px 250px;
+  grid-template-columns: repeat(12, 250px);
   grid-template-rows: 375px;
-  gap: 0px 0px;
+  gap: 0px 34px;
   padding: 0px;
   margin: 20px 40px 20px;
   overflow: scroll;
 }
+
 .productCard {
   display: grid;
+  width: 175;
   grid-template-columns: 1fr;
   grid-template-rows: 65% 35%;
-  gap: 0px 0px;
-  /* padding: 9px; */
+  gap: 0px 20px;
+  padding: 9px;
   border-style: solid;
   border-width: 1px;
   margin: 8px;
 }
+.productCardDetails {
+  padding: 9px;
+  width: auto;
+  border-style: inset;
+  border-width: thin;
+  border-radius: 4px;
+  margin: 8px;
+}
+
 .addOutfitCard {
   display: grid;
   grid-template-columns: 1fr;
-  border-style: transparent;
-  border-width: 1px;
+  border-style: solid;
+  border-width: thin;
   margin: 8px;
 }
+
 .productInfo {
+  padding: 2px;
   max-width: 100%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
 }
+
 .productText {
   margin: 5px;
   padding: 8px;
   line-height: 1px;
 }
+
 .relatedProductImage {
   max-width: 100%;
-  height: auto;
-  object-fit: cover;
+  height: 100%;
+  object-fit: fill;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border: 2px;
 }
+
 .addOutfit {
   display: grid;
   grid-template-columns: 1fr;
@@ -71,4 +91,58 @@
   border-style: solid;
   border-width: 1px;
   margin: 8px;
+}
+
+.rightButtonWrapper {
+  position: absolute;
+  right: -1%;
+  top: 0px;
+  padding-left: 60px;
+  height: 89%;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  outline: 0;
+}
+.rightArrow {
+  position: absolute;
+  right: 2%;
+  top: 25%;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 40px;
+}
+
+rightArrow:hover {
+  background-color: black;
+  color: white;
+}
+
+.LeftButtonWrapper {
+  position: absolute;
+  left: 1%;
+  top: 0px;
+  padding-left: 60px;
+  height: 89%;
+  border: none;
+  cursor: pointer;
+  z-index: 0;
+  outline: 0;
+}
+.leftArrow {
+  position: absolute;
+  left: 2%;
+  top: 25%;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 40px;
+}
+
+leftArrow:hover {
+  background-color: black;
+  color: white;
 }
