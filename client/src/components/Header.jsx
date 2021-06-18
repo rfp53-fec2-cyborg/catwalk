@@ -26,7 +26,7 @@ const Header = () => {
           type="radio"
           name={value}
           value={value}
-          checked={theme === `${value}`}
+          checked={theme === value}
           onChange={handleChange}
         />
         {capitalize(value)}

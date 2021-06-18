@@ -40,11 +40,11 @@
   --color-background-alt: #ECEFF1;
   --color-background-alt2: #182024;
 
-  --color-text: ;
-  --color-text-alt: ;
+  --color-text: var(--color-neutral);
+  --color-text-alt: #fff;
 
-  --color-error: ;
-  --color-caution: ;
+  --color-error: #e45a5a;
+  --color-caution: #e3ecf0;
 }
 
 html, body, div, span, applet, object, iframe,
