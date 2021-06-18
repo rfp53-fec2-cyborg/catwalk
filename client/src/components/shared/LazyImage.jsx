@@ -18,8 +18,8 @@ const LazyImage = (props) => {
             }
           });
         }, {
-          threshold: 0.50,
-          rootMargin: '0px'
+          threshold: 0.25,
+          rootMargin: '0px 0px 150px 0px'
         });
         observer.observe(imageRef);
       } else {
