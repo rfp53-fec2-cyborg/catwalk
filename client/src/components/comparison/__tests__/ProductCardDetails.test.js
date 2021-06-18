@@ -16,9 +16,23 @@ const detailedRelatedProduct = {
   'price': '2.00'
 };
 
+const currentReviewMeta = [
+  {
+    'ratings': {
+      'roundedValue': '3.00'
+    }
+  }
+];
+
 const relatedProductsStylesArr = [];
-test('renders the product card details', () => {
-  render(<ProductCardDetails detailedRelatedProduct={detailedRelatedProduct} relatedProductsStylesArr={relatedProductsStylesArr}/>);
+test('renders the product card details with star rating', () => {
+  render(<ProductCardDetails
+    detailedRelatedProduct={detailedRelatedProduct}
+    relatedProductsStylesArr={relatedProductsStylesArr}
+    currentReviewMeta={currentReviewMeta}
+  />
+
+  );
 
   const checkCategory = screen.getByText('Shoes');
   expect(checkCategory).toBeDefined();
