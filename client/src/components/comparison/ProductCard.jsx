@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import ProductCardDetails from './ProductCardDetails.jsx';
 import DefaultPic from '../../components/shared/LoadingSpinner.jsx';
+import imageNotFound from '../../assets/image_not_found-min.png';
 /* import star rating? */
 
 const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
 
   let currentId = detailedRelatedProduct.id;
 
-  const defaultPic = 'https://i.imgur.com/R7mqXKL.png';
+  const defaultPic = imageNotFound;
 
   // function will need to filter the correct photo here later
   const getTheCorrectPic = (relatedProductsStylesArr, currentId) => {
