@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import imageNotFound from '../../assets/image_not_found-min.png';
 
 const BlankUserOutfitCard = (props) => {
 
-  const defaultPic = 'https://i.imgur.com/R7mqXKL.png';
+  const defaultPic = imageNotFound;
 
   return (
     <div className='productCard'>

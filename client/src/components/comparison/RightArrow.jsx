@@ -7,7 +7,7 @@ const RightArrow = ({scrollComparisonRight}) => {
       className='rightArrow'
       onClick={scrollComparisonRight}
     >
-      <img src={arrowRight}></img>
+      <img src={arrowRight} alt="Right arrow to go right"></img>
     </div>
   );
 };

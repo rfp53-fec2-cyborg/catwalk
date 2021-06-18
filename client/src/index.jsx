@@ -14,6 +14,7 @@ import Comparison from './components/comparison/Comparison.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
 import LoadingSpinner from './components/shared/LoadingSpinner.jsx';
 import LazyImage from './components/shared/LazyImage.jsx';
+import _ from 'underscore';
 
 const requester = Requester();
 
@@ -136,7 +137,7 @@ class App extends React.Component {
     this.setState({
       isLoaded: false
     });
-    this.loadAllProductData(productID);
+    _.debounce(this.loadAllProductData(productID), 3000);
   }
 
   render() {

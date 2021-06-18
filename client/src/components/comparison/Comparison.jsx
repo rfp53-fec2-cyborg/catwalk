@@ -7,6 +7,7 @@ import { MakeRating } from '../../helpers/MakeRating.js';
 import StarRating from '../shared/StarRating.jsx';
 import LeftArrow from './LeftArrow.jsx';
 import RightArrow from './RightArrow.jsx';
+import _ from 'underscore';
 
 const rerequester = Requester();
 
@@ -65,7 +66,7 @@ class Comparison extends React.Component {
   // get and store each review per product
   getTheReviews = ()=> {
     return Promise.all(this.props.relatedProducts.map(relatedProduct => {
-      return rerequester.getReviews({'product_id': `${relatedProduct}`});
+      return _.debounce(rerequester.getReviews({'product_id': `${relatedProduct}`}), 3000);
     }))
       .then((data) => {
         return this.setState({
@@ -145,7 +146,7 @@ class Comparison extends React.Component {
   }
 
   componentDidMount() {
-    this.getTheDeets();
+    _.debounce(this.getTheDeets(), 3000);
   }
 
   render() {
