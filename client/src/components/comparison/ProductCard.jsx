@@ -54,6 +54,7 @@ const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr, reviewsM
         currentReviewMeta={currentReviewMeta}
         score={currentReviewMeta[0].ratings.roundedValue}
         handleNewProductOnClick={handleNewProductOnClick}
+        currentRelatedProductStyle={currentRelatedProductStyle}
       />
     </div>
   );
