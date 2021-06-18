@@ -3,15 +3,29 @@ import ProductCardDetails from './ProductCardDetails.jsx';
 import DefaultPic from '../../components/shared/LoadingSpinner.jsx';
 import imageNotFound from '../../assets/image_not_found-min.png';
 import LazyImage from '../shared/LazyImage.jsx';
-/* import star rating? */
 
-const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
+const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr, reviewsMetaArr, currentId, addRatingsMeta, currentReviewChars, handleNewProductOnClick}) => {
 
-  let currentId = detailedRelatedProduct.id;
+  const currentReviewsMeta = (reviewsMetaArr, currentId) => {
+    return reviewsMetaArr.filter(element => {
+      if (element.product_id === `${currentId}`) {
+        return element;
+      }
+    });
+  };
+  const currentReviewMeta = currentReviewsMeta(reviewsMetaArr, currentId);
+
+  const currentRelatedProductsStyle = (relatedProductsStylesArr, currentId) => {
+    return relatedProductsStylesArr.filter(element => {
+      if (element.product_id === `${currentId}`) {
+        return element;
+      }
+    });
+  };
+  const currentRelatedProductStyle = currentRelatedProductsStyle(relatedProductsStylesArr, currentId);
 
   const defaultPic = imageNotFound;
 
-  // function will need to filter the correct photo here later
   const getTheCorrectPic = (relatedProductsStylesArr, currentId) => {
     let possiblePicUrls = [];
     for (let i = 0; i < relatedProductsStylesArr.length; i++) {
@@ -27,18 +41,22 @@ const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
       }
     }
   };
-  // const image = relatedProductsStylesArr[1].results[0].photos[0].thumbnail_url;
-
-  // function to have compare modal button/icon to go here
 
   return (
-    <div>
+    <div className='productCard'>
       {/* button/icon to bring up compare modal will go here */}
       <div>
-        <LazyImage src={getTheCorrectPic(relatedProductsStylesArr, currentId) || defaultPic} alt='Image Not Available'/>
+        <LazyImage className='relatedProductImage' src={getTheCorrectPic(relatedProductsStylesArr, currentId) || defaultPic} alt='Image Not Available'/>
       </div>
-      <ProductCardDetails detailedRelatedProduct={detailedRelatedProduct} relatedProductsStylesArr={relatedProductsStylesArr}/>
-      <div>Star Rating</div>
+      <ProductCardDetails
+        detailedRelatedProduct={detailedRelatedProduct}
+        relatedProductsStylesArr={relatedProductsStylesArr}
+        reviewsMetaArr={reviewsMetaArr}
+        currentReviewMeta={currentReviewMeta}
+        score={currentReviewMeta[0].ratings.roundedValue}
+        handleNewProductOnClick={handleNewProductOnClick}
+        currentRelatedProductStyle={currentRelatedProductStyle}
+      />
     </div>
   );
 

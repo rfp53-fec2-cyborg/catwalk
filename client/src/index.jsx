@@ -14,6 +14,7 @@ import Comparison from './components/comparison/Comparison.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
 import LoadingSpinner from './components/shared/LoadingSpinner.jsx';
 import LazyImage from './components/shared/LazyImage.jsx';
+import _ from 'underscore';
 
 const requester = Requester();
 
@@ -31,6 +32,8 @@ class App extends React.Component {
     };
     this.loadFirstProduct = this.loadFirstProduct.bind(this);
     this.fetchAndStore = this.fetchAndStore.bind(this);
+    this.loadAllProductData = this.loadAllProductData.bind(this);
+    this.handleNewProductOnClick = this.handleNewProductOnClick.bind(this);
   }
 
   componentDidMount() {
@@ -68,7 +71,6 @@ class App extends React.Component {
   getArbitraryProduct() {
     return requester.getProducts({ page: 1, count: 1 })
       .then(products => {
-        // console.log(products);
         return products[0];
       })
       .catch(console.log);
@@ -131,6 +133,13 @@ class App extends React.Component {
     });
   }
 
+  handleNewProductOnClick(productID) {
+    this.setState({
+      isLoaded: false
+    });
+    _.debounce(this.loadAllProductData(productID), 3000);
+  }
+
   render() {
     const OverviewWithClickReporting = withClickReporting(Overview, 'Overview');
     return (
@@ -147,7 +156,8 @@ class App extends React.Component {
             <Comparison
               relatedProducts={this.state.relatedProducts}
               fetchAndStore={this.fetchAndStore}
-              styles={this.state.styles}
+              addRatingsMeta={this.addRatingsMeta}
+              handleNewProductOnClick={this.handleNewProductOnClick}
             />
             <Reviews
               product={this.state.product}
