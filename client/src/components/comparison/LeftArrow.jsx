@@ -12,17 +12,4 @@ const LeftArrow = ({scrollComparisonLeft}) => {
   );
 };
 
-
-// const Arrow = ({ direction, clickHandler, classStr, imgSrc }) => {
-//   return (
-//     <div
-//       className={`${classStr} ${direction}`}
-//       data-direction={direction}
-//       onClick={clickHandler}
-//     >
-//       <img src={imgSrc}></img>
-//     </div>
-//   );
-// };
-
 export default LeftArrow;

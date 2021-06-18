@@ -32,19 +32,6 @@ class Comparison extends React.Component {
     this.isOverflowing = this.isOverflowing.bind(this);
   }
 
-  // function that will handle the compare Modal
-
-  // function that will handle adding an item to the outfit list
-
-  // handleAddOutfitItem = (product, style) => {
-  //   if (!outfitList.some(obj => obj.id === product.id)) {
-  //     this.setState({
-  //       outfitList: [...outfitList, product]});
-  //   }
-  // };
-
-  // function that will handle removing an item form the outfit list
-
   // get and store the product obj from each product in the relatedProducts array
   getTheDeets = ()=> {
     return Promise.all(this.props.relatedProducts.map(relatedProduct => rerequester.getProduct(relatedProduct)))
@@ -164,9 +151,9 @@ class Comparison extends React.Component {
   render() {
     return (
       <div className='relatedItemsGrid'>
-        <div className='rightButtonWrapper'>
+        {/* <div className='rightButtonWrapper'>
           {this.state.imagesToRight ? <RightArrow scrollComparisonRight={this.scrollComparisonRight}/> : null}
-        </div>
+        </div> */}
         { this.state.relatedProductsStylesArr.length ?
           <div>
             <RelatedProducts
@@ -177,9 +164,9 @@ class Comparison extends React.Component {
               currentReviewChars={this.state.currentReviewChars}
               handleNewProductOnClick={this.props.handleNewProductOnClick}
             />
-            <div>
+            {/* <div>
               {this.state.imagesToLeft ? <LeftArrow scrollComparisonLeft={this.scrollComparisonLeft}/> : null}
-            </div>
+            </div> */}
             <UserOutfitItems outfitList={this.state.outfitList}/>
           </div> :
           <>

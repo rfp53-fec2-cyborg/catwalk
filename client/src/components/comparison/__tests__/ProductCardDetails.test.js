@@ -31,9 +31,7 @@ test('renders the product card details with star rating', () => {
     relatedProductsStylesArr={relatedProductsStylesArr}
     currentReviewMeta={currentReviewMeta}
   />
-
   );
-
   const checkCategory = screen.getByText('Shoes');
   expect(checkCategory).toBeDefined();
 });

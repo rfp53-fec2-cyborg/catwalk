@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-/* import star rating? */
 
 const UserOutfitCard = ({ProductsStyles}) => {
   return (
