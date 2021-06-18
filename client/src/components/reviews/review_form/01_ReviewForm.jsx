@@ -53,9 +53,6 @@ const ReviewForm = ({data, reportClick}) => {
     'summary_errorMsg': '',
     'body_errorMsg': '',
     'name_errorMsg': '',
-    'email_errorMsg': '',
-    // 'error_photos': '',
-    // 'error_characteristics': '',
   });
 
   const errorLogic = {
@@ -64,7 +61,6 @@ const ReviewForm = ({data, reportClick}) => {
     'summary': () => formDetails.summary.length < 1,
     'body': () => formDetails.body.length < 50,
     'name': () => formDetails.name.length < 1,
-    'email': () => formDetails.email.indexOf('@') === -1,
   };
 
   const handleOnChange = (key, value) => {
