@@ -93,7 +93,7 @@ const ReviewForm = ({data, reportClick}) => {
     } catch (err) {
       console.error('Error with posting data to API: ', err);
     }
-    console.log('Submission process is over');
+    // console.log('Submission process is over');
     setUnderSubmission(false);
   };
 

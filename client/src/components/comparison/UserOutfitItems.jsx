@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import UserOutfitCard from './UserOutfitCard.jsx';
 
 const UserOutfitItems = (props) => {
-  console.log(props.productStyles);
+  // console.log(props.productStyles);
   return (
     <div>
       <h3>Your Outfit</h3>
