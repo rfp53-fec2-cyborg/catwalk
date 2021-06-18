@@ -133,6 +133,19 @@
   letter-spacing: 0.02rem;
   margin-block-start: 1em;
   margin-block-end: 0.6em;
+  display: flex;
+}
+
+.product-category-price * {
+  margin-right: 0.4rem;
+}
+
+.original-price-with-sale {
+  text-decoration: line-through;
+}
+
+.sale-price {
+  color: var(--color-error);
 }
 
 .product-name, .rating-title {

@@ -3,8 +3,8 @@ import StarRating from '../shared/StarRating.jsx';
 
 const Rating = ({ reviewsMeta }) => {
   return (
-    <div>
-      {reviewsMeta.roundedValue ? <StarRating score={reviewsMeta.roundedValue} /> : ''}
+    <div className="product-overview-rating">
+      {reviewsMeta.roundedValue && reviewsMeta.numRatings > 0 ? <StarRating score={reviewsMeta.roundedValue} /> : null}
       <a href="#reviews">Read all {reviewsMeta.numReviews} reviews</a>
     </div>
   );

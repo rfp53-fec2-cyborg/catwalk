@@ -226,7 +226,9 @@ exports[`Overview matches snapshot 1`] = `
   <div
     className="product-details"
   >
-    <div>
+    <div
+      className="product-overview-rating"
+    >
       <img
         alt="Picture of how ratings this product or review has"
         src="test-file-stub"
@@ -258,7 +260,9 @@ exports[`Overview matches snapshot 1`] = `
     <div
       className="product-category-price"
     >
-      $99
+      <div>
+        $99
+      </div>
     </div>
     <div>
       <h4>
