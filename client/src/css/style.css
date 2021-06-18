@@ -1,9 +1,52 @@
+:root,
+:root.light {
+  --color-neutral: #484848;
+  --color-neutral-light-mode: #484848;
+  --color-neutral-light: #808080;
+  --color-neutral-disabled: #B4B4B4;
+  --color-neutral-lighter-transparent: #dddddd80;
+  --color-neutral-lighter-transparent-hover: #B4B4B480;
+  --color-neutral-lightest: #e0e0de;
+  --color-neutral-lightest-hover: #ece3e3;
+  --color-neutral-always-light: #fff;
 
-/*
-main gray: #484848
-alternate gray (lighter): #808080
-disabled gray: #B4B4B4
-*/
+  --color-primary: #ffc038;
+
+  --color-background: #fff;
+  --color-background-alt: #000000;
+  --color-background-alt2: #484848;
+
+  --color-text: var(--color-neutral);
+  --color-text-alt: #fff;
+
+  --color-error: #e45a5a;
+  --color-caution: #a7acaa;
+}
+
+:root.dark {
+  --color-neutral: #CFD8DC;
+  --color-neutral-light-mode: #ccaeae;
+  --color-neutral-light: #e3ecf0;
+  --color-neutral-disabled: #FAFAFA;
+  --color-neutral-lighter-transparent: #B0BEC580;
+  --color-neutral-lighter-transparent-hover: #98a4aa80;
+  --color-neutral-lightest: #CFD8DC;
+  --color-neutral-lightest-hover: #a6afb3;
+  --color-neutral-always-light: #e3ecf0;
+
+  --color-primary: #111E24;
+
+  --color-background: #263238;
+  --color-background-alt: #ECEFF1;
+  --color-background-alt2: #182024;
+
+  --color-text: var(--color-neutral);
+  --color-text-alt: #fff;
+
+  --color-error: #e45a5a;
+  --color-caution: #e3ecf0;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,7 +67,7 @@ time, mark, audio, video {
   font: inherit; */
   vertical-align: baseline;
   font-family: Helvetica, sans-serif;
-  color: #484848;
+  color: var(--color-neutral);
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -52,11 +95,15 @@ table {
 
 * {
   font-family: Helvetica, sans-serif;
-  color: #484848;
+  color: var(--color-neutral);
+}
+
+html, body {
+  background-color: var(--color-background);
 }
 
 p, h1, h2, h3, h4, h5, h6, div {
-  color: #484848;
+  color: var(--color-text);
 }
 
 p, a {
@@ -83,21 +130,21 @@ select, button {
   height: 50px;
   font-size: 12px;
   font-weight: 600;
-  background-color: #fff;
-  border: solid 1px #808080;
+  background-color: var(--color-background);
+  border: solid 1px var(--color-neutral-light);
   text-transform: uppercase;
 }
 
 select:disabled, button:disabled {
-  border-color: #000000;
-  background-color: #ffc038;
-  color: rgba(172, 164, 164, 0.521);
+  border-color: var(--color-neutral-disabled);
+  background-color: var(--color-primary);
+  color: var(--color-neutral-disabled);
 }
 
 select:enabled, button:enabled {
-  border-color: #000000;
-  background-color: #ffc038;
-  color: black;
+  /* border-color: var(--color-primary); */
+  background-color: var(--color-primary);
+  /* color: var(--color-primary); */
 }
 
 u:hover, button:hover , input:hover {
@@ -113,11 +160,11 @@ textarea {
   width: 24px;
   border-radius: 50%;
   background-image: url('../assets/checkmark.svg');
-  background-color: white;
+  background-color: var(--color-neutral-always-light);
   position: absolute;
   top: 0px;
   right: 0px;
-  border: 1px solid #484848;
+  border: 1px solid var(--color-neutral);
 }
 
 .social-media-button {
@@ -127,16 +174,16 @@ textarea {
 
 .error-message {
   font-size: 14px;
-  color: rgb(228, 90, 90);
+  color: var(--color-error);
 }
 
 .caution-message {
   font-size: 14px;
-  color: rgb(167, 172, 170);
+  color: var(--color-caution);
 }
 
 .header {
-  background-color: #484848;
+  background-color: var(--color-background-alt2);
   padding: 10px 25px;
   display: flex;
   flex-wrap: nowrap;
@@ -150,16 +197,26 @@ textarea {
 }
 
 .header > h3 {
-  color: white;
+  color: var(--color-text-alt);
   font-style: italic;
   text-shadow:
-    2px 2px #484848,
-    2px -2px #484848,
-    -2px 2px #484848,
-    -2px -2px #484848;
-  border-bottom: solid white;
+  2px 2px var(--color-background-alt2),
+    2px -2px var(--color-background-alt2),
+    -2px 2px var(--color-background-alt2),
+    -2px -2px var(--color-background-alt2);
+    border-bottom: solid var(--color-text-alt);
   display: inline-block;
   letter-spacing: 0.03em;
+}
+
+.header label {
+  color: var(--color-text-alt);
+  font-size: 12px;
+  margin: 0 5px;
+}
+
+.header input[type="radio"] {
+  vertical-align: top;
 }
 
 .header > .searchForm {
@@ -171,7 +228,7 @@ textarea {
 
 .searchForm > .searchField {
   width: 100px;
-  border-bottom: solid white 1px;
+  border-bottom: solid var(--color-text-alt) 1px;
 }
 
 .searchForm > * {
@@ -194,10 +251,9 @@ html, body, #root {
   margin: 0;
 }
 
-
 .modal {
   position: fixed;
-  background: white;
+  background: var(--color-background);
   height: auto;
   width: auto;
   top: 50%;
@@ -210,7 +266,7 @@ html, body, #root {
   height: 200px;
   width: 400px;
   overflow: hidden;
-  border: 1px solid #444;
+  border: 1px solid var(--color-neutral);
   margin: 3em;
 }
 
