@@ -36,7 +36,7 @@ const RatingBreakdown = ({ data, reportClick }) => {
 
   return (
     <>
-      <h5> Rating Breakdown </h5>
+      <div className="rating-title"> Rating Breakdown </div>
       <div className="container">
         <div className="breakdown-container">
           <div className="overall-rating" > {overallRating} <StarRating score={overallRating}/> </div>

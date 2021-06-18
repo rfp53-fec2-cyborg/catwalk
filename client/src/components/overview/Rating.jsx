@@ -5,7 +5,7 @@ const Rating = ({ reviewsMeta }) => {
   return (
     <div>
       {reviewsMeta.roundedValue ? <StarRating score={reviewsMeta.roundedValue} /> : ''}
-      <a href="">Read all {reviewsMeta.numReviews} reviews</a>
+      <a href="#reviews">Read all {reviewsMeta.numReviews} reviews</a>
     </div>
   );
 };

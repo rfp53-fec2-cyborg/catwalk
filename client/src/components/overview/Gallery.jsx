@@ -62,7 +62,7 @@ const Gallery = ({ selectedStyle, reportClick }) => {
         data-direction={direction}
         onClick={clickHandler}
       >
-        <img src={imgSrc}></img>
+        <img src={imgSrc} alt="Direction arrow"></img>
       </div>
     );
   };
@@ -108,6 +108,7 @@ const Gallery = ({ selectedStyle, reportClick }) => {
         <img
           src={mainImage.url}
           className='main-image'
+          alt="Main product image"
         >
         </img>
         {

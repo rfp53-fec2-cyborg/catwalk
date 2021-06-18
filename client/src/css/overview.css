@@ -126,3 +126,21 @@
 .product-description {
   grid-area: description;
 }
+
+.product-category-price {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02rem;
+  margin-block-start: 1em;
+  margin-block-end: 0.6em;
+}
+
+.product-name {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}

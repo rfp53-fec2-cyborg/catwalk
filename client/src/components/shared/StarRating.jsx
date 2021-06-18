@@ -20,7 +20,7 @@ const StarRating = ({ score }) => {
   };
 
   return (
-    <img src={stars[image(score)]} style={style} />
+    <img src={stars[image(score)]} style={style} alt="Picture of how ratings this product or review has"/>
   );
 };
 

@@ -17,6 +17,7 @@ const GalleryThumbnails = ({ selectedThumbnail, photos, handleThumbnailClick }) 
         <img
           src={photo.thumbnail_url}
           className='gallery-thumbnail'
+          alt="Thumbnail picture of different styles"
         >
         </img>
       </div>);

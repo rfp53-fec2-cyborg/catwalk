@@ -6,6 +6,7 @@ const SocialMediaButton = ({url, icon}) => {
       <img
         className='social-media-button'
         src={icon}
+        alt="Social media buttons including Facebook, Twitter, and Pinterest"
       />
     </a>
   );

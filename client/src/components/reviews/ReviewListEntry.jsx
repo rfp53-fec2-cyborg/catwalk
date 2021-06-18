@@ -72,6 +72,7 @@ const ReviewListEntry = (props) => {
       <div className="review-photo">
         {props.review.photos.map((photo, index) => {
           return <img
+            alt="Uploaded pictures for a product review"
             name="photo"
             className="review-thumbnail"
             key={photo.id}
@@ -91,7 +92,7 @@ const ReviewListEntry = (props) => {
       </div>
 
       {/* Product recommendation from review */}
-      {props.review.recommend ? <div className="review-recommend"> <img src={checkmark}/> I recommend this product </div> : null}
+      {props.review.recommend ? <div className="review-recommend"> <img src={checkmark} alt="Checkmark"/> I recommend this product </div> : null}
 
       {/* Show response if there is a response */}
       {props.review.response
