@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const placeholder = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+const placeholder = 'data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
 
 const LazyImage = (props) => {
   const [imageSrc, setImageSrc] = useState(placeholder);
