@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import arrowRight from '../../assets/arrow-right.svg';
 
-const RightArrow = (props) => {
+const RightArrow = ({scrollComparisonRight}) => {
   return (
-    <div className='frontArrow' onClick={props.goToNextSlide}>
-      <i className='rightArrowIcon' aria-hidden='true'></i>
+    <div
+      className='rightArrow'
+      onClick={scrollComparisonRight}
+    >
+      <img src={arrowRight} alt="Right arrow to go right"></img>
     </div>
   );
 };

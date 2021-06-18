@@ -34,6 +34,14 @@ const Overview = ({ product, styles, cart, reviewsMeta, reportClick }) => {
     setIsOutOfStock(hasNoStock);
   }, [selectedStyle]);
 
+  useEffect(() => {
+    setShowWarning(false);
+    setSelectedStyle(styles[0]);
+    setSelectedSkuId(selectedSkuIdDefault);
+    setSelectedQuantity(selectedQuantityDefault);
+    setIsOutOfStock(false);
+  }, [product]);
+
   // Event handlers
   let handleStyleClick = (event) => {
     const styleID = event.target.dataset.id;

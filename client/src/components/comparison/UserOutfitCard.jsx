@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
-/* import star rating? */
 
-const UserOutfitCard = (props) => {
+const UserOutfitCard = ({ProductsStyles}) => {
   return (
     <div>
       <div>Image</div><br></br>
