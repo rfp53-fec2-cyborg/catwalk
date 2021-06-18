@@ -12,10 +12,10 @@ const { getReviews, getReviewsMeta, postReview, putReviewHelpful, putReviewRepor
 const { getCart, postCart } = require('./cartApi.js');
 const { postInteractions } = require('./interactionsApi.js');
 
-const awsUrl = process.env.AWS_URL;
+// const awsUrl = process.env.AWS_URL;
 
 app.use(cors({
-  origin: awsUrl,
+  origin: '*',
   methods: ['GET', 'POST', 'PUT'],
   credentials: true
 }));
