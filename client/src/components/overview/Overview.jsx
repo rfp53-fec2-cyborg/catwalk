@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Requester from '../../Requester.js';
+import withClickReporting from '../../helpers/withClickReporting.js';
 import Gallery from './Gallery.jsx';
 import Rating from './Rating.jsx';
 import Styles from './Styles.jsx';
@@ -11,7 +12,7 @@ import SocialMediaList from './SocialMediaList.jsx';
 
 const requester = Requester();
 
-const Overview = ({ product, styles, cart, reviewsMeta }) => {
+const Overview = ({ product, styles, cart, reviewsMeta, reportClick }) => {
 
   const selectedSkuIdDefault = '';
   const selectedQuantityDefault = 1;
@@ -42,44 +43,42 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
   }, [product]);
 
   // Event handlers
-  const handleStyleClick = (event) => {
+  let handleStyleClick = (event) => {
     const styleID = event.target.dataset.id;
     setSelectedSkuId(selectedSkuIdDefault);
     setSelectedQuantity(selectedQuantityDefault);
     setSelectedStyle(getStyleById(styleID));
+    if (reportClick) { reportClick(event); }
   };
 
-  const handleSkuSelection = (event) => {
+  let handleSkuSelection = (event) => {
     const skuId = event.target.value.toString();
     setSelectedSkuId(skuId);
+    if (reportClick) { reportClick(event); }
   };
 
-  const handleQuantitySelection = (event) => {
+  let handleQuantitySelection = (event) => {
     const quantity = event.target.value;
     setSelectedQuantity(Number.parseInt(quantity));
+    if (reportClick) { reportClick(event); }
   };
 
-  const handleAddToCart = (event) => {
+  let handleAddToCart = (event) => {
     if (selectedSkuId === '') {
       setShowWarning(true);
       setTimeout(setShowWarning, 5000, false);
-      // TODO: open drop-down. After lots of googling, this does not seem possible
     } else {
-      // Should we clear the size and quantity dropdowns afterwards?
       Promise.all([...Array(selectedQuantity).keys()].map(index => {
         return requester.addToCart({'sku_id': selectedSkuId});
       }))
         .then(() => {
           return requester.getCart();
         })
-        .then((cart) => {
-          console.log('skuID:', selectedSkuId);
-          console.log('cart:', cart);
-        })
         .catch(err => {
           console.log(err);
         });
     }
+    if (reportClick) { reportClick(event); }
   };
 
   // Utilities
@@ -112,9 +111,10 @@ const Overview = ({ product, styles, cart, reviewsMeta }) => {
     return skusArray;
   };
 
+  const GalleryWithClickReporting = withClickReporting(Gallery, 'Gallery');
   return (
     <div className='overview-container'>
-      <Gallery
+      <GalleryWithClickReporting
         key={selectedStyle.style_id}
         selectedStyle={selectedStyle}
       />

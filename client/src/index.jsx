@@ -3,11 +3,12 @@ import './css/comparison.css';
 import './css/overview.css';
 import './css/reviews.css';
 import './css/loadingSpinner.css';
-import magnifyingGlass from './assets/magnifying_glass.png';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Requester from './Requester.js';
 import { MakeRating } from './helpers/MakeRating.js';
+import withClickReporting from './helpers/withClickReporting.js';
+import Header from './components/Header.jsx';
 import Overview from './components/overview/Overview.jsx';
 import Comparison from './components/comparison/Comparison.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
@@ -139,17 +140,12 @@ class App extends React.Component {
   }
 
   render() {
+    const OverviewWithClickReporting = withClickReporting(Overview, 'Overview');
     return (
       <div className='app'>
+        <Header />
         {this.state.isLoaded ?
           <>
-            <div className='header'>
-              <h3>Catborg</h3>
-              <div className='searchForm'>
-                <div className='searchField'></div>
-                <img src={magnifyingGlass} />
-              </div>
-            </div>
             <Overview
               product={this.state.product}
               styles={this.state.styles.results}

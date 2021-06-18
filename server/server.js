@@ -98,6 +98,7 @@ app.post('/reviews', async (req, res) => {
   try {
     await postReview(body);
     res.status(201);
+    res.end();
   } catch (err) {
     console.error(err);
     res.status(500).send(err.code);
@@ -108,8 +109,9 @@ app.put('/reviews/:review_id/helpful', async (req, res) => {
   // console.log(req.params);
   const reviewID = req.params.review_id;
   try {
-    await putReviewHelpful(productID);
+    await putReviewHelpful(reviewID);
     res.status(204);
+    res.end();
   } catch (err) {
     console.error(err);
     res.status(500).send(err.code);
@@ -120,8 +122,9 @@ app.put('/reviews/:review_id/report', async (req, res) => {
   // console.log(req.params);
   const reviewID = req.params.review_id;
   try {
-    await putReviewReport(productID);
+    await putReviewReport(reviewID);
     res.status(204);
+    res.end();
   } catch (err) {
     console.error(err);
     res.status(500).send(err.code);
@@ -146,6 +149,7 @@ app.post('/cart', async (req, res) => {
   try {
     await postCart(req.body);
     res.status(201);
+    res.end();
   } catch (err) {
     console.error(err);
     res.status(500).send(err.code);
@@ -158,7 +162,8 @@ app.post('/cart', async (req, res) => {
 
 app.post('/interactions', async (req, res) => {
   // console.log(req.body);
-  const body = JSON.stringify(req.body);
+  // const body = JSON.stringify(req.body);
+  const body = req.body;
   try {
     const data = await postInteractions(body);
     res.json(data);

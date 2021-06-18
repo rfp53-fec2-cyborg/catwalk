@@ -13,7 +13,7 @@ const SizeSelector = ({ showWarning, isOutOfStock, skus, selectedSkuId, handleSk
   const inStockMenu = () => {
     return (
       <>
-        <option value=''>SELECT SIZE</option>
+        <option value='' readOnly={true}>SELECT SIZE</option>
         {skus.map((sku, index) => {
           if (sku.quantity > 0) {
             return (
@@ -38,6 +38,7 @@ const SizeSelector = ({ showWarning, isOutOfStock, skus, selectedSkuId, handleSk
         aria-label='size-select'
         value={selectedSkuId}
         disabled={isOutOfStock}
+        readOnly={true}
         onChange={handleSkuSelection}>
         {isOutOfStock ?
           outOfStockMenu() :

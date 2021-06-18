@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import AddReviews from './AddReviews.jsx';
+import withClickReporting from '../../helpers/withClickReporting.js';
 
-const ReviewList = (props) => {
+const ReviewList = ({reportClick, ...props}) => {
   const data = props.props.data;
   const reviewsMeta = props.props.data.reviewsMeta;
   const ratingFilter = props.props.ratingFilter;
@@ -15,11 +16,13 @@ const ReviewList = (props) => {
   const showMoreReviews = () => {
     if (totalReviewLength > 2) {
       if (length <= totalReviewLength) {
-        return <button onClick={() => setLength(length + 2)}>More Reviews</button>;
+        return <button onClick={(e) => { setLength(length + 2); if (reportClick) { reportClick(e); } }}>More Reviews</button>;
       }
     }
     return null;
   };
+
+  const AddReviewsWithClickReporting = withClickReporting(AddReviews, 'AddReviews');
 
   const filterReviewsByRating = () => {
     // By default, show all reviews with all ratings; otherwise, show reviews with only specified ratings
@@ -42,7 +45,7 @@ const ReviewList = (props) => {
     <>
       {filterReviewsByRating()}
       {showMoreReviews()}
-      <AddReviews data={data}/>
+      <AddReviewsWithClickReporting data={data} />
     </>
   );
 };
