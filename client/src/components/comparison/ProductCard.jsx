@@ -46,7 +46,7 @@ const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr, reviewsM
     <div className='productCard'>
       {/* button/icon to bring up compare modal will go here */}
       <div>
-        <LazyImage src={getTheCorrectPic(relatedProductsStylesArr, currentId) || defaultPic} alt='Image Not Available'/>
+        <LazyImage className='relatedProductImage' src={getTheCorrectPic(relatedProductsStylesArr, currentId) || defaultPic} alt='Image Not Available'/>
       </div>
       <ProductCardDetails
         detailedRelatedProduct={detailedRelatedProduct}

@@ -3,8 +3,7 @@ import StarRating from '../shared/StarRating.jsx';
 
 
 const ProductCardDetails = ({detailedRelatedProduct, relatedProductsStylesArr, currentReviewMeta, handleNewProductOnClick, currentRelatedProductStyle}) => {
-  console.log(currentRelatedProductStyle);
-  console.log(detailedRelatedProduct);
+
   return (
     <div className='productCardDetails' onClick={()=>(handleNewProductOnClick(detailedRelatedProduct.id))}>
       <div>{detailedRelatedProduct.category}</div>
