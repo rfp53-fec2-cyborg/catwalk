@@ -13,7 +13,11 @@ exports[`Overview matches snapshot 1`] = `
       onClick={[Function]}
     >
       <img
-        src="test-file-stub"
+        alt="Direction arrow"
+        className={null}
+        data-id={null}
+        onClick={null}
+        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
       />
     </div>
     <div
@@ -34,8 +38,11 @@ exports[`Overview matches snapshot 1`] = `
           onClick={[Function]}
         >
           <img
+            alt="Thumbnail picture of different styles"
             className="gallery-thumbnail"
-            src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            data-id={null}
+            onClick={null}
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           />
         </div>
         <div
@@ -45,8 +52,11 @@ exports[`Overview matches snapshot 1`] = `
           onClick={[Function]}
         >
           <img
+            alt="Thumbnail picture of different styles"
             className="gallery-thumbnail"
-            src="https://images.unsplash.com/photo-1514590734052-344a18719611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+            data-id={null}
+            onClick={null}
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           />
         </div>
         <div
@@ -56,8 +66,11 @@ exports[`Overview matches snapshot 1`] = `
           onClick={[Function]}
         >
           <img
+            alt="Thumbnail picture of different styles"
             className="gallery-thumbnail"
-            src="https://images.unsplash.com/photo-1555274175-6cbf6f3b137b?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            data-id={null}
+            onClick={null}
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           />
         </div>
         <div
@@ -67,8 +80,11 @@ exports[`Overview matches snapshot 1`] = `
           onClick={[Function]}
         >
           <img
+            alt="Thumbnail picture of different styles"
             className="gallery-thumbnail"
-            src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            data-id={null}
+            onClick={null}
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           />
         </div>
         <div
@@ -78,8 +94,11 @@ exports[`Overview matches snapshot 1`] = `
           onClick={[Function]}
         >
           <img
+            alt="Thumbnail picture of different styles"
             className="gallery-thumbnail"
-            src="https://images.unsplash.com/photo-1447879027584-9d17c2ca0333?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+            data-id={null}
+            onClick={null}
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           />
         </div>
         <div
@@ -89,8 +108,11 @@ exports[`Overview matches snapshot 1`] = `
           onClick={[Function]}
         >
           <img
+            alt="Thumbnail picture of different styles"
             className="gallery-thumbnail"
-            src="https://images.unsplash.com/photo-1422728221357-57980993ea99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+            data-id={null}
+            onClick={null}
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           />
         </div>
         <div
@@ -100,8 +122,11 @@ exports[`Overview matches snapshot 1`] = `
           onClick={[Function]}
         >
           <img
+            alt="Thumbnail picture of different styles"
             className="gallery-thumbnail"
-            src="https://images.unsplash.com/photo-1488778578932-0f84d315fcae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+            data-id={null}
+            onClick={null}
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           />
         </div>
         <div
@@ -111,8 +136,11 @@ exports[`Overview matches snapshot 1`] = `
           onClick={[Function]}
         >
           <img
+            alt="Thumbnail picture of different styles"
             className="gallery-thumbnail"
-            src="https://images.unsplash.com/photo-1527431016-15eb83515018?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+            data-id={null}
+            onClick={null}
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           />
         </div>
         <div
@@ -122,8 +150,11 @@ exports[`Overview matches snapshot 1`] = `
           onClick={[Function]}
         >
           <img
+            alt="Thumbnail picture of different styles"
             className="gallery-thumbnail"
-            src="https://images.unsplash.com/photo-1534550017194-5df79ed78967?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+            data-id={null}
+            onClick={null}
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           />
         </div>
         <div
@@ -133,8 +164,11 @@ exports[`Overview matches snapshot 1`] = `
           onClick={[Function]}
         >
           <img
+            alt="Thumbnail picture of different styles"
             className="gallery-thumbnail"
-            src="https://images.unsplash.com/photo-1525896650794-60ad4ec40d0e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+            data-id={null}
+            onClick={null}
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           />
         </div>
         <div
@@ -144,8 +178,11 @@ exports[`Overview matches snapshot 1`] = `
           onClick={[Function]}
         >
           <img
+            alt="Thumbnail picture of different styles"
             className="gallery-thumbnail"
-            src="https://images.unsplash.com/photo-1560857792-215f9e3534ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+            data-id={null}
+            onClick={null}
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           />
         </div>
       </div>
@@ -156,7 +193,11 @@ exports[`Overview matches snapshot 1`] = `
       onClick={[Function]}
     >
       <img
-        src="test-file-stub"
+        alt="Direction arrow"
+        className={null}
+        data-id={null}
+        onClick={null}
+        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
       />
     </div>
   </div>
@@ -164,6 +205,7 @@ exports[`Overview matches snapshot 1`] = `
     className="main-image-pane"
   >
     <img
+      alt="Main product image"
       className="main-image"
       src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
     />
@@ -173,7 +215,11 @@ exports[`Overview matches snapshot 1`] = `
       onClick={[Function]}
     >
       <img
-        src="test-file-stub"
+        alt="Direction arrow"
+        className={null}
+        data-id={null}
+        onClick={null}
+        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
       />
     </div>
   </div>
@@ -182,6 +228,7 @@ exports[`Overview matches snapshot 1`] = `
   >
     <div>
       <img
+        alt="Picture of how ratings this product or review has"
         src="test-file-stub"
         style={
           Object {
@@ -191,22 +238,28 @@ exports[`Overview matches snapshot 1`] = `
         }
       />
       <a
-        href=""
+        href="#reviews"
       >
         Read all 
         31
          reviews
       </a>
     </div>
-    <h5>
+    <div
+      className="product-category-price"
+    >
       Kicks
-    </h5>
-    <h1>
+    </div>
+    <div
+      className="product-name"
+    >
       Heir Force Ones
-    </h1>
-    <h5>
+    </div>
+    <div
+      className="product-category-price"
+    >
       $99
-    </h5>
+    </div>
     <div>
       <h4>
         STYLE &gt; 
@@ -229,7 +282,7 @@ exports[`Overview matches snapshot 1`] = `
                 className="style-thumbnail"
                 data-id={90275}
                 onClick={[Function]}
-                src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               />
               <div
                 className="small-circle-checkmark"
@@ -247,7 +300,7 @@ exports[`Overview matches snapshot 1`] = `
                 className="style-thumbnail"
                 data-id={90276}
                 onClick={[Function]}
-                src="https://images.unsplash.com/photo-1542280756-74b2f55e73ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               />
             </td>
             <td
@@ -262,7 +315,7 @@ exports[`Overview matches snapshot 1`] = `
                 className="style-thumbnail"
                 data-id={90277}
                 onClick={[Function]}
-                src="https://images.unsplash.com/photo-1542702942-161ceb2e3d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               />
             </td>
             <td
@@ -277,7 +330,7 @@ exports[`Overview matches snapshot 1`] = `
                 className="style-thumbnail"
                 data-id={90278}
                 onClick={[Function]}
-                src="https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               />
             </td>
           </tr>
@@ -395,29 +448,41 @@ exports[`Overview matches snapshot 1`] = `
     <div>
       <a
         href="https://www.facebook.com"
+        rel="noopener noreferrer"
         target="_blank"
       >
         <img
+          alt="Social media buttons including Facebook, Twitter, and Pinterest"
           className="social-media-button"
-          src="test-file-stub"
+          data-id={null}
+          onClick={null}
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
         />
       </a>
       <a
         href="https://www.twitter.com"
+        rel="noopener noreferrer"
         target="_blank"
       >
         <img
+          alt="Social media buttons including Facebook, Twitter, and Pinterest"
           className="social-media-button"
-          src="test-file-stub"
+          data-id={null}
+          onClick={null}
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
         />
       </a>
       <a
         href="https://www.pinterest.com"
+        rel="noopener noreferrer"
         target="_blank"
       >
         <img
+          alt="Social media buttons including Facebook, Twitter, and Pinterest"
           className="social-media-button"
-          src="test-file-stub"
+          data-id={null}
+          onClick={null}
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
         />
       </a>
     </div>

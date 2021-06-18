@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import ProductCardDetails from './ProductCardDetails.jsx';
 import DefaultPic from '../../components/shared/LoadingSpinner.jsx';
 import imageNotFound from '../../assets/image_not_found-min.png';
+import LazyImage from '../shared/LazyImage.jsx';
 /* import star rating? */
 
 const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
@@ -34,7 +35,7 @@ const ProductCard = ({detailedRelatedProduct, relatedProductsStylesArr}) => {
     <div>
       {/* button/icon to bring up compare modal will go here */}
       <div>
-        <img src={getTheCorrectPic(relatedProductsStylesArr, currentId) || defaultPic} alt='Image Not Available'/>
+        <LazyImage src={getTheCorrectPic(relatedProductsStylesArr, currentId) || defaultPic} alt='Image Not Available'/>
       </div>
       <ProductCardDetails detailedRelatedProduct={detailedRelatedProduct} relatedProductsStylesArr={relatedProductsStylesArr}/>
       <div>Star Rating</div>

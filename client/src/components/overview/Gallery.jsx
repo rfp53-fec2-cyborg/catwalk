@@ -4,6 +4,7 @@ import arrowRight from '../../assets/arrow-right.svg';
 import arrowLeft from '../../assets/arrow-left.svg';
 import arrowUp from '../../assets/arrow-up.svg';
 import arrowDown from '../../assets/arrow-down.svg';
+import LazyImage from '../shared/LazyImage.jsx';
 
 const Gallery = ({ selectedStyle, reportClick }) => {
 
@@ -62,7 +63,7 @@ const Gallery = ({ selectedStyle, reportClick }) => {
         data-direction={direction}
         onClick={clickHandler}
       >
-        <img src={imgSrc} alt="Direction arrow"></img>
+        <LazyImage src={imgSrc} alt="Direction arrow"/>
       </div>
     );
   };

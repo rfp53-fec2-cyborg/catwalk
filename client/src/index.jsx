@@ -13,6 +13,7 @@ import Overview from './components/overview/Overview.jsx';
 import Comparison from './components/comparison/Comparison.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
 import LoadingSpinner from './components/shared/LoadingSpinner.jsx';
+import LazyImage from './components/shared/LazyImage.jsx';
 
 const requester = Requester();
 
@@ -140,7 +141,7 @@ class App extends React.Component {
               <h3>Catborg</h3>
               <div className='searchForm'>
                 <div className='searchField'></div>
-                <img src={magnifyingGlass} alt="Magnifying glass in header"/>
+                <LazyImage src={magnifyingGlass} alt="Magnifying glass in header"/>
               </div>
             </div>
             <OverviewWithClickReporting

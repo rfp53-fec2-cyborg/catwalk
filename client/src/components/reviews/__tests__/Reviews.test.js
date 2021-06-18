@@ -23,6 +23,8 @@ import Modal from '../../shared/Modal.jsx';
 import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 
+import intersectionObserverMock from '../../../../../__mocks__/intersectionObserverMock';
+
 it ('Reviews component renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<Reviews reviews={reviews} reviewsMeta={reviewsMeta}/>, div);

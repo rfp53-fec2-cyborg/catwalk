@@ -44,7 +44,7 @@ const Header = () => {
       </form>
       <div className='searchForm'>
         <div className='searchField'></div>
-        <img src={magnifyingGlass} alt="Magnifying glass in header"/>
+        <LazyImage src={magnifyingGlass} alt="Magnifying glass in header"/>
       </div>
     </div>
   );

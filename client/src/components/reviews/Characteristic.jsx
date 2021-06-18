@@ -1,5 +1,6 @@
 import React from 'react';
 import downArrow from '../../assets/arrow-down.svg';
+import LazyImage from '../shared/LazyImage.jsx';
 
 const characteristicDesc = {
   Size: ['Too small', 'Perfect', 'Too big'],
@@ -24,7 +25,7 @@ const Characteristic = ({value}) => {
     <div className="progress-box" >
       <div> {value.characteristic} </div>
       <div className="progress-bar" >
-        <div style={fillerStyle} > <img alt={`downArrow_${value.details.id}`} src={downArrow}/> </div>
+        <div style={fillerStyle} > <LazyImage alt={`downArrow_${value.details.id}`} src={downArrow}/> </div>
       </div>
       <div className="progress-filler-desc" >
         {characteristicDesc[value.characteristic].map((value, index) =>
