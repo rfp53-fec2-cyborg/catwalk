@@ -31,7 +31,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
               className={null}
               data-id={null}
               onClick={null}
-              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
             />
              
           </div>
@@ -90,7 +90,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
               className={null}
               data-id={null}
               onClick={null}
-              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
             />
              
           </div>
@@ -149,7 +149,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
               className={null}
               data-id={null}
               onClick={null}
-              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
             />
              
           </div>
@@ -208,7 +208,7 @@ exports[`ProductBreakdown matches snapshot 1`] = `
               className={null}
               data-id={null}
               onClick={null}
-              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
             />
              
           </div>

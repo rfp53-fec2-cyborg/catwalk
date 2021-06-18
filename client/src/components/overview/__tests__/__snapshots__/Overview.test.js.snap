@@ -17,7 +17,7 @@ exports[`Overview matches snapshot 1`] = `
         className={null}
         data-id={null}
         onClick={null}
-        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
       />
     </div>
     <div
@@ -42,7 +42,7 @@ exports[`Overview matches snapshot 1`] = `
             className="gallery-thumbnail"
             data-id={null}
             onClick={null}
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           />
         </div>
         <div
@@ -56,7 +56,7 @@ exports[`Overview matches snapshot 1`] = `
             className="gallery-thumbnail"
             data-id={null}
             onClick={null}
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           />
         </div>
         <div
@@ -70,7 +70,7 @@ exports[`Overview matches snapshot 1`] = `
             className="gallery-thumbnail"
             data-id={null}
             onClick={null}
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           />
         </div>
         <div
@@ -84,7 +84,7 @@ exports[`Overview matches snapshot 1`] = `
             className="gallery-thumbnail"
             data-id={null}
             onClick={null}
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           />
         </div>
         <div
@@ -98,7 +98,7 @@ exports[`Overview matches snapshot 1`] = `
             className="gallery-thumbnail"
             data-id={null}
             onClick={null}
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           />
         </div>
         <div
@@ -112,7 +112,7 @@ exports[`Overview matches snapshot 1`] = `
             className="gallery-thumbnail"
             data-id={null}
             onClick={null}
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           />
         </div>
         <div
@@ -126,7 +126,7 @@ exports[`Overview matches snapshot 1`] = `
             className="gallery-thumbnail"
             data-id={null}
             onClick={null}
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           />
         </div>
         <div
@@ -140,7 +140,7 @@ exports[`Overview matches snapshot 1`] = `
             className="gallery-thumbnail"
             data-id={null}
             onClick={null}
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           />
         </div>
         <div
@@ -154,7 +154,7 @@ exports[`Overview matches snapshot 1`] = `
             className="gallery-thumbnail"
             data-id={null}
             onClick={null}
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           />
         </div>
         <div
@@ -168,7 +168,7 @@ exports[`Overview matches snapshot 1`] = `
             className="gallery-thumbnail"
             data-id={null}
             onClick={null}
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           />
         </div>
         <div
@@ -182,7 +182,7 @@ exports[`Overview matches snapshot 1`] = `
             className="gallery-thumbnail"
             data-id={null}
             onClick={null}
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           />
         </div>
       </div>
@@ -197,7 +197,7 @@ exports[`Overview matches snapshot 1`] = `
         className={null}
         data-id={null}
         onClick={null}
-        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
       />
     </div>
   </div>
@@ -219,7 +219,7 @@ exports[`Overview matches snapshot 1`] = `
         className={null}
         data-id={null}
         onClick={null}
-        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
       />
     </div>
   </div>
@@ -282,7 +282,7 @@ exports[`Overview matches snapshot 1`] = `
                 className="style-thumbnail"
                 data-id={90275}
                 onClick={[Function]}
-                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
               />
               <div
                 className="small-circle-checkmark"
@@ -300,7 +300,7 @@ exports[`Overview matches snapshot 1`] = `
                 className="style-thumbnail"
                 data-id={90276}
                 onClick={[Function]}
-                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
               />
             </td>
             <td
@@ -315,7 +315,7 @@ exports[`Overview matches snapshot 1`] = `
                 className="style-thumbnail"
                 data-id={90277}
                 onClick={[Function]}
-                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
               />
             </td>
             <td
@@ -330,7 +330,7 @@ exports[`Overview matches snapshot 1`] = `
                 className="style-thumbnail"
                 data-id={90278}
                 onClick={[Function]}
-                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
               />
             </td>
           </tr>
@@ -456,7 +456,7 @@ exports[`Overview matches snapshot 1`] = `
           className="social-media-button"
           data-id={null}
           onClick={null}
-          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
         />
       </a>
       <a
@@ -469,7 +469,7 @@ exports[`Overview matches snapshot 1`] = `
           className="social-media-button"
           data-id={null}
           onClick={null}
-          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
         />
       </a>
       <a
@@ -482,7 +482,7 @@ exports[`Overview matches snapshot 1`] = `
           className="social-media-button"
           data-id={null}
           onClick={null}
-          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          src="data:image/png;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
         />
       </a>
     </div>
