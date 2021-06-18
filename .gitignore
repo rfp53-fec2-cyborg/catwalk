@@ -3,3 +3,4 @@ config.js
 client/dist/bundle.js
 client/dist/images
 .env
+bundle.js.LICENSE.txt
