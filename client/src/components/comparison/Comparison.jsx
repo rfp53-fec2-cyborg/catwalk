@@ -66,7 +66,7 @@ class Comparison extends React.Component {
   // get and store each review per product
   getTheReviews = ()=> {
     return Promise.all(this.props.relatedProducts.map(relatedProduct => {
-      return _.debounce(rerequester.getReviews({'product_id': `${relatedProduct}`}), 3000);
+      return rerequester.getReviews({'product_id': `${relatedProduct}`});
     }))
       .then((data) => {
         return this.setState({
@@ -146,7 +146,7 @@ class Comparison extends React.Component {
   }
 
   componentDidMount() {
-    _.debounce(this.getTheDeets(), 3000);
+    _.debounce(this.getTheDeets(), 5000);
   }
 
   render() {
