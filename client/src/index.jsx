@@ -3,18 +3,22 @@ import './css/comparison.css';
 import './css/overview.css';
 import './css/reviews.css';
 import './css/loadingSpinner.css';
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import Requester from './Requester.js';
 import { MakeRating } from './helpers/MakeRating.js';
 import withClickReporting from './helpers/withClickReporting.js';
 import Header from './components/Header.jsx';
 import Overview from './components/overview/Overview.jsx';
-import Comparison from './components/comparison/Comparison.jsx';
-import Reviews from './components/reviews/Reviews.jsx';
+// import Comparison from './components/comparison/Comparison.jsx';
+// import Reviews from './components/reviews/Reviews.jsx';
 import LoadingSpinner from './components/shared/LoadingSpinner.jsx';
 import LazyImage from './components/shared/LazyImage.jsx';
 import _ from 'underscore';
+
+const Comparison = React.lazy(() => import('./components/comparison/Comparison.jsx'));
+const Reviews = React.lazy(() => import('./components/reviews/Reviews.jsx'));
+
 
 const requester = Requester();
 
@@ -153,17 +157,21 @@ class App extends React.Component {
               cart={this.state.cart}
               reviewsMeta={this.state.reviewsMeta}
             />
-            <Comparison
-              relatedProducts={this.state.relatedProducts}
-              fetchAndStore={this.fetchAndStore}
-              addRatingsMeta={this.addRatingsMeta}
-              handleNewProductOnClick={this.handleNewProductOnClick}
-            />
-            <Reviews
-              product={this.state.product}
-              reviews={this.state.reviews}
-              reviewsMeta={this.state.reviewsMeta}
-            />
+            <Suspense fallback={ <LoadingSpinner />} >
+              <Comparison
+                relatedProducts={this.state.relatedProducts}
+                fetchAndStore={this.fetchAndStore}
+                addRatingsMeta={this.addRatingsMeta}
+                handleNewProductOnClick={this.handleNewProductOnClick}
+              />
+              <Suspense fallback={ <LoadingSpinner />} >
+                <Reviews
+                  product={this.state.product}
+                  reviews={this.state.reviews}
+                  reviewsMeta={this.state.reviewsMeta}
+                />
+              </Suspense>
+            </Suspense>
           </> :
           <LoadingSpinner />
         }
