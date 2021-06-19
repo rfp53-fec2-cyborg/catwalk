@@ -18,7 +18,7 @@ const LazyImage = (props) => {
             }
           });
         }, {
-          threshold: 0.25,
+          threshold: 0.01,
           rootMargin: '0px 0px 150px 0px'
         });
         observer.observe(imageRef);
