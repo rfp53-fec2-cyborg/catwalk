@@ -164,13 +164,13 @@ class App extends React.Component {
                 addRatingsMeta={this.addRatingsMeta}
                 handleNewProductOnClick={this.handleNewProductOnClick}
               />
-              <Suspense fallback={ <LoadingSpinner />} >
-                <Reviews
-                  product={this.state.product}
-                  reviews={this.state.reviews}
-                  reviewsMeta={this.state.reviewsMeta}
-                />
-              </Suspense>
+            </Suspense>
+            <Suspense fallback={ <LoadingSpinner />} >
+              <Reviews
+                product={this.state.product}
+                reviews={this.state.reviews}
+                reviewsMeta={this.state.reviewsMeta}
+              />
             </Suspense>
           </> :
           <LoadingSpinner />
