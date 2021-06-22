@@ -36,6 +36,6 @@ The project requires following environment variables added in your .env file. Th
 The photo upload method is done via a direct call to the Cloudinary REST API. More information can be found here: https://cloudinary.com/documentation/upload_images#uploading_with_a_direct_call_to_the_rest_api
 
 ## Contributors
-@chefferson
-@ReadRandom
-@godfreydoo
+- [@chefferson](https://github.com/chefferson)
+- [@ReadRandom](https://github.com/ReadRandom)
+- [@godfreydoo](https://github.com/godfreydoo)
